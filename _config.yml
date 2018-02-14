@@ -6,16 +6,21 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: The Happy blog
+tagline: Find the shortest path to Happiness without using linear time algorithms
+author: Sahil Yadav
+email: yadavsahil5198@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  This is a happy blog. This will dispense happiness as you 
+  stare in your screen for continuous 10 minutes. Believe me,
+  Trump never lies and I never kid.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://batterylow.me" # the base hostname & protocol for your site
+keywords: "Jekyll, blogger, IIT, Mandi"
 
+twitter_username: G3kibatterylow
+github_username: me-ydv-5
+
+favicon: "/_includes/favicon.png"
 # Build settings
 markdown: kramdown

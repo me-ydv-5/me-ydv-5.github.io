@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Happy blog</title>
+    <description>This is a happy blog. This will dispence happiness as you  stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid.
+</description>
+    <link>http://batterylow.me/</link>
+    <atom:link href="http://batterylow.me/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 14 Feb 2018 22:47:24 +0530</pubDate>
+    <lastBuildDate>Wed, 14 Feb 2018 22:47:24 +0530</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>The First Post!</title>
+        <description>&lt;p&gt;Hey! How are you? I just made my first &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll&lt;/code&gt; blog :-).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I hope this was more than enough for your sniffing nose. Now get lost to your own world! :) Have a good time and sex.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 14 Feb 2018 22:44:00 +0530</pubDate>
+        <link>http://batterylow.me/jekyll/update/2018/02/14/The-first-blog.html</link>
+        <guid isPermaLink="true">http://batterylow.me/jekyll/update/2018/02/14/The-first-blog.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>
