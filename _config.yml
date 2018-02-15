@@ -18,8 +18,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://batterylow.me" # the base hostname & protocol for your site
 keywords: "Jekyll, blogger, IIT, Mandi"
 
-twitter_username: G3kibatterylow
+twitter_username: meydv5
 github_username: me-ydv-5
+linkedin_username: meydv5
 
 favicon: "/_includes/favicon.png"
 # Build settings
