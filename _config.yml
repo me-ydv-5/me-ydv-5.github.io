@@ -14,6 +14,8 @@ description: > # this means to ignore newlines until "baseurl:"
   This is a happy blog. This will dispense happiness as you 
   stare in your screen for continuous 10 minutes. Believe me,
   Trump never lies and I never kid.
+  Apart from that, I will get to know that you visited this page 
+  and the exact time of visiting. Bamboozle! I am watching you, stalker.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://batterylow.me" # the base hostname & protocol for your site
 keywords: "Jekyll, blogger, IIT, Mandi"
