@@ -13,4 +13,3 @@ print "Hello, world!"
 
 {% endhighlight %}
 
-I hope this was more than enough for your sniffing nose. Now get lost to your own world! :) Have a good time and sex.
