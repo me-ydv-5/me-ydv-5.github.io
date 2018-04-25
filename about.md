@@ -4,8 +4,9 @@ title: About Me
 permalink: /about/
 ---
 Hi Stranger! Glad that you came here. I like dark comedy more than dark chocolate and
-sleeping more than anything. Of course, you want to waste your time if you want to read further.
+sleeping more than anything.
 
+I'm Sahil, a third (junior) year undergraduate majoring in Computer Science at IIT Mandi, Himachal Pradesh.
 
 If you've ever wondered why **batterylow**, then that has roots back to my second semester time
 when I used to play Call of Duty with friends and had **batterylow** as my alias in the game.
