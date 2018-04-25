@@ -1,46 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The Happy blog</title>
+    <title>The Happy Blog</title>
     <description>This is a happy blog. This will dispense happiness as you  stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid. And, I&#39;m watching you.
 </description>
-    <link>http://batterylow.me/</link>
-    <atom:link href="http://batterylow.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 23 Apr 2018 23:01:56 +0530</pubDate>
-    <lastBuildDate>Mon, 23 Apr 2018 23:01:56 +0530</lastBuildDate>
+    <link>https://batterylow.me/</link>
+    <atom:link href="https://batterylow.me/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 25 Apr 2018 14:50:38 +0530</pubDate>
+    <lastBuildDate>Wed, 25 Apr 2018 14:50:38 +0530</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>The E-Mail!</title>
-        <description>&lt;p&gt;I am writing this post on April 14, 2018 at 0335 hours GMT+0530. It was just another night. I was about to set my alarm before putting the mobile on Airplane mode for the night and all of a sudden, at 0149 hours, I observe two consecutive vibrations from the phone. I opened it to read another random “9 more jobs for you in Computer Science Internships” from &lt;a href=&quot;https://www.linkedin.com/&quot;&gt;LinkedIn&lt;/a&gt;. Never ever did I know, even in my wildest dreams, these were E-mails from developers (&lt;a href=&quot;https://siko1056.github.io/&quot;&gt;Kai Torben Ohulus&lt;/a&gt;  from Germany and Doug Stewart from London, ON, Canada) at GNU Octave asking me if I was still interested in GSoC for GNU Octave!!! I was literally out of my breath at that moment. Happiness had filled my room (I was jumping around and laughing and screaming and what not). I’d gone insane. Out of nowhere, it was invitaion to me for GSoC-2018!!!&lt;/p&gt;
+        <title>Week 1</title>
+        <description>&lt;p&gt;A very heartful thanks to Kai T. Ohulus, Doug Stewart, Ankit Raj and others who saw my potential and chose me for GSoC 2018.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;FAITH IN KARMA, RESTORED. You do get served what you deserve.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;My project is &lt;strong&gt;Octave Code Sharing&lt;/strong&gt;. Community bonding period would include reading up material that’d be essential for the project.&lt;/p&gt;
 
-&lt;p&gt;All the work and mid-night owl had finally reaped (I still remember that night when in order to implement a refactored code, I changed around 50 files in the code base only to know 2 days further that I had done it the wrong way). After so many depressed days when I was literally hopeless for any good in my life, after trying everything I could to bring things back on track, the E-Mails struck me as if my own Gaurdian Angel had sent it for me through the mentors.&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;I’ll be posting this on 23rd, because finally the selected-students-list must be out and I would be one of the GSoC developers in its 2018 edition. Heartful thanks to Kai T. Ohulus, Doug Stewart and others who saw my potential and chose me even when there were conflicts about the project choice that I had made. I would never forget this night. By the way, in between, my Linux system also crashed (I accidently deleted the &lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt; variable and got stuck in login loop) but I managed to overcome it pretty quick. Thanks for reading, will be posting next update soon. Looking forward to a bug-free and code-some summer. :-)&lt;/p&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract:&lt;/h2&gt;
+
+&lt;p&gt;This project aims to come up with a pan-octave implementation that could be used to connect to &lt;a href=&quot;https://wiki.octave.org&quot;&gt;wiki.octave.org&lt;/a&gt; with appropriate credentials for publishing octave scripts that could be hosted for distribution using the MediaWiki API. Currently, no formal implementation is there but a proof of concept which was implemented as a &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/publishToWiki.m&quot;&gt;bash script&lt;/a&gt;, later refactored to use &lt;a href=&quot;https://www.mathworks.com/help/matlab/internet-file-access.html&quot;&gt;JAVA’s interface&lt;/a&gt; to Octave. Since the network connection itself has latency and response time which are significantly large to get into notice, an Octave script, which will help in connection,  will not be much of a performance killer. To maintain a stateless HTTP protocol, some information that would be needed will be stored as cookies with the help of &lt;a href=&quot;https://curl.haxx.se/libcurl/&quot;&gt;Libcurl&lt;/a&gt; library. All this would lead to set up of RESTful services for GNU Octave which could be further extended to support the compatibility with MATLAB’s &lt;a href=&quot;https://www.mathworks.com/help/matlab/internet-file-access.html&quot;&gt;RESTful interface&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;timeline&quot;&gt;Timeline:&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;April 23 - May 14&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Community Bonding Period&lt;/strong&gt;: Get to know more about Libcurl and its implementation. Learn about HTTP request headers and stateless transfer protocol. Finalise location of files in the codebase that will be needed for code sharing. Study the existing work that has been done by the mentor. Study publish() and grabcode() functions. Study octave::url_transfer class. Learn about MediaWiki API and its implementation (backend working).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;May 15 - May 23&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Implement the Libcurl wrapper in libcurl_wrapper.cc/h. This would include the various &lt;a href=&quot;https://ec.haxx.se/libcurl-http-cookies.html#cookie-store-commands&quot;&gt;abstractions&lt;/a&gt; such as ‘ALL’, ‘SESS’, ‘FLUSH’, ‘RELOAD’ that could be used by octave’s script to use Libcurl cookies to connect to the server. There’s a &lt;a href=&quot;https://github.com/octave-de/octave-web/blob/master/web/libcurl_wrapper.cc&quot;&gt;preliminary implementation&lt;/a&gt; for the same which was implemented by the mentor sometime back, which can be extended in this phase for a more general design.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;May 23 - May 31&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Add ‘wiki’ as an ‘output_format’ in publish() function. This would extend the implementation of private function &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/__publish_wiki_output__.m&quot;&gt;__ publish_wiki_output__.m&lt;/a&gt; 
+that is to be used to format a wiki published code.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;June 1 - June 10&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Non Coding period due to University major examinations.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;June 11 - June 15&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;First Phase Evaluation&lt;/strong&gt; - Write Documentation of the work done upto this point and other tests such as setting up the wiki installation environment for testing the script that would be implemented in point 6. Catch up with the work if anything is lagging behind.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;June 15 - June 30&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Implement wiki_login.m which would use the Libcurl wrapper implemented in point 2. Currently &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/wiki_login.m&quot;&gt;this&lt;/a&gt; file uses Java’s interface to octave. But with the wrapper, the file would become an implementation of RESTful services for ‘code sharing’ and will not be dependent on Java’s interface to octave.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;July 1 - July 9&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Implement ‘weboptions’ function. It will return a default ‘weboptions’ object to specify parameters for a request to web service. This function will use the libCURL wrapper that would’ve been already implemented. Current scope of the function would be restricted to four options, viz., ‘Username’, ‘password’, ‘Keyname’, ‘KeyValue’.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;July 10 - July 13&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Second Evaluation Phase&lt;/strong&gt; - Write documentation of the work done upto here and other tests required for ‘weboptions’ function. Catch up with any previous work if left.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;July 14 - July 20&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Implement ‘webread’ function. This will read content from a web service and return data formatted as text. Other output arguments (cmap, alpha) will not be supported currently.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;July 21 - July 27&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Implement ‘webwrite’ function. This will put data in the body of an HTTP POST request to the web service.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;July 28 - August 6&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Buffer period for anything that remains. Complete documentation and testing for ‘webwrite’ and ‘webread’.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For now, libcurl_wrapper.cc/h would be placed in libinterp/corefcn but could be changed whether it should be used by default or on the user’s choice because someone might not want to connect themselves with &lt;a href=&quot;https://wiki.octave.org&quot;&gt;wiki.octave.org&lt;/a&gt;. I’ve for now, merged two weeks, i.e from 15 June to 30 June because the main task would be include the wrapper implementation for connecting to the webserver. This may span upto two weeks and so is the reason for two weeks of the same task.&lt;/p&gt;
+
+&lt;h3 id=&quot;additional-things-to-be-done-after-gsoc-is-over&quot;&gt;Additional Things to be done after GSoC is over:&lt;/h3&gt;
+&lt;p&gt;The web function is already partially implemented. The task will be to finish the implementation with various arguments such as ‘-notoolbar’, ‘-noaddressbox’, ‘-new’ for MATLAB’s compatibility. ‘websave’, ‘ftp’ and ‘sendmail’ that are a part of RESTful services, will also be implemented. Any other part of GNU octave which currently might need RESTful services using cookies can be amended to use the implementation that would result from the project. The ‘webread’ function will be extended to read values into JSON format and images as well.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Thanks for reading, will be posting next update soon. Looking forward to a bug-free and code-some summer. :-)&lt;/p&gt;
 </description>
-        <pubDate>Mon, 23 Apr 2018 22:59:00 +0530</pubDate>
-        <link>http://batterylow.me/jekyll/update/2018/04/23/The-EMail!.html</link>
-        <guid isPermaLink="true">http://batterylow.me/jekyll/update/2018/04/23/The-EMail!.html</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
-    
-      <item>
-        <title>The First Post!</title>
-        <description>&lt;p&gt;Hey! How are you? I just made my first &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll&lt;/code&gt; blog :-).&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-</description>
-        <pubDate>Wed, 14 Feb 2018 22:44:00 +0530</pubDate>
-        <link>http://batterylow.me/jekyll/update/2018/02/14/The-first-blog.html</link>
-        <guid isPermaLink="true">http://batterylow.me/jekyll/update/2018/02/14/The-first-blog.html</guid>
+        <pubDate>Wed, 25 Apr 2018 12:46:00 +0530</pubDate>
+        <link>https://batterylow.me/gsoc2018/week1</link>
+        <guid isPermaLink="true">https://batterylow.me/gsoc2018/week1</guid>
         
         
         <category>jekyll</category>
