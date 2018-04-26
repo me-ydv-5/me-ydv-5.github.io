@@ -6,7 +6,7 @@ date:   2018-04-25 12:46:00 +0530
 categories: jekyll update
 ---
 
-A very heartful thanks to Kai T. Ohulus, Doug Stewart, Ankit Raj and others who saw my potential and chose me for GSoC 2018.
+A very heartful thanks to Kai T. Ohlhus, Doug Stewart, Ankit Raj and others who saw my potential and chose me for GSoC 2018.
 
 My project is __Octave Code Sharing__. Community bonding period would include reading up material that'd be essential for the project. 
 
