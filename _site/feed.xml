@@ -6,13 +6,13 @@
 </description>
     <link>https://batterylow.me/</link>
     <atom:link href="https://batterylow.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 26 Apr 2018 14:09:46 +0530</pubDate>
-    <lastBuildDate>Thu, 26 Apr 2018 14:09:46 +0530</lastBuildDate>
+    <pubDate>Thu, 26 Apr 2018 14:18:14 +0530</pubDate>
+    <lastBuildDate>Thu, 26 Apr 2018 14:18:14 +0530</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>Week 1</title>
-        <description>&lt;p&gt;A very heartful thanks to Kai T. Ohulus, Doug Stewart, Ankit Raj and others who saw my potential and chose me for GSoC 2018.&lt;/p&gt;
+        <description>&lt;p&gt;A very heartful thanks to Kai T. Ohlhus, Doug Stewart, Ankit Raj and others who saw my potential and chose me for GSoC 2018.&lt;/p&gt;
 
 &lt;p&gt;My project is &lt;strong&gt;Octave Code Sharing&lt;/strong&gt;. Community bonding period would include reading up material that’d be essential for the project.&lt;/p&gt;
 
