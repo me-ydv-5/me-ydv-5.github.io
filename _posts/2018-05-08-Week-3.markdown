@@ -11,7 +11,7 @@ categories: jekyll update
 If you happen to already have a build of octave, just do the following:
 * `cd path/to/your/source/tree`
 *   `hg pull https://me_ydv_5@bitbucket.org/me_ydv_5/octave` in your source tree.
-*   `hg up ocs`
+*   `hg up -r 8bbf393`
 *   `make -jX` in your build tree.
 
 This will save your time of cloning the entire repo and compiliing.
