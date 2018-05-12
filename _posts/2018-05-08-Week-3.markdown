@@ -2,7 +2,7 @@
 layout: post
 title:  "Week 3"
 permalink: /gsoc2018/week3
-comments:true
+comments: true
 date:   2018-05-08 10:46:00 +0530
 categories: jekyll update
 ---
