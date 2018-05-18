@@ -4,10 +4,10 @@
     <title>The Happy Blog</title>
     <description>This is a happy blog. This will dispense happiness as you  stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid. And, I&#39;m watching you.
 </description>
-    <link>me-ydv-5.github.io/</link>
-    <atom:link href="me-ydv-5.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 18 May 2018 14:38:03 +0530</pubDate>
-    <lastBuildDate>Fri, 18 May 2018 14:38:03 +0530</lastBuildDate>
+    <link>https://me-ydv-5.github.io/</link>
+    <atom:link href="https://me-ydv-5.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 18 May 2018 21:10:21 +0530</pubDate>
+    <lastBuildDate>Fri, 18 May 2018 21:10:21 +0530</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -25,8 +25,8 @@
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
         <pubDate>Wed, 16 May 2018 21:46:00 +0530</pubDate>
-        <link>me-ydv-5.github.io/gsoc2018/week4</link>
-        <guid isPermaLink="true">me-ydv-5.github.io/gsoc2018/week4</guid>
+        <link>https://me-ydv-5.github.io/gsoc2018/week4</link>
+        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week4</guid>
         
         
         <category>jekyll</category>
@@ -110,8 +110,8 @@ where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and l
 &lt;p&gt;Stay tuned for next update.&lt;/p&gt;
 </description>
         <pubDate>Tue, 08 May 2018 10:46:00 +0530</pubDate>
-        <link>me-ydv-5.github.io/gsoc2018/week3</link>
-        <guid isPermaLink="true">me-ydv-5.github.io/gsoc2018/week3</guid>
+        <link>https://me-ydv-5.github.io/gsoc2018/week3</link>
+        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week3</guid>
         
         
         <category>jekyll</category>
@@ -131,8 +131,8 @@ where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and l
 &lt;p&gt;Stay tuned for next update!&lt;/p&gt;
 </description>
         <pubDate>Tue, 01 May 2018 11:21:00 +0530</pubDate>
-        <link>me-ydv-5.github.io/gsoc2018/week2</link>
-        <guid isPermaLink="true">me-ydv-5.github.io/gsoc2018/week2</guid>
+        <link>https://me-ydv-5.github.io/gsoc2018/week2</link>
+        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week2</guid>
         
         
         <category>jekyll</category>
@@ -228,8 +228,8 @@ that is to be used to format a wiki published code.&lt;/p&gt;
 &lt;p&gt;Thanks for reading, will be posting next update soon. Looking forward to a bug-free and code-some summer. :-)&lt;/p&gt;
 </description>
         <pubDate>Wed, 25 Apr 2018 12:46:00 +0530</pubDate>
-        <link>me-ydv-5.github.io/gsoc2018/week1</link>
-        <guid isPermaLink="true">me-ydv-5.github.io/gsoc2018/week1</guid>
+        <link>https://me-ydv-5.github.io/gsoc2018/week1</link>
+        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week1</guid>
         
         
         <category>jekyll</category>

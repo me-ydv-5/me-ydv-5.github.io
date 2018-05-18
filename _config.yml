@@ -22,6 +22,9 @@ twitter_username: meydv5
 github_username: me-ydv-5
 linkedin_username: meydv5
 
+plugins_dir:
+  - jekyll-feed
+
 favicon: "favicon.png"
 # Build settings
 markdown: kramdown
