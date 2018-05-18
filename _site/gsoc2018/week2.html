@@ -7,12 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>The Happy Blog</title>
-  <meta name="description" content="This is a happy blog. This will dispense happiness as you  stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid. And, I'm watching you.
-">
+  <title>Week 2</title>
+  <meta name="description" content="Week 1 included setting up all the work environment, bitbucket repository for tracking my project’s progess and review,setting up and getting this blog aggre...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/">
+  <link rel="canonical" href="/gsoc2018/week2">
   <link rel="alternate" type="application/rss+xml" title="The Happy Blog" href="/feed.xml">
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115361481-2"></script>
   <script>
@@ -72,12 +71,26 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  Hi, this is Sahil. Glad that you're here. Please don't hesitate navigating around. Help yourself with the links in the upper right corner to know more. I'll fill this space when I get time.
-  Thanks!
+  
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Week 2</h1>
+    <p class="post-meta"><time datetime="2018-05-01T11:21:00+05:30" itemprop="datePublished">May 1, 2018</time></p>
+  </header>
 
-</div>
+  <div class="post-content" itemprop="articleBody">
+    <p>Week 1 included setting up all the work environment, <a href="https://bitbucket.org/me_ydv_5/octave">bitbucket repository</a> for tracking my project’s progess and review,setting up and getting this blog aggregated to planet.octave.org. It also included reading up various files that are of concern to the project.</p>
+
+<p>Week 2 would focus on getting my hands dirty in refactoring the <a href="https://github.com/octave-de/OctConf2017/blob/master/demo2/__publish_wiki_output__.m">__publish_wiki_output__.m</a> and (possibly) <a href="https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/scripts/miscellaneous/publish.m">publish.m</a> code. This would also include looking up what exact methods/functions will be needed to implement the wrapper. Currently, a proof of concept is written as a <a href="https://github.com/octave-de/OctConf2017/blob/master/demo2/wikiLogin.sh">bash script</a>. My work of writing the wrapper will be highly inspired from this script.</p>
+
+<p>The wrapper is written so that MediaWiki can be communicated directly using Octave and there won’t be any need to use Java’s interface to Octave or the bash script itself. To know how exactly MediaWiki API works, have a look at this nicely written <a href="https://siko1056.github.io/blog/2017/03/10/getting-to-know-the-mediawiki-api.html">post</a>. Note that the $wgEnableAPI written in the post is now deprecated from MediaWiki’s version 1.32.0. Another thing that needs looking upon is MediaWiki needs a <a href="https://www.mediawiki.org/wiki/API:Main_page#Identifying_your_client">user agent</a> in order for the client to be identified. So we need to decide what would be it.</p>
+
+<p>Stay tuned for next update!</p>
+
+  </div>
+
+</article>
 
       </div>
     </div>

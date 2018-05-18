@@ -4,15 +4,148 @@
     <title>The Happy Blog</title>
     <description>This is a happy blog. This will dispense happiness as you  stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid. And, I&#39;m watching you.
 </description>
-    <link>https://batterylow.me/</link>
-    <atom:link href="https://batterylow.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 26 Apr 2018 14:42:41 +0530</pubDate>
-    <lastBuildDate>Thu, 26 Apr 2018 14:42:41 +0530</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 18 May 2018 14:33:18 +0530</pubDate>
+    <lastBuildDate>Fri, 18 May 2018 14:33:18 +0530</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
+        <title>Week 4</title>
+        <description>&lt;p&gt;Continuing further, I added more options in &lt;code class=&quot;highlighter-rouge&quot;&gt;libcurl_wrapper.cc&lt;/code&gt;. As described in earlier posts, the current implementation of &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login.m&lt;/code&gt; has the JAVA’s interface to Octave in use and I need to replace it with Octave’s own implementation. So, I’ve taken two steps in this direction. Now a user is able to retrieve token when he executes &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login&lt;/code&gt; AND use the cookies that are set in a temporary &lt;code class=&quot;highlighter-rouge&quot;&gt;.txt&lt;/code&gt; file to login into the &lt;code class=&quot;highlighter-rouge&quot;&gt;api.php&lt;/code&gt; wiki. Currently, there’s a problem in logging in, because the following cookies are unable to get added, &lt;code class=&quot;highlighter-rouge&quot;&gt;octave_org_session&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;octave_orgUserID&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;octave_orgUserName&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;octave_orgToken&lt;/code&gt;. I got to know about these cookies when I tried to execute the curl-cli commands for logging in.&lt;/p&gt;
+
+&lt;p&gt;I also understood how the &lt;code class=&quot;highlighter-rouge&quot;&gt;HAVE_CURL&lt;/code&gt; macro encapsulates the &lt;code class=&quot;highlighter-rouge&quot;&gt;curl_transfer&lt;/code&gt; class, i.e, if curl is available in a machine, then this class exists, else not. &lt;code class=&quot;highlighter-rouge&quot;&gt;HAVE_CURL&lt;/code&gt; is a macro that is set during &lt;code class=&quot;highlighter-rouge&quot;&gt;./configure&lt;/code&gt; stage of building the software. I will be extending my work in this class essentially in the coming week.&lt;/p&gt;
+
+&lt;p&gt;I’ve also added the files in their appropriate directories.&lt;/p&gt;
+
+&lt;p&gt;A new &lt;a href=&quot;https://wiki.octave.space&quot;&gt;dummy wiki&lt;/a&gt; has been created by Kai for testing purposes. I’ll be using this from now on.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 16 May 2018 21:46:00 +0530</pubDate>
+        <link>/gsoc2018/week4</link>
+        <guid isPermaLink="true">/gsoc2018/week4</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 3</title>
+        <description>&lt;p&gt;&lt;strong&gt;UPDATE on 12-May-2018&lt;/strong&gt;: You can now directly test my work by cloning my repo, updating the source tree to my bookmark by &lt;code class=&quot;highlighter-rouge&quot;&gt;hg up ocs&lt;/code&gt;, making a build and calling &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login&lt;/code&gt; from octave-cli to get a login token in return. I’ve added the files and necessary changes in the codebase itself. There’s no directory &lt;code class=&quot;highlighter-rouge&quot;&gt;ocode&lt;/code&gt; now.&lt;/p&gt;
+
+&lt;p&gt;If you happen to already have a build of octave, just do the following:
+* &lt;code class=&quot;highlighter-rouge&quot;&gt;cd path/to/your/source/tree&lt;/code&gt;
+*   &lt;code class=&quot;highlighter-rouge&quot;&gt;hg pull https://me_ydv_5@bitbucket.org/me_ydv_5/octave&lt;/code&gt; in your source tree.
+*   &lt;code class=&quot;highlighter-rouge&quot;&gt;hg up ocs&lt;/code&gt;
+*   &lt;code class=&quot;highlighter-rouge&quot;&gt;hg up -r 8bbf393&lt;/code&gt;
+*   &lt;code class=&quot;highlighter-rouge&quot;&gt;make -jX&lt;/code&gt; in your build tree.&lt;/p&gt;
+
+&lt;p&gt;This will save your time of cloning the entire repo and compiliing.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;As mentioned in the previous post, I worked on &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/8141dc41d467cc7c8d48990aefec92bd445f8663&quot;&gt;__publish_wiki_output__.m&lt;/a&gt; and &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/scripts/miscellaneous/publish.m&quot;&gt;publish.m&lt;/a&gt; code. The __publish_wiki_output__.m has been added as an internal function in scripts/miscellaneous/private. I skimmed through the parser in publish.m to get a gist of how it actually works. It has three levels of parsing:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Extract the overall structure (paragraphs and code sections).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Parsing the content of a paragraph.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Generate the output of the script code and look after figures produced in code.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;After that, I studied how the &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/liboctave/util/url-transfer.h&quot;&gt;url-transfer.h&lt;/a&gt; file is implemented which contains a base class named &lt;code class=&quot;highlighter-rouge&quot;&gt;base_url_transfer&lt;/code&gt; which has a derived class named &lt;code class=&quot;highlighter-rouge&quot;&gt;url_transder&lt;/code&gt;. One thing that puzzled me while doing so was, why there has to be a macro &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/liboctave/util/url-transfer.cc#l220&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HAVE_CURL&lt;/code&gt;&lt;/a&gt; in order for &lt;code class=&quot;highlighter-rouge&quot;&gt;curl_transfer&lt;/code&gt; to be defined and why we haven’t defined &lt;code class=&quot;highlighter-rouge&quot;&gt;url_transfer&lt;/code&gt; class itself? I would try to get these doubts solved this week.&lt;/p&gt;
+
+&lt;p&gt;The problem of &lt;a href=&quot;https://www.mediawiki.org/wiki/API:Main_page#Identifying_your_client&quot;&gt;user agent&lt;/a&gt; was solved by selecting the following user agent:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;text
+    GNU Octave/OCTAVE_VERSION (https://www.gnu.org/software/octave/ ; help@octave.org) libcurl/LIBCURL_VERSION
+&lt;/code&gt;
+where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and libcurl version respectively. &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/libcurl_wrapper.ccT184&quot;&gt;This&lt;/a&gt; code precisely does the same for us.&lt;/p&gt;
+
+&lt;p&gt;My inteded plan for the wrapper is, make a &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/cookie_manager.m&quot;&gt;cookie_manager.m&lt;/a&gt; file that will process the various user options (like verbose output, timeout settings, api.php url, etc.) and pass the values to an internal &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/__curl__.cc&quot;&gt;__curl__.cc&lt;/a&gt; function which will in turn, take help from &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/libcurl_wrapper.cc&quot;&gt;libcurl_wrapper.cc&lt;/a&gt; to do various tasks (all the work related to cookies will be looked after by it, essentially).&lt;/p&gt;
+
+&lt;p&gt;Curently, all the code in &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/wiki_login.m&quot;&gt;wiki_login.m&lt;/a&gt; has been commented out except the first step of login, i.e, &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/wiki_login.mT20&quot;&gt;getting a login token&lt;/a&gt; from the api.php, which it smoothly does, as of now. I am assuming that the file which would store the cookies, is &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/cookie_manager.mT9&quot;&gt;temporary&lt;/a&gt; and should be deleted once the session expires. This is one of the things I will be looking on in this week.&lt;/p&gt;
+
+&lt;p&gt;I’ve migrated all the developments from my forked &lt;a href=&quot;https://github.com/me-ydv-5/octave-web/commits/master&quot;&gt;git repo&lt;/a&gt; to my mercurial bookmark &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ocs&lt;/code&gt;&lt;/a&gt; recently and so I was not sure where should I put the files in my source tree. Thus, I’ve put all of them in a directory &lt;code class=&quot;highlighter-rouge&quot;&gt;ocode&lt;/code&gt; for now.&lt;/p&gt;
+
+&lt;p&gt;To test this for yourself:
+ * Clone my build tree using &lt;code class=&quot;highlighter-rouge&quot;&gt;hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave&lt;/code&gt;
+ * Make yourself a build of octave (&lt;code class=&quot;highlighter-rouge&quot;&gt;make -j2&lt;/code&gt;, etc.). 
+ * &lt;code class=&quot;highlighter-rouge&quot;&gt;cd octave&lt;/code&gt;.&lt;br /&gt;
+ * Update to my bookmark using &lt;code class=&quot;highlighter-rouge&quot;&gt;hg up ocs&lt;/code&gt;. (IMPORTANT!)
+ * &lt;code class=&quot;highlighter-rouge&quot;&gt;cd ocode&lt;/code&gt;.
+ * Execute &lt;code class=&quot;highlighter-rouge&quot;&gt;Makefile&lt;/code&gt; in octave.
+ * Execute &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login&lt;/code&gt; in octave to get a login token.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;All other details of the wrapper’s implementation will be followed in the next post.&lt;/p&gt;
+
+&lt;p&gt;The next week would follow the following advances:
+* Choosing the right location for the files (after I get a green light for the current developmental path).
+* Extending other options in the wrapper for wiki_login’s steps 2 and 3.
+* Implementing cookie_manager with other user options.
+* Writing help text and text cases, if any.
+* Correction of existing work/ changing the stategy as adviced by mentor, or anyone else.
+* Look into how can I use existing &lt;code class=&quot;highlighter-rouge&quot;&gt;base_url_transfer&lt;/code&gt; class in the wrapper and resolve my query of the &lt;code class=&quot;highlighter-rouge&quot;&gt;HAVE_CURL&lt;/code&gt; macro and shared pointers, etc.&lt;/p&gt;
+
+&lt;p&gt;I am optimistic that I would be able to complete my first evaluation work by 25th May or so, as I will need to focus on my end term examinations after that which will start from 1 June. We don’t get holidays in between the exams!&lt;/p&gt;
+
+&lt;p&gt;Please let me know if I am doing it the right way or not, by either replying to &lt;a href=&quot;http://lists.gnu.org/archive/html/octave-maintainers/2018-04/msg00173.html&quot;&gt;this thread&lt;/a&gt; or by simply dropping a message on &lt;code class=&quot;highlighter-rouge&quot;&gt;#octave&lt;/code&gt; for &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;batterylow&amp;gt;&lt;/code&gt;. All the suggestions are always welcomed.&lt;/p&gt;
+
+&lt;p&gt;Oh and not to forget, I got my &lt;a href=&quot;https://batterylow.me&quot;&gt;domain&lt;/a&gt; an SSL certificate, now all the requests are served via HTTPS only!&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for next update.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 May 2018 10:46:00 +0530</pubDate>
+        <link>/gsoc2018/week3</link>
+        <guid isPermaLink="true">/gsoc2018/week3</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 2</title>
+        <description>&lt;p&gt;Week 1 included setting up all the work environment, &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave&quot;&gt;bitbucket repository&lt;/a&gt; for tracking my project’s progess and review,setting up and getting this blog aggregated to planet.octave.org. It also included reading up various files that are of concern to the project.&lt;/p&gt;
+
+&lt;p&gt;Week 2 would focus on getting my hands dirty in refactoring the &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/__publish_wiki_output__.m&quot;&gt;__publish_wiki_output__.m&lt;/a&gt; and (possibly) &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/scripts/miscellaneous/publish.m&quot;&gt;publish.m&lt;/a&gt; code. This would also include looking up what exact methods/functions will be needed to implement the wrapper. Currently, a proof of concept is written as a &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/wikiLogin.sh&quot;&gt;bash script&lt;/a&gt;. My work of writing the wrapper will be highly inspired from this script.&lt;/p&gt;
+
+&lt;p&gt;The wrapper is written so that MediaWiki can be communicated directly using Octave and there won’t be any need to use Java’s interface to Octave or the bash script itself. To know how exactly MediaWiki API works, have a look at this nicely written &lt;a href=&quot;https://siko1056.github.io/blog/2017/03/10/getting-to-know-the-mediawiki-api.html&quot;&gt;post&lt;/a&gt;. Note that the $wgEnableAPI written in the post is now deprecated from MediaWiki’s version 1.32.0. Another thing that needs looking upon is MediaWiki needs a &lt;a href=&quot;https://www.mediawiki.org/wiki/API:Main_page#Identifying_your_client&quot;&gt;user agent&lt;/a&gt; in order for the client to be identified. So we need to decide what would be it.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for next update!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 01 May 2018 11:21:00 +0530</pubDate>
+        <link>/gsoc2018/week2</link>
+        <guid isPermaLink="true">/gsoc2018/week2</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
         <title>Week 1</title>
-        <description>&lt;p&gt;A very heartful thanks to Kai T. Ohlhus, Doug Stewart, Ankit Raj and others who saw my potential and chose me for GSoC 2018.&lt;/p&gt;
+        <description>&lt;p&gt;I’ve been selected as a &lt;a href=&quot;https://summerofcode.withgoogle.com&quot;&gt;Google Summer of Code&lt;/a&gt; , 2018 student developer at &lt;a href=&quot;https://www.gnu.org/software/octave/&quot;&gt;GNU Octave&lt;/a&gt;. GNU Octave is a high-level language, primarily intended for numerical computations. It provides a convenient command line interface for solving linear and nonlinear problems numerically, and for performing other numerical experiments using a language that is mostly compatible with Matlab. It may also be used as a batch-oriented language.&lt;/p&gt;
+
+&lt;p&gt;A very heartful thanks to Kai T. Ohlhus, Doug Stewart, Ankit Raj and others who saw my potential and chose me for GSoC 2018.&lt;/p&gt;
 
 &lt;p&gt;My project is &lt;strong&gt;Octave Code Sharing&lt;/strong&gt;. Community bonding period would include reading up material that’d be essential for the project.&lt;/p&gt;
 
@@ -95,8 +228,8 @@ that is to be used to format a wiki published code.&lt;/p&gt;
 &lt;p&gt;Thanks for reading, will be posting next update soon. Looking forward to a bug-free and code-some summer. :-)&lt;/p&gt;
 </description>
         <pubDate>Wed, 25 Apr 2018 12:46:00 +0530</pubDate>
-        <link>https://batterylow.me/gsoc2018/week1</link>
-        <guid isPermaLink="true">https://batterylow.me/gsoc2018/week1</guid>
+        <link>/gsoc2018/week1</link>
+        <guid isPermaLink="true">/gsoc2018/week1</guid>
         
         
         <category>jekyll</category>
