@@ -12,7 +12,9 @@ With 25th May approaching, I'm confident to say that I've completed my first eva
 To test my implemtation:
 
 *   Make a test account on `wiki.octave.space` with username and password of your choice. 
+
 *   `hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave`
+
 *   `hg up ocs`
 
 *   `cd path/to/your/build/tree/` and execute `make -jX`
