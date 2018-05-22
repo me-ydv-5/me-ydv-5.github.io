@@ -25,8 +25,7 @@ To test my implemtation:
 
 If it is all successful, you should see a prompt `Success: logged in as yourUsername`.
 
-Other than that, I'm really grateful to [jwe](http://jweaton.org/) for moving the `version.h` file to `liboctave` from `libinterp` as this is needed to get the `OCTAVE_VERSION` for the user agent (see week 3 for this).
-
+Other than that, I'm really grateful to [jwe](http://jweaton.org/) for moving the `version.h` file to `liboctave` from `libinterp` as this is needed to get the `OCTAVE_VERSION` for the user agent (see week 3 for this). Eariler, it was in `libinterp` and we must not use anything from `libinterp` in `liboctave` as it should be compiled irrespective of the former. 
 
 *NOTE: You may need to re-run `./bootstrap` and `./configure` due to above changes.*
 
