@@ -6,8 +6,8 @@
 </description>
     <link>https://me-ydv-5.github.io/</link>
     <atom:link href="https://me-ydv-5.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 May 2018 23:20:54 +0530</pubDate>
-    <lastBuildDate>Tue, 22 May 2018 23:20:54 +0530</lastBuildDate>
+    <pubDate>Tue, 22 May 2018 23:51:14 +0530</pubDate>
+    <lastBuildDate>Tue, 22 May 2018 23:51:14 +0530</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -17,8 +17,12 @@
 &lt;p&gt;To test my implemtation:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Make a test account on &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki.octave.space&lt;/code&gt; with username and password of your choice.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Make a test account on &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki.octave.space&lt;/code&gt; with username and password of your choice.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hg up ocs&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -28,12 +32,14 @@
   &lt;li&gt;
     &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./run-octave&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;execute &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login (&quot;https://wiki.octave.space/api.php&quot;, yourUsername, yourPassword);&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;execute &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login (&quot;https://wiki.octave.space/api.php&quot;, yourUsername, yourPassword);&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;If it is all successful, you should see a prompt &lt;code class=&quot;highlighter-rouge&quot;&gt;Success: logged in as yourUsername&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Other than that, I’m really grateful to &lt;a href=&quot;http://jweaton.org/&quot;&gt;jwe&lt;/a&gt; for moving the &lt;code class=&quot;highlighter-rouge&quot;&gt;version.h&lt;/code&gt; file to &lt;code class=&quot;highlighter-rouge&quot;&gt;liboctave&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;libinterp&lt;/code&gt; as this is needed to get the &lt;code class=&quot;highlighter-rouge&quot;&gt;OCTAVE_VERSION&lt;/code&gt; for the user agent (see week 3 for this).&lt;/p&gt;
+&lt;p&gt;Other than that, I’m really grateful to &lt;a href=&quot;http://jweaton.org/&quot;&gt;jwe&lt;/a&gt; for moving the &lt;code class=&quot;highlighter-rouge&quot;&gt;version.h&lt;/code&gt; file to &lt;code class=&quot;highlighter-rouge&quot;&gt;liboctave&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;libinterp&lt;/code&gt; as this is needed to get the &lt;code class=&quot;highlighter-rouge&quot;&gt;OCTAVE_VERSION&lt;/code&gt; for the user agent (see week 3 for this). Eariler, it was in &lt;code class=&quot;highlighter-rouge&quot;&gt;libinterp&lt;/code&gt; and we must not use anything from &lt;code class=&quot;highlighter-rouge&quot;&gt;libinterp&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;liboctave&lt;/code&gt; as it should be compiled irrespective of the former.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;NOTE: You may need to re-run &lt;code class=&quot;highlighter-rouge&quot;&gt;./bootstrap&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;./configure&lt;/code&gt; due to above changes.&lt;/em&gt;&lt;/p&gt;
 
@@ -45,7 +51,7 @@
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 16 May 2018 21:46:00 +0530</pubDate>
+        <pubDate>Mon, 21 May 2018 16:36:00 +0530</pubDate>
         <link>https://me-ydv-5.github.io/gsoc2018/week5</link>
         <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week5</guid>
         

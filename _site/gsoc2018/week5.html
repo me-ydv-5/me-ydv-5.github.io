@@ -76,7 +76,7 @@
   
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">Week 5</h1>
-    <p class="post-meta"><time datetime="2018-05-16T21:46:00+05:30" itemprop="datePublished">May 16, 2018</time></p>
+    <p class="post-meta"><time datetime="2018-05-21T16:36:00+05:30" itemprop="datePublished">May 21, 2018</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
@@ -85,8 +85,12 @@
 <p>To test my implemtation:</p>
 
 <ul>
-  <li>Make a test account on <code class="highlighter-rouge">wiki.octave.space</code> with username and password of your choice.</li>
-  <li><code class="highlighter-rouge">hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave</code></li>
+  <li>
+    <p>Make a test account on <code class="highlighter-rouge">wiki.octave.space</code> with username and password of your choice.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave</code></p>
+  </li>
   <li>
     <p><code class="highlighter-rouge">hg up ocs</code></p>
   </li>
@@ -96,12 +100,14 @@
   <li>
     <p><code class="highlighter-rouge">./run-octave</code></p>
   </li>
-  <li>execute <code class="highlighter-rouge">wiki_login ("https://wiki.octave.space/api.php", yourUsername, yourPassword);</code></li>
+  <li>
+    <p>execute <code class="highlighter-rouge">wiki_login ("https://wiki.octave.space/api.php", yourUsername, yourPassword);</code></p>
+  </li>
 </ul>
 
 <p>If it is all successful, you should see a prompt <code class="highlighter-rouge">Success: logged in as yourUsername</code>.</p>
 
-<p>Other than that, I’m really grateful to <a href="http://jweaton.org/">jwe</a> for moving the <code class="highlighter-rouge">version.h</code> file to <code class="highlighter-rouge">liboctave</code> from <code class="highlighter-rouge">libinterp</code> as this is needed to get the <code class="highlighter-rouge">OCTAVE_VERSION</code> for the user agent (see week 3 for this).</p>
+<p>Other than that, I’m really grateful to <a href="http://jweaton.org/">jwe</a> for moving the <code class="highlighter-rouge">version.h</code> file to <code class="highlighter-rouge">liboctave</code> from <code class="highlighter-rouge">libinterp</code> as this is needed to get the <code class="highlighter-rouge">OCTAVE_VERSION</code> for the user agent (see week 3 for this). Eariler, it was in <code class="highlighter-rouge">libinterp</code> and we must not use anything from <code class="highlighter-rouge">libinterp</code> in <code class="highlighter-rouge">liboctave</code> as it should be compiled irrespective of the former.</p>
 
 <p><em>NOTE: You may need to re-run <code class="highlighter-rouge">./bootstrap</code> and <code class="highlighter-rouge">./configure</code> due to above changes.</em></p>
 
@@ -129,7 +135,7 @@
 	*/
 	(function() { // DON'T EDIT BELOW THIS LINE
 	var d = document, s = d.createElement('script');
-	s.src = 'https://EXAMPLE.disqus.com/embed.js';
+	s.src = 'https://batterylow.disqus.com/embed.js';
 	s.setAttribute('data-timestamp', +new Date());
 	(d.head || d.body).appendChild(s);
 	})();
