@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Week 6 & 7"
+permalink: /gsoc2018/week6-7
+comments: true
+date:   2018-05-29 22:56:00 +0530
+categories: jekyll update
+---
+
+As I've already completed my first evaluation work and got it reviewed the same from mentor, I won't be doing much work in these two weeks due to my end semester exams. However, I'll be continuing my post from week 8, positively.
+
+****
+
+[Link](https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs) to BitBucket repo.

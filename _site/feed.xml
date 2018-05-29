@@ -6,9 +6,28 @@
 </description>
     <link>https://me-ydv-5.github.io/</link>
     <atom:link href="https://me-ydv-5.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 May 2018 23:51:14 +0530</pubDate>
-    <lastBuildDate>Tue, 22 May 2018 23:51:14 +0530</lastBuildDate>
+    <pubDate>Tue, 29 May 2018 22:58:53 +0530</pubDate>
+    <lastBuildDate>Tue, 29 May 2018 22:58:53 +0530</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Week 6, 7</title>
+        <description>&lt;p&gt;As I’ve already completed my first evaluation work and reviewed the same from mentor, I won’t be doing much work in these two weeks due to my end semester exams. However, I’ll be continuing my post from week 8, positively.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 29 May 2018 22:56:00 +0530</pubDate>
+        <link>https://me-ydv-5.github.io/gsoc2018/week6-7</link>
+        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week6-7</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
     
       <item>
         <title>Week 5</title>
