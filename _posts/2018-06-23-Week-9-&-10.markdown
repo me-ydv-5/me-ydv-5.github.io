@@ -3,9 +3,17 @@ layout: post
 title:  "Week 9 & 10"
 permalink: /gsoc2018/week9-10
 comments: true
-date:   2018-06-23 15:55:00 +0530
+date:   2018-06-23 18:08:00 +0530
 categories: jekyll update
 ---
+**UPDATE:** I am more than happy to announce that I've been able to upload the images on to the wiki server!! The problem was not in `form_data_post` but in [`http_post`](https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-663) (in my version of Octave's repository). There were two faults:
+
+*   I was calling `http_action` which then used to call `http_post` inturn which then POSTed the data, despite the fact that there was no `POSTFIELD` or POSTable data with me, it was `FORM` submission instead. I've now added the `perform()` function in the `form_data_post` itself so that I won't need to interact with the former.
+*   I had set the [`Content-Length`](https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-671) parameter to get from the length of POSTFIELDS, which isn't needed as of now.
+
+Nevertheless, I'm pumped up again for furthering my work!
+
+****
 
 There has been some problem in completing the `upload_to_wiki` script. Unfortunately, I'm unable to send the images on to the servers. Other than that, everything is working fine. I've been trying to do the same since the past week, but still no success, even after tracking down the cURL's source code.
 
