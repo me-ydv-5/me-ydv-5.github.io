@@ -51,6 +51,7 @@ You can set values for the various fields and members in the object by calling `
 Oh and kindly strip your latest commit on `ocs` (a merge commit) in your local repo, else it'll create a new head. Sorry about that!
 
 Wrapping up for now! Apologies for such a long post.
+
 ****
 
 [Link](https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs) to BitBucket repo.
