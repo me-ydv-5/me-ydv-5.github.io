@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "Week 12"
+permalink: /gsoc2018/week12
+comments: true
+date:   2018-07-09 20:32:00 +0530
+categories: jekyll update
+---
+
+I've implemented the [`weboptions`](https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/weboptions.m) function. I also added relevant comments wherever needed, including the code of first evaluation. This completes the second phase evaluation task, i.e, implementing `wiki_upload` script and `weboptions`. There was an unprecendented delay of a week when I was trying to upload the images on the server. It would've given me a head start if I had completed the task without the delay, although I am still on the track. There's one thing left, the help text that I wrote for `weboptions` isn't being displayed when I issue `help weboptions` because it's a `Classdef` and not `function`. Other than this, I feel the task has been executed correctly.
+
+Coming to the next task, I plan to implement `webread` and `webwrite` function with MATLAB compatibilty. I think I can change `wiki_upload` script to be a generic one and then use it for both wiki and webwrite. This would help us extend it with any other functionality in the future.
+
+Note that a few of the `weboptions` fields are currently for MATLAB compatibilty, as described in the previous post. Also, second phase evaluation will take place this week. Hoping for not giving Kai a chance to complain! :-)
+
+****
+
+[Link](https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs) to BitBucket repo.
