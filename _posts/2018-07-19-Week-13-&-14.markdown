@@ -1,0 +1,53 @@
+---
+layout: post
+title:  "Week 13 & 14"
+permalink: /gsoc2018/week13-14
+comments: true
+date:   2018-07-19 21:40:00 +0530
+categories: jekyll update
+---
+
+Hi!
+
+I'm pleased to tell you all that I've got good remarks in second evaluation of GSoC! Kai didn't complin about what I was lacking in the first evaluation. I'm really thankful to him for this.
+
+Coming to the next and final phase of the GSoC, I have to implement [webread](https://in.mathworks.com/help/matlab/ref/webread.html) and [webwrite](https://in.mathworks.com/help/matlab/ref/webwrite.html) functions in Octave. I had some issues with getters and setters in `weboptions` which have now been rectified.
+
+To check the working of the two functions, I needed a server that could entertain HTTP request and let us verify the desired results. For this, I chose [`Java Play! Framework`](https://www.playframework.com/), which is a super cool tool in JAVA that serves our purpose well. Needless to say, it is RESTful by default. It works on [MVC design pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). Without wasting everyone's time, I'd like to introduce a few files that are relevant to our project.
+
+The first and the foremost is the [`routes`](https://bitbucket.org/me_ydv_5/server_code/src/master/conf/routes) file, which binds our app to the outer world. Routes can also be called as endpoints, if anyone is aware of. We write all the HTTP requests (GET, POST, PUT, etc.) here and map those endpoints to our corresponding functions that take action on the requests. As an example, you can see that GET request to the `webhook` endpoint is mapped to [`webhookGet()`](https://bitbucket.org/me_ydv_5/server_code/src/7da1bc07f3384c270920d705a0e1a44dc12bce32/app/controllers/HomeController.java#lines-30) function. Similarly, we can write functions as per our need and do the needful.
+
+Next file is a controller. Controllers are the files that essentially parse/decode your request into smaller pieces and the applies some computation with the help of auxillary functions defined elsewhere. The above mentioned webhookGet() function is what is written in a controller.
+
+The last one is `application.conf` which has all the configurations that are needed to run the project. The server is run using the `sbt run` command and shipped for production using `sbt dist` command. Only you need to have a JAVA environment to make these command work. You can try to play with it using the source code from [here](https://bitbucket.org/me_ydv_5/server_code/src). Note that the latter command cannot be run on the production server unless you have high memory for it, I myself, do the dist command on my machine and then `rsync` the zip file to the server, although there are other easier methods available like using CI server, etc. Kindly feel free to ask me anything related to the framework or anything else related to project, in general.
+
+Now that the server has been set up, we can hit GET and PUSH requests on it and tweak the behaviour of what happens with our requests as per our need. Currently, the server will behave as an echo server, so it will let you know what you sent.
+
+To check if the server works as expected for you, you can issue the following command in Octave:
+
+
+`s = urlread("https://batterylow.me:9000/webhook", "get", {"mode", "testing", "verify_token", "theTokenToAccount", "message", "Post back this message to me"})`
+
+The last parameter in the above cell string should be returned to you. Note that `mode` and `verify_token` should be `testing` and `theTokenToAccount` respectively, because a request only succeeds when the above two pairs match, as you can see in the source code. **Remember to use https protocol** while sending the request, because it doesn't accept requests from http (even I spent considerable time on this silly mistake!). You can use curl as well by invoking the following command:
+
+` curl -H "Content-Type: application/json" -X POST "https://batterylow.me:9000/webhook" -d '{"name": "yourName"}'`
+
+Ofcourse, you can easily send the above two requests using octave as well like this:
+
+```
+GET Request:
+s = urlread("https://batterylow.me:9000/webhook", "get", {"mode", "testing", "verify_token", "theTokenToAccount", "message", "Post back this message to me"})
+
+POST Request:
+s = urlread("https://batterylow.me:9000/webhook", "post", {"name", "yourname"})
+```
+
+One hurdle for me right now is my system, it keeps crashing! At all unknown times! I'm trying to get it work asap so got late to complete the `webread` function. Today as well, I got some space now to write the post. I'll update this post in a day or two with my implementation details of the function. (I had intimidated Kai about this.)
+
+**NOTE:** You may _not_ get the response from the server because I myself need to run it on that machine. Kindly let me know on IRC if you need to suggest/advice anything. I'll definitely reply if my machine might be working and I may be online!
+
+Till then! :-)
+
+****
+
+[Link](https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs) to BitBucket repo.
