@@ -6,6 +6,34 @@ comments: true
 date:   2018-07-19 21:40:00 +0530
 categories: jekyll update
 ---
+
+**UPDATE 2:** I found the cause of the `urlread` function not working correctly. It's because curl sends the request as `application/x-www-form-urlencoded` whereas it should be `application/json`, which is explicitly changed in the cURL request that I've written down. I think this could be solved using the `webwrite` function that I've written.
+
+Now coming to the project work, I've been wandering inside the codebase for the last three days to implement the `webwrite` function. This is what I've implemented as [`webwrite.m`](https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/webwrite.m). It takes input and arranges them for further processing in currently what we call as [`__internal__`](https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/libinterp/corefcn/urlwrite.cc#lines-839) function. A sudden question could be why two different, so this is because the processing of the input is easier in Octave than in C++ and we really need to work with cURL here so C++ cannot be sidelined. MATLAB can take the following as a string with 42 as a number `str = ["His", "age", "is", 42]` whereas in Octave, we get the ascii value corresponding to 42 in its place. This is one difference what I observed. Due to this, I'm asking users to pass strings all along, without any numbers. But I'm not sure how I can test above `str` if it contains a number, so that I could warn/error the user that what he entered is not what Octave will get as. See this [`FIXME`](https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/scripts/miscellaneous/webwrite.m#lines-62). And earlier I was sending a flag if the user has supplied some weboptions or not, but now if they haven't, I'm supplying the default weboptions object, afterall it's good to use your code when you've put some time to write it! 
+
+Coming to the [`__internal__`](https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/libinterp/corefcn/urlwrite.cc#lines-839) function, this took my most of the time. I'd like to explicitly write two lines of code here, even if you do not understand them, kindly read them.
+
+```
+  octave_classdef *obj = args(nargin-1).classdef_object_value ();
+  cdef_object object = obj -> get_object ();
+```
+
+These two lines look small, but took my most time and I was happiest when I got these working. This takes the weboptions object supplied from the m-script and gives us the C++ equivalent. I wrote this here just for my satisfaction anyway. The supposed working is, unpack the object and send the contents to an internal function to set the cURL headers which need to be amended. I was first trying to use [`map_value ()`](http://octave.org/doxygen/4.0/d4/d6c/classcdef__object.html#a1e1f017e8766d4c475b9b74aca0f767b) function of the `cdef_object` which essentially, maps the Keys (as strings) to their values (as `cdef_property`), see [this](https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/libinterp/octave-value/ov-classdef.cc#l1234) but because this always gives a [warning](https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/libinterp/octave-value/ov-classdef.cc#l1238), which is right, I refrained from using it because employing this in a function will decrease the UX quality of the software. Instead, I extracted Keys as strings and then queried their values. To get away with the warinings, I excluded [`two Keys`](https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/libinterp/corefcn/urlwrite.cc#lines-897) ("delete" and "display") for now. But this is a bad design because although there won't be any such keys in a weboptions object, but still we should be handling it some other way, currently which I do not know, I'll ask Kai or jwe about this.
+
+The other thing that I just got to think was, I'm unpacking the object in `__internal__` function, and then sending it to some other function. Why not just send the object there and unpack it there? Reducing a lot of lines of code? To unpack, I wrote an equivalent [`struct`](https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.h#lines-44) and then I'm passing this to [`set_weboptions`](https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.cc#lines-752) function, which then puts the corresponding options in cURL. I'll change this to simpler format so that we won't need struct. There are a few `FIXME` tags in this function for which I'll need the help of mentor and other maintainers. For example, I searched the code to find how to push back values in an `Array<std::string>`, but couldn't find it out. This will save us a lot of time because now that I know how Classdef's API work in C++.
+
+I also changed [`http_action`](https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.cc#lines-645) function and completely removed the previous `http_get` and `http_post` functions to accomodate new HTTP methods like `DELETE` and `PUT`, Kai too had complained about this being a bad design back in phase one, so his query should also have resolved by this. Also the error in this function is not propagated correctly to the interpreter. See the FIXME in the function. Oh, and the function [`set_header`](https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.cc#lines-704) that I wrote in phase two can be of good use now in phase three, so that's good.
+
+Also, [`http://httpbin.org`](http://httpbin.org) is a cool site to throw requests for testing, rendering my server useless. Anyway, I learnt a thing or two about that as well with this.
+
+A few other small detailings are left which will be cleared as soon as me and Kai meet on the IRC.
+
+I must say, initially I was over expecting, but Kai correctly saw the depth of the project and resisted me to add more work given that I still spend around 30-35 hours a week to the project (I hope this is not offending anyone!). Writing this function was a great experience. I generally get headache working on laptop, but I could seemlessly work without any long break for around 18 hours a day. Wrapping up this week's post, I hope someone might reach here reading it. Feel free to suggest/advice me on the work.
+
+Thanks and have a good time.
+
+****
+
 **UPDATE:** There's some problem with `urlread` function in octave when sending post requests. Because my this week's work is related to the same, I'll check what exactly is getting wrong. You can try the curl command in the meantime. Also, the server will respond (most probably) at every time form now on.
 
 ****
