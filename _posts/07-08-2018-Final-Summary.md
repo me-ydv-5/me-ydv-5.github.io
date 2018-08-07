@@ -87,10 +87,13 @@ To a great "codeful" summer, 2018!
 
 ****
 
+[Complete diff](https://bitbucket.org/me_ydv_5/octave/branches/compare/ocs%0D%40#diff) of the work done in the project.
+
 Commit to the first half part, Octave code sharing - [a5b41a9](https://bitbucket.org/me_ydv_5/octave/commits/a5b41a9dcf6979c39953f8770b87cbadc23a08cd)
 
 Commit to the second half part, RESTful services - [a5e8a2f](https://bitbucket.org/me_ydv_5/octave/commits/a5e8a2f640ac4bc398be655ecfcd4336ca82f89c)
 
 ****
+The bookmark 'ocs' is for GSoC project.
 
 [Link](https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs) to BitBucket repo.
