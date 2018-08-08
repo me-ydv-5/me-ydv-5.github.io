@@ -62,7 +62,7 @@ In this part of the project, working on `weboptions` was very fun. I got to lear
 
 `webread` is used to GET something from a URI. It also accepts weboptions object as an input.
 
-You can refer to the help text of the functions to know more about them. A few of the weboptions functions are not yet implemented, which are listed in the help text, so they won't work with webwrite and webread either.
+You can refer to the help text of the functions to know more about them. A few of the weboptions' options are not yet implemented, which are explicitly listed in its help text, after discussion with mentor, so they won't work with webwrite and webread either.
 
 The challenging part in this part of the project was, passing the weboptions object from the octave script function to the C++ backend and then performing the required operations on them. These functions, too, use `libcurl` for sending HTTP requests.
 
