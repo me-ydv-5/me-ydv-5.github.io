@@ -12,6 +12,10 @@ categories: jekyll update
 
 ****
 
+**UPDATE**: This post can actually be seen in the [project wiki](https://bitbucket.org/me_ydv_5/octave/wiki/Home) as well. I forgot to push it on github.io.
+
+****
+
 Now that the coding period has finally ended, I'm happy to share the summary of my project.
 
 My project was Octave Code Sharing. As the name suggests, it mainly focused (the first half of the project) on "sharing" the Octave code. The intended design was, the user should be able to push their octave script onto [wiki.octave.org](https://wiki.octave.org) for others to use and see. 
