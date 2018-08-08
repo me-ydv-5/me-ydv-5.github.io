@@ -7,8 +7,7 @@ date:   2018-08-07 17:48:00 +0530
 categories: jekyll update
 ---
 
-# GSoC 2018, GNU Octave
-## Octave Code Sharing - Summary
+# Octave Code Sharing
 
 ****
 
