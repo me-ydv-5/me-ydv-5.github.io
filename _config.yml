@@ -21,6 +21,7 @@ keywords: "Jekyll, blogger, IIT, Mandi, GSoC, GNU, Octave"
 twitter_username: meydv5
 github_username: me-ydv-5
 linkedin_username: meydv5
+dev_username: meydv5
 
 plugins_dir:
   - jekyll-feed

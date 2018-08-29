@@ -37,6 +37,11 @@
           </li>
           {% endif %}
 
+          {% if site.dev_username %}
+          <li>
+            {% include icon-dev.html username=site.dev_username %}
+          </li>
+          {% endif %}
 
           {% if site.twitter_username %}
           <li>
