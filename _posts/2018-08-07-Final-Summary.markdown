@@ -15,6 +15,9 @@ categories: jekyll update
 
 ****
 
+**[CLICK HERE](#code) TO VIEW THE ACTUAL CODE CHANGES.**
+
+
 Now that the coding period has finally ended, I'm happy to share the summary of my project.
 
 My project was Octave Code Sharing. As the name suggests, it mainly focused (the first half of the project) on "sharing" the Octave code. The intended design was, the user should be able to push their octave script onto [wiki.octave.org](https://wiki.octave.org) for others to use and see. 
@@ -89,6 +92,7 @@ Needless to say, this all happened with the help of my supportive and understand
 To a great "codeful" summer, 2018!
 
 ****
+## CODE
 
 [Complete diff](https://bitbucket.org/me_ydv_5/octave/branches/compare/ocs%0D%40#diff) of the work done in the project.
 
