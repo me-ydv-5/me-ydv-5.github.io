@@ -45,4 +45,4 @@ Because you are reading this, either you must be among those thousands who are/w
 
 Feel free to put your thoughts in the comments below. You may ping me whenever you need some help/suggestion. Thanks for your time!
 
-If you're by any chance interested to know about my GSoC work, [click here](http://me-ydv-5.github.io/gsoc2018/summary).
+If you're by any chance interested to know about my GSoC work, [click here](http://me-ydv-5.github.io/gsoc2018).
