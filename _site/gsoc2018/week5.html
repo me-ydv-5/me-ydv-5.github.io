@@ -11,16 +11,17 @@
   <meta name="description" content="With 25th May approaching, I’m confident to say that I’ve completed my first evaluation (although some grammatical and styling rechecking is left). Now, as d...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="https://me-ydv-5.github.io/gsoc2018/week5">
-  <link rel="alternate" type="application/rss+xml" title="The Happy Blog" href="https://me-ydv-5.github.io/feed.xml">
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115361481-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <link rel="canonical" href="http://localhost:4000/gsoc2018/week5">
+  <link rel="alternate" type="application/rss+xml" title="The Contented Scribbler" href="http://localhost:4000/feed.xml">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127497482-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', 'UA-115361481-2');
-  </script>
+  gtag('config', 'UA-127497482-1');
+</script>
+
 
 </head>
 
@@ -30,7 +31,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">The Happy Blog</a>
+    <a class="site-title" href="/">The Contented Scribbler</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -42,13 +43,20 @@
       </a>
 
       <div class="trigger">
+        <!-- <a class="page-link" href="https://me-ydv-5.github.io/B15130_SahilYadav_CSE.pdf">Resume</a> -->
         
           
           <a class="page-link" href="/about/">About Me</a>
           
         
           
+          <a class="page-link" href="/blog/">Blog</a>
+          
+        
+          
           <a class="page-link" href="/contact/">Contact</a>
+          
+        
           
         
           
@@ -80,7 +88,7 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>With 25th May approaching, I’m confident to say that I’ve completed my first evaluation (although some grammatical and styling rechecking is left). Now, as directed by Kai, I’ve implemented the <a href="https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/wiki_login.m"><code class="highlighter-rouge">wiki_login.m</code></a> function from using the internals of <a href="https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/liboctave/util/url-transfer.cc#lines-731"><code class="highlighter-rouge">url-transfer.cc/h</code></a> class. I’ve scapped the earlier design of implementing <code class="highlighter-rouge">cookie_manager.m</code> script and <code class="highlighter-rouge">libcurl_wrapper.cc</code> class for doing the cookie thing and directly implemented <a href="https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/libinterp/corefcn/urlwrite.cc#lines-739"><code class="highlighter-rouge">__wiki_login__</code></a> as an internal function in <code class="highlighter-rouge">urlwrite.cc</code>. A user is now able to log into api.php</p>
+    <p>With 25th May approaching, I’m confident to say that I’ve completed my first evaluation (although some grammatical and styling rechecking is left). Now, as directed by Kai, I’ve implemented the <a href="https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/wiki_login.m"><code class="highlighter-rouge">wiki_login.m</code></a> function from using the internals of <a href="https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/liboctave/util/url-transfer.cc#lines-731"><code class="highlighter-rouge">url-transfer.cc/h</code></a> class. I’ve scapped the earlier design of implementing <code class="highlighter-rouge">cookie_manager.m</code> script and <code class="highlighter-rouge">libcurl_wrapper.cc</code> class for doing the cookie thing and directly implemented <a href="https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/libinterp/corefcn/urlwrite.cc#lines-739"><code class="highlighter-rouge">__wiki_login__</code></a> as an internal function in <code class="highlighter-rouge">urlwrite.cc</code>. A user is now able to log into api.php</p>
 
 <p>To test my implemtation:</p>
 
@@ -151,8 +159,6 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Sahil Yadav</h2>
-
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
@@ -188,6 +194,14 @@
           </li>
           
 
+          
+          <li>
+            <a href="https://dev.to/meydv5">
+    <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Sahil 's DEV Profile" height="20" width="20" />
+    <span class="username">meydv5</span>
+  </a>
+          </li>
+          
 
           
           <li>
@@ -201,7 +215,7 @@
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>This is a happy blog. This will dispense happiness as you  stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid. And, I'm watching you.
+        <p>This is a webpage by some random guy with zero regrets and few stories to tell. Legend has it that the page  will dispense happiness as you stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid.
 </p>
       </div>
     </div>

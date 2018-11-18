@@ -7,12 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About Me</title>
-  <meta name="description" content="This is a webpage by some random guy with zero regrets and few stories to tell. Legend has it that the page  will dispense happiness as you stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid.
-">
+  <title>Week 9 & 10</title>
+  <meta name="description" content="UPDATE: I am more than happy to announce that I’ve been able to upload the images on to the wiki server!! The problem was not in form_data_post but in http_p...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/about/">
+  <link rel="canonical" href="http://localhost:4000/gsoc2018/week9-10">
   <link rel="alternate" type="application/rss+xml" title="The Contented Scribbler" href="http://localhost:4000/feed.xml">
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127497482-1"></script>
 <script>
@@ -80,22 +79,62 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   
   <header class="post-header">
-    <h1 class="post-title">About Me</h1>
+    <h1 class="post-title" itemprop="name headline">Week 9 & 10</h1>
+    <p class="post-meta"><time datetime="2018-06-23T18:08:00+05:30" itemprop="datePublished">Jun 23, 2018</time></p>
   </header>
 
-  <div class="post-content">
-    <p>Hi Stranger! Glad that you came here.
-I’m Sahil, a fourth (senior) year undergraduate majoring in Computer Science at IIT Mandi, Himachal Pradesh.</p>
+  <div class="post-content" itemprop="articleBody">
+    <p><strong>UPDATE:</strong> I am more than happy to announce that I’ve been able to upload the images on to the wiki server!! The problem was not in <code class="highlighter-rouge">form_data_post</code> but in <a href="https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-663"><code class="highlighter-rouge">http_post</code></a> (in my version of Octave’s repository). There were two faults:</p>
 
-<p>I strive to not get carried away by others and their picture of me. I love music. I primarily listen to Eminem, Divine, Sia, Imagine Dragons, Linkin Park. I also like Punjabi music.</p>
+<ul>
+  <li>I was calling <code class="highlighter-rouge">http_action</code> which then used to call <code class="highlighter-rouge">http_post</code> inturn which then POSTed the data, despite the fact that there was no <code class="highlighter-rouge">POSTFIELD</code> or POSTable data with me, it was <code class="highlighter-rouge">FORM</code> submission instead. I’ve now added the <code class="highlighter-rouge">perform()</code> function in the <code class="highlighter-rouge">form_data_post</code> itself so that I won’t need to interact with the former.</li>
+  <li>I had set the <a href="https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-671"><code class="highlighter-rouge">Content-Length</code></a> parameter to get from the length of POSTFIELDS, which isn’t needed as of now.</li>
+</ul>
 
-<p>You can have a look at my Resume <a href="https://me-ydv-5.github.io/B15130_SahilYadav_CSE.pdf">here</a>.</p>
+<p>Nevertheless, I’m pumped up again for furthering my work!</p>
+
+<hr />
+
+<p>There has been some problem in completing the <code class="highlighter-rouge">upload_to_wiki</code> script. Unfortunately, I’m unable to send the images on to the servers. Other than that, everything is working fine. I’ve been trying to do the same since the past week, but still no success, even after tracking down the cURL’s source code.</p>
+
+<p>Basically we need to have a linked list of pointers to the information that we want to send as a form data. I tried to traverse that (It is native to cURL and unseen for the end user). Everything looks fine there. The only bottleneck that I can observe for now is, the <a href="https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-710"><code class="highlighter-rouge">form_data_post</code></a> function is not working as desired. I’ve tried all other alternatives to check where my code is not responding as per standards. But I think only the above function must have problem.</p>
+
+<p>I also discussed this issue with the mentors and other people at IRC channel. However, there’s one more thing to it. The functionality that I’m currently using (<a href="https://curl.haxx.se/libcurl/c/CURLOPT_HTTPPOST.html">CURLOPT_HTTPPOST</a>) is deprecated now from cURL version 7.56 and instead MIME API is being used. (See <a href="https://github.com/curl/curl/pull/1839">this</a> for more.) I asked Kai about this and he too agreed on the fact that I shuold be keeping backwards compatibilty, but then jwe and andy suggested me to use the latter funcitonality with MIME api and then make the feature available only to those who have cURL 7.56+. I’ll ask the mentor once again if either the problem gets solved for now and then I change it to MIME API once the work gets over, or I should instead do it now only.</p>
+
+<p>Other than that, I will start implementing the RESTful services from now on, the other half part of the project. So, we’ll see how much of these functions that I’ve implemented so far get reused.</p>
+
+<p>Until then! :-)</p>
+
+<hr />
+
+<p><a href="https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs">Link</a> to BitBucket repo.</p>
 
   </div>
+
+	<div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = 'https://batterylow.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </article>
 

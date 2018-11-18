@@ -11,16 +11,17 @@
   <meta name="description" content="UPDATE on 12-May-2018: You can now directly test my work by cloning my repo, updating the source tree to my bookmark by hg up ocs, making a build and calling...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="https://me-ydv-5.github.io/gsoc2018/week3">
-  <link rel="alternate" type="application/rss+xml" title="The Happy Blog" href="https://me-ydv-5.github.io/feed.xml">
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115361481-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <link rel="canonical" href="http://localhost:4000/gsoc2018/week3">
+  <link rel="alternate" type="application/rss+xml" title="The Contented Scribbler" href="http://localhost:4000/feed.xml">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127497482-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', 'UA-115361481-2');
-  </script>
+  gtag('config', 'UA-127497482-1');
+</script>
+
 
 </head>
 
@@ -30,7 +31,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">The Happy Blog</a>
+    <a class="site-title" href="/">The Contented Scribbler</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -42,13 +43,20 @@
       </a>
 
       <div class="trigger">
+        <!-- <a class="page-link" href="https://me-ydv-5.github.io/B15130_SahilYadav_CSE.pdf">Resume</a> -->
         
           
           <a class="page-link" href="/about/">About Me</a>
           
         
           
+          <a class="page-link" href="/blog/">Blog</a>
+          
+        
+          
           <a class="page-link" href="/contact/">Contact</a>
+          
+        
           
         
           
@@ -82,12 +90,14 @@
   <div class="post-content" itemprop="articleBody">
     <p><strong>UPDATE on 12-May-2018</strong>: You can now directly test my work by cloning my repo, updating the source tree to my bookmark by <code class="highlighter-rouge">hg up ocs</code>, making a build and calling <code class="highlighter-rouge">wiki_login</code> from octave-cli to get a login token in return. I’ve added the files and necessary changes in the codebase itself. There’s no directory <code class="highlighter-rouge">ocode</code> now.</p>
 
-<p>If you happen to already have a build of octave, just do the following:
-* <code class="highlighter-rouge">cd path/to/your/source/tree</code>
-*   <code class="highlighter-rouge">hg pull https://me_ydv_5@bitbucket.org/me_ydv_5/octave</code> in your source tree.
-*   <code class="highlighter-rouge">hg up ocs</code>
-*   <code class="highlighter-rouge">hg up -r 8bbf393</code>
-*   <code class="highlighter-rouge">make -jX</code> in your build tree.</p>
+<p>If you happen to already have a build of octave, just do the following:</p>
+<ul>
+  <li><code class="highlighter-rouge">cd path/to/your/source/tree</code></li>
+  <li><code class="highlighter-rouge">hg pull https://me_ydv_5@bitbucket.org/me_ydv_5/octave</code> in your source tree.</li>
+  <li><code class="highlighter-rouge">hg up ocs</code></li>
+  <li><code class="highlighter-rouge">hg up -r 8bbf393</code></li>
+  <li><code class="highlighter-rouge">make -jX</code> in your build tree.</li>
+</ul>
 
 <p>This will save your time of cloning the entire repo and compiliing.</p>
 
@@ -112,10 +122,9 @@
 
 <p>The problem of <a href="https://www.mediawiki.org/wiki/API:Main_page#Identifying_your_client">user agent</a> was solved by selecting the following user agent:</p>
 
-<p><code class="highlighter-rouge">text
-    GNU Octave/OCTAVE_VERSION (https://www.gnu.org/software/octave/ ; help@octave.org) libcurl/LIBCURL_VERSION
-</code>
-where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and libcurl version respectively. <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/libcurl_wrapper.ccT184">This</a> code precisely does the same for us.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    GNU Octave/OCTAVE_VERSION (https://www.gnu.org/software/octave/ ; help@octave.org) libcurl/LIBCURL_VERSION
+</code></pre></div></div>
+<p>where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and libcurl version respectively. <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/libcurl_wrapper.ccT184">This</a> code precisely does the same for us.</p>
 
 <p>My inteded plan for the wrapper is, make a <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/cookie_manager.m">cookie_manager.m</a> file that will process the various user options (like verbose output, timeout settings, api.php url, etc.) and pass the values to an internal <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/__curl__.cc">__curl__.cc</a> function which will in turn, take help from <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/libcurl_wrapper.cc">libcurl_wrapper.cc</a> to do various tasks (all the work related to cookies will be looked after by it, essentially).</p>
 
@@ -123,26 +132,30 @@ where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and l
 
 <p>I’ve migrated all the developments from my forked <a href="https://github.com/me-ydv-5/octave-web/commits/master">git repo</a> to my mercurial bookmark <a href="https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs"><code class="highlighter-rouge">ocs</code></a> recently and so I was not sure where should I put the files in my source tree. Thus, I’ve put all of them in a directory <code class="highlighter-rouge">ocode</code> for now.</p>
 
-<p>To test this for yourself:
- * Clone my build tree using <code class="highlighter-rouge">hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave</code>
- * Make yourself a build of octave (<code class="highlighter-rouge">make -j2</code>, etc.). 
- * <code class="highlighter-rouge">cd octave</code>.<br />
- * Update to my bookmark using <code class="highlighter-rouge">hg up ocs</code>. (IMPORTANT!)
- * <code class="highlighter-rouge">cd ocode</code>.
- * Execute <code class="highlighter-rouge">Makefile</code> in octave.
- * Execute <code class="highlighter-rouge">wiki_login</code> in octave to get a login token.</p>
+<p>To test this for yourself:</p>
+<ul>
+  <li>Clone my build tree using <code class="highlighter-rouge">hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave</code></li>
+  <li>Make yourself a build of octave (<code class="highlighter-rouge">make -j2</code>, etc.).</li>
+  <li><code class="highlighter-rouge">cd octave</code>.</li>
+  <li>Update to my bookmark using <code class="highlighter-rouge">hg up ocs</code>. (IMPORTANT!)</li>
+  <li><code class="highlighter-rouge">cd ocode</code>.</li>
+  <li>Execute <code class="highlighter-rouge">Makefile</code> in octave.</li>
+  <li>Execute <code class="highlighter-rouge">wiki_login</code> in octave to get a login token.</li>
+</ul>
 
 <hr />
 
 <p>All other details of the wrapper’s implementation will be followed in the next post.</p>
 
-<p>The next week would follow the following advances:
-* Choosing the right location for the files (after I get a green light for the current developmental path).
-* Extending other options in the wrapper for wiki_login’s steps 2 and 3.
-* Implementing cookie_manager with other user options.
-* Writing help text and text cases, if any.
-* Correction of existing work/ changing the stategy as adviced by mentor, or anyone else.
-* Look into how can I use existing <code class="highlighter-rouge">base_url_transfer</code> class in the wrapper and resolve my query of the <code class="highlighter-rouge">HAVE_CURL</code> macro and shared pointers, etc.</p>
+<p>The next week would follow the following advances:</p>
+<ul>
+  <li>Choosing the right location for the files (after I get a green light for the current developmental path).</li>
+  <li>Extending other options in the wrapper for wiki_login’s steps 2 and 3.</li>
+  <li>Implementing cookie_manager with other user options.</li>
+  <li>Writing help text and text cases, if any.</li>
+  <li>Correction of existing work/ changing the stategy as adviced by mentor, or anyone else.</li>
+  <li>Look into how can I use existing <code class="highlighter-rouge">base_url_transfer</code> class in the wrapper and resolve my query of the <code class="highlighter-rouge">HAVE_CURL</code> macro and shared pointers, etc.</li>
+</ul>
 
 <p>I am optimistic that I would be able to complete my first evaluation work by 25th May or so, as I will need to focus on my end term examinations after that which will start from 1 June. We don’t get holidays in between the exams!</p>
 
@@ -184,8 +197,6 @@ where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and l
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Sahil Yadav</h2>
-
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
@@ -221,6 +232,14 @@ where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and l
           </li>
           
 
+          
+          <li>
+            <a href="https://dev.to/meydv5">
+    <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Sahil 's DEV Profile" height="20" width="20" />
+    <span class="username">meydv5</span>
+  </a>
+          </li>
+          
 
           
           <li>
@@ -234,7 +253,7 @@ where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and l
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>This is a happy blog. This will dispense happiness as you  stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid. And, I'm watching you.
+        <p>This is a webpage by some random guy with zero regrets and few stories to tell. Legend has it that the page  will dispense happiness as you stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid.
 </p>
       </div>
     </div>

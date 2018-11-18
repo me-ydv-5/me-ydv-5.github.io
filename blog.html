@@ -6,10 +6,10 @@ title: Blog
 
 <div class="home">
 
-  <h1 class="page-heading">Blog Posts</h1>
+  <h1 class="page-heading">Blog</h1>
 
   <ul class="post-list">
-    {% for post in site.blogPosts %}
+    {% for post in site.tags.blog %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 

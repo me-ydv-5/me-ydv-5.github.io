@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="../favicon.png">	
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>GSoC Summary</title>
+  <meta name="description" content="Octave Code Sharing">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/gsoc2018/summary">
+  <link rel="alternate" type="application/rss+xml" title="The Contented Scribbler" href="http://localhost:4000/feed.xml">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127497482-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127497482-1');
+</script>
+
+
+</head>
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">The Contented Scribbler</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        <!-- <a class="page-link" href="https://me-ydv-5.github.io/B15130_SahilYadav_CSE.pdf">Resume</a> -->
+        
+          
+          <a class="page-link" href="/about/">About Me</a>
+          
+        
+          
+          <a class="page-link" href="/blog/">Blog</a>
+          
+        
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/gsoc2018/">GSoC 2018</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">GSoC Summary</h1>
+    <p class="post-meta"><time datetime="2018-08-07T17:48:00+05:30" itemprop="datePublished">Aug 7, 2018</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="octave-code-sharing">Octave Code Sharing</h1>
+
+<hr />
+
+<p><strong>UPDATE</strong>: This post can actually be seen in the <a href="https://bitbucket.org/me_ydv_5/octave/wiki/Home">project wiki</a> as well. I forgot to push it on github.io.</p>
+
+<hr />
+
+<p><strong><a href="#code">CLICK HERE</a> TO VIEW THE ACTUAL CODE CHANGES.</strong></p>
+
+<p>Now that the coding period has finally ended, I’m happy to share the summary of my project.</p>
+
+<p>My project was Octave Code Sharing. As the name suggests, it mainly focused (the first half of the project) on “sharing” the Octave code. The intended design was, the user should be able to push their octave script onto <a href="https://wiki.octave.org">wiki.octave.org</a> for others to use and see.</p>
+
+<p>For this, I needed a script to produce the script in a format that is acceptable by MediaWiki. My mentor had already done this bit by implementing the <a href="https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/publish__.m"><code class="highlighter-rouge">publish</code></a> function. What this does is, it takes the user script and converts it to the prescribed format (if available), by default being <code class="highlighter-rouge">html</code>. So to convert it to wiki format, we needed <a href="https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/private/__publish_wiki_output__.m">__publish_wiki_output__.m</a>, which I refactored a bit. This file is responsible for producing the wiki output. <code class="highlighter-rouge">publish</code> is used to parse the script file. After this, the main task was to find a way to upload the formatted file to the wiki server. An excellent reference point for getting started with this was <a href="https://github.com/octave-de/OctConf2017/blob/master/demo2/wikiLogin.sh">this script</a>. The script was written by the mentor as a bash script. So, I had to convert this script into an Octave counterpart so that we won’t need to execute third party code (bash script in this case) to transfer the content of the file to the wiki server.</p>
+
+<p>Because the backend of Octave is mostly C++, I needed to use <a href="https://curl.haxx.se/libcurl/">libcurl</a> library to perform the actual transfer, because Octave does not have its own implementation of such a library and many other areas of the software use libcurl as well.</p>
+
+<p>The workflow is like this:</p>
+<ol>
+  <li>Input the script, user’s password and username to <a href="https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/publish_to_wiki.m"><code class="highlighter-rouge">publish_to_wiki</code></a> function, which converts the script to wiki format using <code class="highlighter-rouge">publish</code> function internally and saves the output file to a directory named <code class="highlighter-rouge">html</code> (analogous to MATLAB).</li>
+  <li>The same function then picks out the figures from the script, if any.</li>
+  <li>Then it inputs the figures, formatted output file content and credentials to <a href="https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/wiki_upload.m"><code class="highlighter-rouge">wiki_upload</code></a> script.</li>
+  <li><code class="highlighter-rouge">wiki_upload</code> script then establishes the connection with the wiki server by asking for a login token.</li>
+  <li>It stores the cookies in a temporary file.</li>
+  <li>CSRF Login is then performed to the wiki server and an edit token (for editing a page) is obtained.</li>
+  <li>The wiki formatted output file from <code class="highlighter-rouge">publish</code> is then uploaded to the server.</li>
+  <li>Figures are uploaded at last, with proper verification such that it doesn’t upload a particular figure if it alreadty exists on the server.</li>
+</ol>
+
+<p>To test yourself, you may want to use the following command:</p>
+
+<p><code class="highlighter-rouge">publish_to_wiki ("script_file", "username", "password")</code></p>
+
+<p>This should place your script on a URL similar to <code class="highlighter-rouge">https://wiki.octave.org/script_file</code>.</p>
+
+<p>An already performed example of this is, when I tried to publish a script named <a href="https://github.com/octave-de/OctConf2017/blob/master/demo2/intro.m">intro.m</a> on the <a href="https://wiki.octave.space">test wiki server</a> set up by the mentor.
+I used the command,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>publish_to_wiki("intro", "myUserName", "myPassword");
+</code></pre></div></div>
+
+<p>and I got <a href="https://wiki.octave.space/index.php/Intro">this page</a> as the result. This page has <em>not</em> been written manually on the server, rather its all about the function.</p>
+
+<p>An important point in this process is the storing of cookies, which was performed by libcurl and set up in <a href="https://bitbucket.org/me_ydv_5/octave/src/aa660b7dcae72a2e769ecbfe71b56c86012ca2db/liboctave/util/url-transfer.h#lines-158"><code class="highlighter-rouge">liboctave/url-transfer.h</code></a>. The most challenging part in this part of the project was to figure out the uploading of figures, which I was able to do in a week or so. This needed me to read a lot of documentation and codes. Finally, the figures were uploaded using the <a href="https://bitbucket.org/me_ydv_5/octave/src/aa660b7dcae72a2e769ecbfe71b56c86012ca2db/liboctave/util/url-transfer.cc#lines-721"><code class="highlighter-rouge">form_data_post</code></a> function.</p>
+
+<p>This was the first half part of the project.</p>
+
+<p>Next was implementing the MATLAB compatible <a href="https://github.com/octave-de/octave-web#the-intended-design">RESTful services for Octave</a>. The project included implementing the <a href="https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/web/weboptions.m"><code class="highlighter-rouge">weboptions</code></a>, <a href="https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/web/webread.m"><code class="highlighter-rouge">webread</code></a> and <a href="https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/web/webwrite.m"><code class="highlighter-rouge">webwrite</code></a> functions. Other implementations of the suite will be followed in post GSoC work.</p>
+
+<p>In this part of the project, working on <code class="highlighter-rouge">weboptions</code> was very fun. I got to learn a lot about the internal processing of function files and how Octave uses handle classes to cater the needs of user defined classes. Also, the way getters and setters work is really nice, even though there is still space for Classdef in octave.</p>
+
+<p><code class="highlighter-rouge">weboptions</code> is used to put header fields in the other two functions.</p>
+
+<p><code class="highlighter-rouge">webwrite</code> is used to POST something to a URI. It can also take a weboptions object as an argument to amend the header fields.</p>
+
+<p><code class="highlighter-rouge">webread</code> is used to GET something from a URI. It also accepts weboptions object as an input.</p>
+
+<p>You can refer to the help text of the functions to know more about them. A few of the weboptions’ options are not yet implemented, which are explicitly listed in its help text, after discussion with mentor, so they won’t work with webwrite and webread either.</p>
+
+<p>The challenging part in this part of the project was, passing the weboptions object from the octave script function to the C++ backend and then performing the required operations on them. These functions, too, use <code class="highlighter-rouge">libcurl</code> for sending HTTP requests.</p>
+
+<p>All the goals of the project were met. There were times when I was unable to get the thing done, be it trivial or not, but with continuous lookup and exploring, I was able to get them done. Sometimes, there are reasons that are out of your reach, like the sudden power failures that I encountered in my machine during the last phase. So, Kai, my mentor, being at his best, understood the concern and extended the weekly plan by a couple of days after I requested. I had also implemented a <a href="https://bitbucket.org/me_ydv_5/server_code">test server</a> in java for GET and POST request only to find a week later that there’s one easy alternative of <a href="https://httpbin.org/get">https://httpbin.org/get</a> and <a href="https://httpbin.org/post">https://httpbin.org/post</a>, respectively.</p>
+
+<h2 id="further-work-after-gsoc-is-over">Further work after GSoC is over.</h2>
+
+<p>As for the <code class="highlighter-rouge">publish_to_wiki</code> function, all the tests that I did were as desired, however if any error is reported it will be sorted out then and there.</p>
+
+<p>There are a few options left in the <code class="highlighter-rouge">weboptions</code> which are not currently implemented (this was intended). It would be extended as well using <code class="highlighter-rouge">jsonencode</code> and <code class="highlighter-rouge">jsondecode</code>, essential for the next round of renovation in this function.</p>
+
+<p><code class="highlighter-rouge">webwrite</code> works pretty good in case of sending HTTP requests in text form, but it is still unable to resolve a query list of JSON form. That is one thing that’s on my to-dos.</p>
+
+<p>I’m currently trying to polish <code class="highlighter-rouge">webread</code>, although it is in workable state, but still there’s space for some improvement. For example, when I try to GET an image from a URI, I am unable to decode the binary data from the output stream to convert it to an image. So this is what I’ve been working on currently.</p>
+
+<hr />
+
+<p>The period between the start of the second phase and mid of the third phase were really fruitful. I had challenges to solve and that’s when I got adrenaline rushes many times.</p>
+
+<p>All in all, the project was very exciting, as opposed to my initial impression, where I thought it to be a web development project and using HTML/CSS and all. I really learned, not only about Octave and its codebase but also many more things like, bitbucket, libcurl, MediaWiki, etc. to name a few. I also learned to manage things on time. This was one of the greatest perks of doing the GSoC.</p>
+
+<p>Needless to say, this all happened with the help of my supportive and understanding mentor, Kai, who timely synced up with me, even though I used to hear from my peers that their mentor doesn’t respond timely, etc. He always appreciated my efforts and had a sound idea of what task would take what duration. He also expressed his unsatisfaction at some time, which really gave me a boost to perform better. And not to forget the little things that he noticed, like checking out which student has been putting regular posts on planet octave, etc. I’ll always be thankful to him for selecting me for GSoC. Also, I’m thankful to jwe, for introducing such a cool software, that too at no cost. The list may go on without a stop, but my heatiest thanks to all the maintainers and mentors who helped me bring the best out of myself. I’ll want to keep working with Octave community in future as well!</p>
+
+<p>To a great “codeful” summer, 2018!</p>
+
+<hr />
+<h2 id="code">CODE</h2>
+
+<p><a href="https://bitbucket.org/me_ydv_5/octave/branches/compare/ocs%0D%40#diff">Complete diff</a> of the work done in the project.</p>
+
+<p>Commit to the first half part, Octave code sharing - <a href="https://bitbucket.org/me_ydv_5/octave/commits/a5b41a9dcf6979c39953f8770b87cbadc23a08cd">a5b41a9</a></p>
+
+<p>Commit to the second half part, RESTful services - <a href="https://bitbucket.org/me_ydv_5/octave/commits/a5e8a2f640ac4bc398be655ecfcd4336ca82f89c">a5e8a2f</a></p>
+
+<hr />
+<p>The bookmark ‘ocs’ is for GSoC project.</p>
+
+<p><a href="https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs">Link</a> to BitBucket repo.</p>
+
+  </div>
+
+	<div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = 'https://batterylow.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>batterylow</li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/me-ydv-5"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">me-ydv-5</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://www.linkedin.com/in/meydv5">
+              <span class="icon  icon--linkedin">
+                <svg viewBox="0 50 512 512" >
+                  <path fill="#828282" d="M150.65,100.682c0,27.992-22.508,50.683-50.273,50.683c-27.765,0-50.273-22.691-50.273-50.683
+                  C50.104,72.691,72.612,50,100.377,50C128.143,50,150.65,72.691,150.65,100.682z M143.294,187.333H58.277V462h85.017V187.333z
+                  M279.195,187.333h-81.541V462h81.541c0,0,0-101.877,0-144.181c0-38.624,17.779-61.615,51.807-61.615
+                  c31.268,0,46.289,22.071,46.289,61.615c0,39.545,0,144.181,0,144.181h84.605c0,0,0-100.344,0-173.915
+                  s-41.689-109.131-99.934-109.131s-82.768,45.369-82.768,45.369V187.333z"/>
+                </svg>
+              </span>
+
+              <span class="username">meydv5</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://dev.to/meydv5">
+    <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Sahil 's DEV Profile" height="20" width="20" />
+    <span class="username">meydv5</span>
+  </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/meydv5"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">meydv5</span></a>
+
+          </li>
+          
+
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is a webpage by some random guy with zero regrets and few stories to tell. Legend has it that the page  will dispense happiness as you stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

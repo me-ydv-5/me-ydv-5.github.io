@@ -1,10 +1,11 @@
 ---
 layout: post
 title:  "My few cents on Google Summer of Code"
-permalink: /blog/gsoc-tips
-date:   2018-11-28 04:12:00 +0530
-published: true
-tags: [Google summer of code, google, summer, code, tips, gsoc, open source, foss, free software]
+permalink: /blog/gsoc-blog
+comments: true
+date:   2018-11-18 04:12:00 +0530
+tags: [Google summer of code, google, summer, code, tips, gsoc, open source, foss, free software, blog]
+categories: jekyll update
 ---
 
 
@@ -43,3 +44,5 @@ Because you are reading this, either you must be among those thousands who are/w
     FYI, 88.2% of the accepted students participated in their first GSoC in 2018. Moreover, 74.4% of the students were first time applicants ([source](https://opensource.googleblog.com/2018/05/google-summer-of-code-2018-statistics.html)). So there's a high probability that you'll be able to make it through.
 
 Feel free to put your thoughts in the comments below. You may ping me whenever you need some help/suggestion. Thanks for your time!
+
+If you're by any chance interested to know about my GSoC work, [click here](http://me-ydv-5.github.io/gsoc2018/summary).

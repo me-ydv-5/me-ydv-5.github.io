@@ -1,26 +1,480 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The Happy Blog</title>
-    <description>This is a happy blog. This will dispense happiness as you  stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid. And, I&#39;m watching you.
+    <title>The Contented Scribbler</title>
+    <description>This is a webpage by some random guy with zero regrets and few stories to tell. Legend has it that the page  will dispense happiness as you stare in your screen for continuous 10 minutes. Believe me, Trump never lies and I never kid.
 </description>
-    <link>https://me-ydv-5.github.io/</link>
-    <atom:link href="https://me-ydv-5.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 May 2018 22:58:53 +0530</pubDate>
-    <lastBuildDate>Tue, 29 May 2018 22:58:53 +0530</lastBuildDate>
-    <generator>Jekyll v3.0.1</generator>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 18 Nov 2018 16:08:19 +0530</pubDate>
+    <lastBuildDate>Sun, 18 Nov 2018 16:08:19 +0530</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
     
       <item>
-        <title>Week 6, 7</title>
-        <description>&lt;p&gt;As I’ve already completed my first evaluation work and reviewed the same from mentor, I won’t be doing much work in these two weeks due to my end semester exams. However, I’ll be continuing my post from week 8, positively.&lt;/p&gt;
+        <title>My few cents on Google Summer of Code</title>
+        <description>&lt;p&gt;&lt;strong&gt;DISCLAIMER: THE IDEAS AND OPINIONS WRITTEN IN THE POST ARE SOLELY BASED ON MY OBSERVATIONS. ONE MAY OR MAY NOT AGREE WITH THE POINTS WRITTEN BELOW.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Because you are reading this, either you must be among those thousands who are/will be trying their best shot at Google Summer of Code for the first time (maybe second?) or were redirected here or you might be simply stalking my webpage. While you can find a plenty of do’s and dont’s over the internet, here’s a list of some tips and opinions that I think should’ve been in my mind while I applied, and was working, for GSoC’18 sometime back. It’s recommended to read other online available articles as well as I’ve not included those points here (my aim is not to mislead you in any sense). Note that the points are not carvings on a stone and so the situation may vary for you. What worked for me might not work for you and vice versa.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose an org which will directly affect your career prospects. I was good in C++ when I started and had a few interactions with GNU Octave (while giving my try to Andrew NG’s course). I knew very less or nothing about other free software. And so I started contributing to it.&lt;/p&gt;
+
+    &lt;p&gt;Octave is used by a very niche category of people presumably, faculty at colleges, scientists at CERN or students taking ML or some mathematical course, whereas tools like, say LibreOffice, is used by a greater community of people. So it’d be nicer to work on something which is relatable to more number of people. Examples of the organizations I feel that make the cut are Linux Foundation, Apache, GCC, Languages (Python, Ruby, ROR, etc.), Debian, Mozilla, VLC, etc. There are a lot of other orgs like these.&lt;/p&gt;
+
+    &lt;p&gt;As a result, although GSoC with GNU Octave looks good on my resume, I feel it would’ve been better if I worked with some organization that would be directly beneficial to me as far as career is concerned. During interviews, the interviewer generally does not bombard me with many questions over the project as he/she himself may not have used Octave in recent past. I stayed in my comfort zone and worked with C++, should’ve tried Java or JavaScript as they are in more demand than C++. See, you are in college and you have time, so learn as much new tech and tools as possible.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;This is in no way, a let down to other orgs. I respect all the maintainers and contributors as they are selflessly contributing to the projects.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;While selecting the organization, there can be two types of orgs, one which gets more slots from Google (&amp;gt;= 8) and the other with lesser number (&amp;lt; 7). Both of them have their pros and cons.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;For orgs with more slots: The orgs are more popular (generally). The competition will be probably higher than the other type of orgs as more number of students apply to such orgs. It’ll be better to start off early (Nov-Dec) in such orgs. If you do so, you have a fair chance of getting selected because you’ll be standing out by April, at the time of application.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;For orgs with less slots: The orgs will be a bit less popular (not all!). Less competition. You can start and may get selected even if you start contributing after the list of orgs has been out in Feb. The downside is, due to less slots and if there’s a good enough competition, you may miss out your spot.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The At the end of the day, it’s more about your code quality and collaboration and less about the type of org that you apply to, for getting selected.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Make sure you select a project that has atleast one mentor with it. I was working on some project for quite some time and was pretty confident of getting selected but then even when three days were left for proposal submission, none of the maintainers bothered to own the project. I hurriedly filled out proposal for some another project in the last two days and got selected for that. I’ll partly attribute this to luck and partly to my hard work. Luck, because no other aspirant was working on the second project, hard work because the mentor of the new project knew me indirectly as I had been contributing in the org for past 4-5 months and had made my fair share of presence.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Trying to do GSoC and an internship simultaneously? I believe not a good idea. It highly depends on what work you get in both of your projects. Some people are lucky that they can carry out both projects concurrently, although you’ll need to manage time and prioritize. Others may need to put more hours to their projects. I’ll advocate not to mix the two (and F both of them), although last call is from your side. If you think you can manage, go ahead with both, if not or you have some other time of the year for internship, go for one.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you are in your first or second year, it’ll hardly matter what org you choose because GSoC on a first/second year resume is really valuable to get good internships in your senior years or even at your level. The same applies for senior students as well but I feel it would be a cherry on cake for them if they choose a more popular tool or tech. The value of Google Summer of Code outweights that of the organization/project.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Try not to be arrogant and I-know-it-all-and-I-dont-need-your-help kind of person. You’ll need help. You yourself will help. Be humble and respect everyone’s opinion. Most importantly, listen to what others are saying. They (maintainers, etc.) will almost all the times, be right as they know significantly more about the product/project than you. One of the best ways to be in constant notice is, helping other newbies like yourself over the mailing list and IRC. Use your resources wisely. You can approach any GSoCers you know and I guarantee almost 100% of the time, they’ll be happy to help you out unless you show derogatory behaviour.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lastly, &lt;strong&gt;consider yourself selected&lt;/strong&gt;. The point is not be over-confident but to understand that your peers are at the same level, a bit more or less, as you. Remember the 90/10 breakdown of mental/physical strength? The same applies here! The rule has done wonders for many lives, including me. Even if you don’t get selected, atleast you would’ve tried and that’s perfectly fine.&lt;/p&gt;
+
+    &lt;p&gt;FYI, 88.2% of the accepted students participated in their first GSoC in 2018. Moreover, 74.4% of the students were first time applicants (&lt;a href=&quot;https://opensource.googleblog.com/2018/05/google-summer-of-code-2018-statistics.html&quot;&gt;source&lt;/a&gt;). So there’s a high probability that you’ll be able to make it through.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Feel free to put your thoughts in the comments below. You may ping me whenever you need some help/suggestion. Thanks for your time!&lt;/p&gt;
+
+&lt;p&gt;If you’re by any chance interested to know about my GSoC work, &lt;a href=&quot;http://me-ydv-5.github.io/gsoc2018/summary&quot;&gt;click here&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 18 Nov 2018 04:12:00 +0530</pubDate>
+        <link>http://localhost:4000/blog/gsoc-blog</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/gsoc-blog</guid>
+        
+        <category>Google summer of code</category>
+        
+        <category>google</category>
+        
+        <category>summer</category>
+        
+        <category>code</category>
+        
+        <category>tips</category>
+        
+        <category>gsoc</category>
+        
+        <category>open source</category>
+        
+        <category>foss</category>
+        
+        <category>free software</category>
+        
+        <category>blog</category>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>GSoC Summary</title>
+        <description>&lt;h1 id=&quot;octave-code-sharing&quot;&gt;Octave Code Sharing&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: This post can actually be seen in the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/wiki/Home&quot;&gt;project wiki&lt;/a&gt; as well. I forgot to push it on github.io.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;#code&quot;&gt;CLICK HERE&lt;/a&gt; TO VIEW THE ACTUAL CODE CHANGES.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Now that the coding period has finally ended, I’m happy to share the summary of my project.&lt;/p&gt;
+
+&lt;p&gt;My project was Octave Code Sharing. As the name suggests, it mainly focused (the first half of the project) on “sharing” the Octave code. The intended design was, the user should be able to push their octave script onto &lt;a href=&quot;https://wiki.octave.org&quot;&gt;wiki.octave.org&lt;/a&gt; for others to use and see.&lt;/p&gt;
+
+&lt;p&gt;For this, I needed a script to produce the script in a format that is acceptable by MediaWiki. My mentor had already done this bit by implementing the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/publish__.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;publish&lt;/code&gt;&lt;/a&gt; function. What this does is, it takes the user script and converts it to the prescribed format (if available), by default being &lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt;. So to convert it to wiki format, we needed &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/private/__publish_wiki_output__.m&quot;&gt;__publish_wiki_output__.m&lt;/a&gt;, which I refactored a bit. This file is responsible for producing the wiki output. &lt;code class=&quot;highlighter-rouge&quot;&gt;publish&lt;/code&gt; is used to parse the script file. After this, the main task was to find a way to upload the formatted file to the wiki server. An excellent reference point for getting started with this was &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/wikiLogin.sh&quot;&gt;this script&lt;/a&gt;. The script was written by the mentor as a bash script. So, I had to convert this script into an Octave counterpart so that we won’t need to execute third party code (bash script in this case) to transfer the content of the file to the wiki server.&lt;/p&gt;
+
+&lt;p&gt;Because the backend of Octave is mostly C++, I needed to use &lt;a href=&quot;https://curl.haxx.se/libcurl/&quot;&gt;libcurl&lt;/a&gt; library to perform the actual transfer, because Octave does not have its own implementation of such a library and many other areas of the software use libcurl as well.&lt;/p&gt;
+
+&lt;p&gt;The workflow is like this:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Input the script, user’s password and username to &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/publish_to_wiki.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;publish_to_wiki&lt;/code&gt;&lt;/a&gt; function, which converts the script to wiki format using &lt;code class=&quot;highlighter-rouge&quot;&gt;publish&lt;/code&gt; function internally and saves the output file to a directory named &lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt; (analogous to MATLAB).&lt;/li&gt;
+  &lt;li&gt;The same function then picks out the figures from the script, if any.&lt;/li&gt;
+  &lt;li&gt;Then it inputs the figures, formatted output file content and credentials to &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/wiki_upload.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_upload&lt;/code&gt;&lt;/a&gt; script.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_upload&lt;/code&gt; script then establishes the connection with the wiki server by asking for a login token.&lt;/li&gt;
+  &lt;li&gt;It stores the cookies in a temporary file.&lt;/li&gt;
+  &lt;li&gt;CSRF Login is then performed to the wiki server and an edit token (for editing a page) is obtained.&lt;/li&gt;
+  &lt;li&gt;The wiki formatted output file from &lt;code class=&quot;highlighter-rouge&quot;&gt;publish&lt;/code&gt; is then uploaded to the server.&lt;/li&gt;
+  &lt;li&gt;Figures are uploaded at last, with proper verification such that it doesn’t upload a particular figure if it alreadty exists on the server.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To test yourself, you may want to use the following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;publish_to_wiki (&quot;script_file&quot;, &quot;username&quot;, &quot;password&quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This should place your script on a URL similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;https://wiki.octave.org/script_file&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;An already performed example of this is, when I tried to publish a script named &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/intro.m&quot;&gt;intro.m&lt;/a&gt; on the &lt;a href=&quot;https://wiki.octave.space&quot;&gt;test wiki server&lt;/a&gt; set up by the mentor.
+I used the command,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;publish_to_wiki(&quot;intro&quot;, &quot;myUserName&quot;, &quot;myPassword&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and I got &lt;a href=&quot;https://wiki.octave.space/index.php/Intro&quot;&gt;this page&lt;/a&gt; as the result. This page has &lt;em&gt;not&lt;/em&gt; been written manually on the server, rather its all about the function.&lt;/p&gt;
+
+&lt;p&gt;An important point in this process is the storing of cookies, which was performed by libcurl and set up in &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/aa660b7dcae72a2e769ecbfe71b56c86012ca2db/liboctave/util/url-transfer.h#lines-158&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;liboctave/url-transfer.h&lt;/code&gt;&lt;/a&gt;. The most challenging part in this part of the project was to figure out the uploading of figures, which I was able to do in a week or so. This needed me to read a lot of documentation and codes. Finally, the figures were uploaded using the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/aa660b7dcae72a2e769ecbfe71b56c86012ca2db/liboctave/util/url-transfer.cc#lines-721&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;form_data_post&lt;/code&gt;&lt;/a&gt; function.&lt;/p&gt;
+
+&lt;p&gt;This was the first half part of the project.&lt;/p&gt;
+
+&lt;p&gt;Next was implementing the MATLAB compatible &lt;a href=&quot;https://github.com/octave-de/octave-web#the-intended-design&quot;&gt;RESTful services for Octave&lt;/a&gt;. The project included implementing the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/web/weboptions.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt;&lt;/a&gt;, &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/web/webread.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;webread&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/web/webwrite.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite&lt;/code&gt;&lt;/a&gt; functions. Other implementations of the suite will be followed in post GSoC work.&lt;/p&gt;
+
+&lt;p&gt;In this part of the project, working on &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; was very fun. I got to learn a lot about the internal processing of function files and how Octave uses handle classes to cater the needs of user defined classes. Also, the way getters and setters work is really nice, even though there is still space for Classdef in octave.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; is used to put header fields in the other two functions.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite&lt;/code&gt; is used to POST something to a URI. It can also take a weboptions object as an argument to amend the header fields.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;webread&lt;/code&gt; is used to GET something from a URI. It also accepts weboptions object as an input.&lt;/p&gt;
+
+&lt;p&gt;You can refer to the help text of the functions to know more about them. A few of the weboptions’ options are not yet implemented, which are explicitly listed in its help text, after discussion with mentor, so they won’t work with webwrite and webread either.&lt;/p&gt;
+
+&lt;p&gt;The challenging part in this part of the project was, passing the weboptions object from the octave script function to the C++ backend and then performing the required operations on them. These functions, too, use &lt;code class=&quot;highlighter-rouge&quot;&gt;libcurl&lt;/code&gt; for sending HTTP requests.&lt;/p&gt;
+
+&lt;p&gt;All the goals of the project were met. There were times when I was unable to get the thing done, be it trivial or not, but with continuous lookup and exploring, I was able to get them done. Sometimes, there are reasons that are out of your reach, like the sudden power failures that I encountered in my machine during the last phase. So, Kai, my mentor, being at his best, understood the concern and extended the weekly plan by a couple of days after I requested. I had also implemented a &lt;a href=&quot;https://bitbucket.org/me_ydv_5/server_code&quot;&gt;test server&lt;/a&gt; in java for GET and POST request only to find a week later that there’s one easy alternative of &lt;a href=&quot;https://httpbin.org/get&quot;&gt;https://httpbin.org/get&lt;/a&gt; and &lt;a href=&quot;https://httpbin.org/post&quot;&gt;https://httpbin.org/post&lt;/a&gt;, respectively.&lt;/p&gt;
+
+&lt;h2 id=&quot;further-work-after-gsoc-is-over&quot;&gt;Further work after GSoC is over.&lt;/h2&gt;
+
+&lt;p&gt;As for the &lt;code class=&quot;highlighter-rouge&quot;&gt;publish_to_wiki&lt;/code&gt; function, all the tests that I did were as desired, however if any error is reported it will be sorted out then and there.&lt;/p&gt;
+
+&lt;p&gt;There are a few options left in the &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; which are not currently implemented (this was intended). It would be extended as well using &lt;code class=&quot;highlighter-rouge&quot;&gt;jsonencode&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;jsondecode&lt;/code&gt;, essential for the next round of renovation in this function.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite&lt;/code&gt; works pretty good in case of sending HTTP requests in text form, but it is still unable to resolve a query list of JSON form. That is one thing that’s on my to-dos.&lt;/p&gt;
+
+&lt;p&gt;I’m currently trying to polish &lt;code class=&quot;highlighter-rouge&quot;&gt;webread&lt;/code&gt;, although it is in workable state, but still there’s space for some improvement. For example, when I try to GET an image from a URI, I am unable to decode the binary data from the output stream to convert it to an image. So this is what I’ve been working on currently.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The period between the start of the second phase and mid of the third phase were really fruitful. I had challenges to solve and that’s when I got adrenaline rushes many times.&lt;/p&gt;
+
+&lt;p&gt;All in all, the project was very exciting, as opposed to my initial impression, where I thought it to be a web development project and using HTML/CSS and all. I really learned, not only about Octave and its codebase but also many more things like, bitbucket, libcurl, MediaWiki, etc. to name a few. I also learned to manage things on time. This was one of the greatest perks of doing the GSoC.&lt;/p&gt;
+
+&lt;p&gt;Needless to say, this all happened with the help of my supportive and understanding mentor, Kai, who timely synced up with me, even though I used to hear from my peers that their mentor doesn’t respond timely, etc. He always appreciated my efforts and had a sound idea of what task would take what duration. He also expressed his unsatisfaction at some time, which really gave me a boost to perform better. And not to forget the little things that he noticed, like checking out which student has been putting regular posts on planet octave, etc. I’ll always be thankful to him for selecting me for GSoC. Also, I’m thankful to jwe, for introducing such a cool software, that too at no cost. The list may go on without a stop, but my heatiest thanks to all the maintainers and mentors who helped me bring the best out of myself. I’ll want to keep working with Octave community in future as well!&lt;/p&gt;
+
+&lt;p&gt;To a great “codeful” summer, 2018!&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;code&quot;&gt;CODE&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/branches/compare/ocs%0D%40#diff&quot;&gt;Complete diff&lt;/a&gt; of the work done in the project.&lt;/p&gt;
+
+&lt;p&gt;Commit to the first half part, Octave code sharing - &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/a5b41a9dcf6979c39953f8770b87cbadc23a08cd&quot;&gt;a5b41a9&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Commit to the second half part, RESTful services - &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/a5e8a2f640ac4bc398be655ecfcd4336ca82f89c&quot;&gt;a5e8a2f&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;The bookmark ‘ocs’ is for GSoC project.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 07 Aug 2018 17:48:00 +0530</pubDate>
+        <link>http://localhost:4000/gsoc2018/summary</link>
+        <guid isPermaLink="true">http://localhost:4000/gsoc2018/summary</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 15</title>
+        <description>&lt;p&gt;With the last week of GSoC arriving, I’m also in a position to wrap up the project. This week I’m focusing on thorough testing, documentation and other code optimizations. I’ve already refactored the existing code of third evaluations a bit in two different drives. In those, I’ve made the same internal function for setting up various cURL options for webread and webwrite functions. Also I’ve reduced a significant lines of code as well in some files, because I believe writing quality and useful code is better than writing quantity and useless code, as was suggested by Kai as well in early days of the project.&lt;/p&gt;
+
+&lt;p&gt;I’ve also implemented &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/026e8e95e076a63fe37706eae19e0b60648545f5#chg-scripts/miscellaneous/webread.m&quot;&gt;webread&lt;/a&gt; function the previous week.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 Jul 2018 18:08:00 +0530</pubDate>
+        <link>http://localhost:4000/gsoc2018/week15</link>
+        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week15</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 13 &amp; 14</title>
+        <description>&lt;p&gt;&lt;strong&gt;UPDATE 2:&lt;/strong&gt; I found the cause of the &lt;code class=&quot;highlighter-rouge&quot;&gt;urlread&lt;/code&gt; function not working correctly. It’s because curl sends the request as &lt;code class=&quot;highlighter-rouge&quot;&gt;application/x-www-form-urlencoded&lt;/code&gt; whereas it should be &lt;code class=&quot;highlighter-rouge&quot;&gt;application/json&lt;/code&gt;, which is explicitly changed in the cURL request that I’ve written down. I think this could be solved using the &lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite&lt;/code&gt; function that I’ve written.&lt;/p&gt;
+
+&lt;p&gt;Now coming to the project work, I’ve been wandering inside the codebase for the last three days to implement the &lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite&lt;/code&gt; function. This is what I’ve implemented as &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/webwrite.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite.m&lt;/code&gt;&lt;/a&gt;. It takes input and arranges them for further processing in currently what we call as &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/libinterp/corefcn/urlwrite.cc#lines-839&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__internal__&lt;/code&gt;&lt;/a&gt; function. A sudden question could be why two different, so this is because the processing of the input is easier in Octave than in C++ and we really need to work with cURL here so C++ cannot be sidelined. MATLAB can take the following as a string with 42 as a number &lt;code class=&quot;highlighter-rouge&quot;&gt;str = [&quot;His&quot;, &quot;age&quot;, &quot;is&quot;, 42]&lt;/code&gt; whereas in Octave, we get the ascii value corresponding to 42 in its place. This is one difference what I observed. Due to this, I’m asking users to pass strings all along, without any numbers. But I’m not sure how I can test above &lt;code class=&quot;highlighter-rouge&quot;&gt;str&lt;/code&gt; if it contains a number, so that I could warn/error the user that what he entered is not what Octave will get as. See this &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/scripts/miscellaneous/webwrite.m#lines-62&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FIXME&lt;/code&gt;&lt;/a&gt;. And earlier I was sending a flag if the user has supplied some weboptions or not, but now if they haven’t, I’m supplying the default weboptions object, afterall it’s good to use your code when you’ve put some time to write it!&lt;/p&gt;
+
+&lt;p&gt;Coming to the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/libinterp/corefcn/urlwrite.cc#lines-839&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__internal__&lt;/code&gt;&lt;/a&gt; function, this took my most of the time. I’d like to explicitly write two lines of code here, even if you do not understand them, kindly read them.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  octave_classdef *obj = args(nargin-1).classdef_object_value ();
+  cdef_object object = obj -&amp;gt; get_object ();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;These two lines look small, but took my most time and I was happiest when I got these working. This takes the weboptions object supplied from the m-script and gives us the C++ equivalent. I wrote this here just for my satisfaction anyway. The supposed working is, unpack the object and send the contents to an internal function to set the cURL headers which need to be amended. I was first trying to use &lt;a href=&quot;http://octave.org/doxygen/4.0/d4/d6c/classcdef__object.html#a1e1f017e8766d4c475b9b74aca0f767b&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;map_value ()&lt;/code&gt;&lt;/a&gt; function of the &lt;code class=&quot;highlighter-rouge&quot;&gt;cdef_object&lt;/code&gt; which essentially, maps the Keys (as strings) to their values (as &lt;code class=&quot;highlighter-rouge&quot;&gt;cdef_property&lt;/code&gt;), see &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/libinterp/octave-value/ov-classdef.cc#l1234&quot;&gt;this&lt;/a&gt; but because this always gives a &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/libinterp/octave-value/ov-classdef.cc#l1238&quot;&gt;warning&lt;/a&gt;, which is right, I refrained from using it because employing this in a function will decrease the UX quality of the software. Instead, I extracted Keys as strings and then queried their values. To get away with the warinings, I excluded &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/libinterp/corefcn/urlwrite.cc#lines-897&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;two Keys&lt;/code&gt;&lt;/a&gt; (“delete” and “display”) for now. But this is a bad design because although there won’t be any such keys in a weboptions object, but still we should be handling it some other way, currently which I do not know, I’ll ask Kai or jwe about this.&lt;/p&gt;
+
+&lt;p&gt;The other thing that I just got to think was, I’m unpacking the object in &lt;code class=&quot;highlighter-rouge&quot;&gt;__internal__&lt;/code&gt; function, and then sending it to some other function. Why not just send the object there and unpack it there? Reducing a lot of lines of code? To unpack, I wrote an equivalent &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.h#lines-44&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;struct&lt;/code&gt;&lt;/a&gt; and then I’m passing this to &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.cc#lines-752&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set_weboptions&lt;/code&gt;&lt;/a&gt; function, which then puts the corresponding options in cURL. I’ll change this to simpler format so that we won’t need struct. There are a few &lt;code class=&quot;highlighter-rouge&quot;&gt;FIXME&lt;/code&gt; tags in this function for which I’ll need the help of mentor and other maintainers. For example, I searched the code to find how to push back values in an &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&amp;lt;std::string&amp;gt;&lt;/code&gt;, but couldn’t find it out. This will save us a lot of time because now that I know how Classdef’s API work in C++.&lt;/p&gt;
+
+&lt;p&gt;I also changed &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.cc#lines-645&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http_action&lt;/code&gt;&lt;/a&gt; function and completely removed the previous &lt;code class=&quot;highlighter-rouge&quot;&gt;http_get&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;http_post&lt;/code&gt; functions to accomodate new HTTP methods like &lt;code class=&quot;highlighter-rouge&quot;&gt;DELETE&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt;, Kai too had complained about this being a bad design back in phase one, so his query should also have resolved by this. Also the error in this function is not propagated correctly to the interpreter. See the FIXME in the function. Oh, and the function &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.cc#lines-704&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set_header&lt;/code&gt;&lt;/a&gt; that I wrote in phase two can be of good use now in phase three, so that’s good.&lt;/p&gt;
+
+&lt;p&gt;Also, &lt;a href=&quot;http://httpbin.org&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://httpbin.org&lt;/code&gt;&lt;/a&gt; is a cool site to throw requests for testing, rendering my server useless. Anyway, I learnt a thing or two about that as well with this.&lt;/p&gt;
+
+&lt;p&gt;A few other small detailings are left which will be cleared as soon as me and Kai meet on the IRC.&lt;/p&gt;
+
+&lt;p&gt;I must say, initially I was over expecting, but Kai correctly saw the depth of the project and resisted me to add more work given that I still spend around 30-35 hours a week to the project (I hope this is not offending anyone!). Writing this function was a great experience. I generally get headache working on laptop, but I could seemlessly work without any long break for around 18 hours a day. Wrapping up this week’s post, I hope someone might reach here reading it. Feel free to suggest/advice me on the work.&lt;/p&gt;
+
+&lt;p&gt;Thanks and have a good time.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; There’s some problem with &lt;code class=&quot;highlighter-rouge&quot;&gt;urlread&lt;/code&gt; function in octave when sending post requests. Because my this week’s work is related to the same, I’ll check what exactly is getting wrong. You can try the curl command in the meantime. Also, the server will respond (most probably) at every time form now on.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Hi!&lt;/p&gt;
+
+&lt;p&gt;I’m pleased to tell you all that I’ve got good remarks in second evaluation of GSoC! Kai didn’t complin about what I was lacking in the first evaluation. I’m really thankful to him for this.&lt;/p&gt;
+
+&lt;p&gt;Coming to the next and final phase of the GSoC, I have to implement &lt;a href=&quot;https://in.mathworks.com/help/matlab/ref/webread.html&quot;&gt;webread&lt;/a&gt; and &lt;a href=&quot;https://in.mathworks.com/help/matlab/ref/webwrite.html&quot;&gt;webwrite&lt;/a&gt; functions in Octave. I had some issues with getters and setters in &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; which have now been rectified.&lt;/p&gt;
+
+&lt;p&gt;To check the working of the two functions, I needed a server that could entertain HTTP request and let us verify the desired results. For this, I chose &lt;a href=&quot;https://www.playframework.com/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Java Play! Framework&lt;/code&gt;&lt;/a&gt;, which is a super cool tool in JAVA that serves our purpose well. Needless to say, it is RESTful by default. It works on &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot;&gt;MVC design pattern&lt;/a&gt;. Without wasting everyone’s time, I’d like to introduce a few files that are relevant to our project.&lt;/p&gt;
+
+&lt;p&gt;The first and the foremost is the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/server_code/src/master/conf/routes&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;routes&lt;/code&gt;&lt;/a&gt; file, which binds our app to the outer world. Routes can also be called as endpoints, if anyone is aware of. We write all the HTTP requests (GET, POST, PUT, etc.) here and map those endpoints to our corresponding functions that take action on the requests. As an example, you can see that GET request to the &lt;code class=&quot;highlighter-rouge&quot;&gt;webhook&lt;/code&gt; endpoint is mapped to &lt;a href=&quot;https://bitbucket.org/me_ydv_5/server_code/src/7da1bc07f3384c270920d705a0e1a44dc12bce32/app/controllers/HomeController.java#lines-30&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;webhookGet()&lt;/code&gt;&lt;/a&gt; function. Similarly, we can write functions as per our need and do the needful.&lt;/p&gt;
+
+&lt;p&gt;Next file is a controller. Controllers are the files that essentially parse/decode your request into smaller pieces and the applies some computation with the help of auxillary functions defined elsewhere. The above mentioned webhookGet() function is what is written in a controller.&lt;/p&gt;
+
+&lt;p&gt;The last one is &lt;code class=&quot;highlighter-rouge&quot;&gt;application.conf&lt;/code&gt; which has all the configurations that are needed to run the project. The server is run using the &lt;code class=&quot;highlighter-rouge&quot;&gt;sbt run&lt;/code&gt; command and shipped for production using &lt;code class=&quot;highlighter-rouge&quot;&gt;sbt dist&lt;/code&gt; command. Only you need to have a JAVA environment to make these command work. You can try to play with it using the source code from &lt;a href=&quot;https://bitbucket.org/me_ydv_5/server_code/src&quot;&gt;here&lt;/a&gt;. Note that the latter command cannot be run on the production server unless you have high memory for it, I myself, do the dist command on my machine and then &lt;code class=&quot;highlighter-rouge&quot;&gt;rsync&lt;/code&gt; the zip file to the server, although there are other easier methods available like using CI server, etc. Kindly feel free to ask me anything related to the framework or anything else related to project, in general.&lt;/p&gt;
+
+&lt;p&gt;Now that the server has been set up, we can hit GET and PUSH requests on it and tweak the behaviour of what happens with our requests as per our need. Currently, the server will behave as an echo server, so it will let you know what you sent.&lt;/p&gt;
+
+&lt;p&gt;To check if the server works as expected for you, you can issue the following command in Octave:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;s = urlread(&quot;https://batterylow.me:9000/webhook&quot;, &quot;get&quot;, {&quot;mode&quot;, &quot;testing&quot;, &quot;verify_token&quot;, &quot;theTokenToAccount&quot;, &quot;message&quot;, &quot;Post back this message to me&quot;})&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The last parameter in the above cell string should be returned to you. Note that &lt;code class=&quot;highlighter-rouge&quot;&gt;mode&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;verify_token&lt;/code&gt; should be &lt;code class=&quot;highlighter-rouge&quot;&gt;testing&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;theTokenToAccount&lt;/code&gt; respectively, because a request only succeeds when the above two pairs match, as you can see in the source code. &lt;strong&gt;Remember to use https protocol&lt;/strong&gt; while sending the request, because it doesn’t accept requests from http (even I spent considerable time on this silly mistake!). You can use curl as well by invoking the following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; curl -H &quot;Content-Type: application/json&quot; -X POST &quot;https://batterylow.me:9000/webhook&quot; -d '{&quot;name&quot;: &quot;yourName&quot;}'&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Ofcourse, you can easily send the above two requests using octave as well like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET Request:
+s = urlread(&quot;https://batterylow.me:9000/webhook&quot;, &quot;get&quot;, {&quot;mode&quot;, &quot;testing&quot;, &quot;verify_token&quot;, &quot;theTokenToAccount&quot;, &quot;message&quot;, &quot;Post back this message to me&quot;})
+
+POST Request:
+s = urlread(&quot;https://batterylow.me:9000/webhook&quot;, &quot;post&quot;, {&quot;name&quot;, &quot;yourname&quot;})
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;One hurdle for me right now is my system, it keeps crashing! At all unknown times! I’m trying to get it work asap so got late to complete the &lt;code class=&quot;highlighter-rouge&quot;&gt;webread&lt;/code&gt; function. Today as well, I got some space now to write the post. I’ll update this post in a day or two with my implementation details of the function. (I had intimidated Kai about this.)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; You may &lt;em&gt;not&lt;/em&gt; get the response from the server because I myself need to run it on that machine. Kindly let me know on IRC if you need to suggest/advice anything. I’ll definitely reply if my machine might be working and I may be online!&lt;/p&gt;
+
+&lt;p&gt;Till then! :-)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 19 Jul 2018 21:40:00 +0530</pubDate>
+        <link>http://localhost:4000/gsoc2018/week13-14</link>
+        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week13-14</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 12</title>
+        <description>&lt;p&gt;I’ve implemented the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/weboptions.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt;&lt;/a&gt; function. I also added relevant comments wherever needed, including the code of first evaluation. This completes the second phase evaluation task, i.e, implementing &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_upload&lt;/code&gt; script and &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt;. There was an unprecendented delay of a week when I was trying to upload the images on the server. It would’ve given me a head start if I had completed the task without the delay, although I am still on the track. There’s one thing left, the help text that I wrote for &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; isn’t being displayed when I issue &lt;code class=&quot;highlighter-rouge&quot;&gt;help weboptions&lt;/code&gt; because it’s a &lt;code class=&quot;highlighter-rouge&quot;&gt;Classdef&lt;/code&gt; and not &lt;code class=&quot;highlighter-rouge&quot;&gt;function&lt;/code&gt;. Other than this, I feel the task has been executed correctly.&lt;/p&gt;
+
+&lt;p&gt;Coming to the next task, I plan to implement &lt;code class=&quot;highlighter-rouge&quot;&gt;webread&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite&lt;/code&gt; function with MATLAB compatibilty. I think I can change &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_upload&lt;/code&gt; script to be a generic one and then use it for both wiki and webwrite. This would help us extend it with any other functionality in the future.&lt;/p&gt;
+
+&lt;p&gt;Note that a few of the &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; fields are currently for MATLAB compatibilty, as described in the previous post. Also, second phase evaluation will take place this week. Hoping for not giving Kai a chance to complain! :-)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 09 Jul 2018 20:32:00 +0530</pubDate>
+        <link>http://localhost:4000/gsoc2018/week12</link>
+        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week12</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 11</title>
+        <description>&lt;p&gt;This week I fixed some styling in the previous codebase and other minor issues. Me and Kai had a very fruitful discussion this week for the roadmap ahead. We discussed many things.&lt;/p&gt;
+
+&lt;p&gt;Kai verified that &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/wiki_upload.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_upload.m&lt;/code&gt;&lt;/a&gt; (an important dependency for &lt;code class=&quot;highlighter-rouge&quot;&gt;publish_to_wiki.m&lt;/code&gt;) works as expected including the checks for uploading the same image again, wikimedia itself does a hashcheck before uploading and sends an error if the image is identical to the previous one or a warning if the image already exists on the wiki server. You can check this by calling:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;publish_to_wiki (&quot;script&quot;, &quot;username&quot;, &quot;password&quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;where &lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;username&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;password&lt;/code&gt; correspond to the script that you want to publish, your username and password for &lt;a href=&quot;https://wiki.octave.space&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wiki.octave.space&lt;/code&gt;&lt;/a&gt; (this will be changed to &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki.octave.org&lt;/code&gt; later) respectively. One problem that I noted was Octave hangs up if the connection gets lost in the middle of the transfer. But this is not native to this function, it affects all the files that require to use libcurl’s interface to Octave. Nevertheless, I tried to look into it, with the function &lt;a href=&quot;https://curl.haxx.se/libcurl/c/CURLOPT_TIMEOUT.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CURLOPT_TIMEOUT&lt;/code&gt;&lt;/a&gt; and other, as well. Unfortunately, I couldn’t get a viable answer because the timeout value in the above function is measured from the start of the transfer and &lt;strong&gt;NOT&lt;/strong&gt; when the connection gets lost. So suppose if someone has a large transfer, then setting this value is potentially dangerous because their tansfer will get cancelled in the middle of the process even though the connection is good. Other than this, there were provisions to exit the API if the speed gets below a given threshold. This again cannot be guaranteed because it might be that the user may have a lesser internet speed. So, the idea of resuming Octave was dropped altogether, its again upto the user to get a proper internet connection! Other than this, there was the quest of making test cases for &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_upload.m&lt;/code&gt; for which I suggested to measure the &lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Length&lt;/code&gt; of the query string that is formed as part of the transfer. This again has problems, because the libcurl API for Octave doesn’t let the developer know the actual query string which is transferred over the connection. FYI, the query string formation takes place &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/7dad5fa7e88e/liboctave/util/url-transfer.cc#l743&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;here&lt;/code&gt;&lt;/a&gt;. This would only add a big overhead for the returned values from the C++ API to the Octave code because all of the functions that use the &lt;code class=&quot;highlighter-rouge&quot;&gt;perform ()&lt;/code&gt; (it actually performs the transfer) function will need to be changed. I initially had suggested this because during debugging I had actually changed the &lt;code class=&quot;highlighter-rouge&quot;&gt;form_query_string&lt;/code&gt; function according to my needs. But then I realised that this is not feasible because:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;As mentioned above, there would be unnecessary overhead to change all the functions because of change in &lt;code class=&quot;highlighter-rouge&quot;&gt;form_query string&lt;/code&gt; function. Also, a number of other already implemented functions use it. So, regression can occur.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We actually cannot measure the actual Content-Length properly, because the content is sent in &lt;em&gt;UTF-8&lt;/em&gt; format which replaces all the non-alphabetical characters with their UTF-8 version. So a whitespace is changed to &lt;code class=&quot;highlighter-rouge&quot;&gt;%20&lt;/code&gt;. Of course there are other ways to measure the UTF values for all the characters by running various for loops and adding offsets to a given values to find another value, etc. But I do not think this is a good measure to test the main working of &lt;em&gt;wiki_upload&lt;/em&gt; which essentially needs to check if the file has been uploaded or not on the wiki.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Will see if there’s anything else I could do about this, else I will need to manually check at various times if the file has been uploaded correctly or not.&lt;/p&gt;
+
+&lt;p&gt;Lastly, the commenting part, which I don’t want to loose marks for, is left and I’ll be doing that in the coming days, before the evaluation so that Kai doesn’t get a chance to bash me on this. ;-)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;THIS COMPLETES THE FIRST HALF OF THE PROJECT, i.e., OCTAVE CODE SHARING.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Next lined up is, setting up &lt;strong&gt;RESTful web services for Octave&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;We had a good discussion over this too. First to be implemented is, &lt;a href=&quot;https://www.mathworks.com/help/matlab/ref/weboptions.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt;&lt;/a&gt;. I initially thought of implementing it using a &lt;code class=&quot;highlighter-rouge&quot;&gt;struct&lt;/code&gt; in the backend. But then Kai suggested to use &lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Classdef&lt;/code&gt;&lt;/em&gt; in Octave and making an object. Of course, he was right, one simple and foolish reason being, weboptions in MATLAB doesn’t display the &lt;code class=&quot;highlighter-rouge&quot;&gt;Password&lt;/code&gt; field and if &lt;code class=&quot;highlighter-rouge&quot;&gt;struct&lt;/code&gt; is deployed for this, there’s no way that the password is stored in a plain text and displayed as obscured.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/weboptions.m&quot;&gt;Here&lt;/a&gt; is what I’ve implemented for this. It almost acts like the weboptions in Matlab with subtle differences. For example, when you call the following, it will show the answer that follows:&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;    d = weboptions
+
+      &amp;lt;object weboptions&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;MATLAB shows the values of the fields instead. For that I’ve created a method &lt;code class=&quot;highlighter-rouge&quot;&gt;values&lt;/code&gt; so that when you call &lt;code class=&quot;highlighter-rouge&quot;&gt;d.values&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;values(d)&lt;/code&gt;, you get to see all the values that are set for the object. There are a few problems which will most probably get rectified as me and Kai have another meeting on IRC. Basically, I’ll need to find a way to represent cell string in it’s input form, i.e, something like&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ans =   {&quot;foo&quot;, &quot;bar&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and not&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ans =
+    {
+        [1,1] = &quot;foo&quot;
+        [1,2] = &quot;bar&quot;
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;You can set values for the various fields and members in the object by calling &lt;code class=&quot;highlighter-rouge&quot;&gt;d.field_name = your_desired_value;&lt;/code&gt;. This will do as desired. Some of the fields are currently for the MATLAB compatiblity and will be dealt with later, like &lt;code class=&quot;highlighter-rouge&quot;&gt;ContentReader&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;MediaType&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;CertificateFilename&lt;/code&gt;, etc.&lt;/p&gt;
+
+&lt;p&gt;Oh and kindly strip your latest commit on &lt;code class=&quot;highlighter-rouge&quot;&gt;ocs&lt;/code&gt; (a merge commit) in your local repo, else it’ll create a new head. Sorry about that!&lt;/p&gt;
+
+&lt;p&gt;Wrapping up for now! Apologies for such a long post.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 01 Jul 2018 22:01:00 +0530</pubDate>
+        <link>http://localhost:4000/gsoc2018/week11</link>
+        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week11</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 9 &amp; 10</title>
+        <description>&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; I am more than happy to announce that I’ve been able to upload the images on to the wiki server!! The problem was not in &lt;code class=&quot;highlighter-rouge&quot;&gt;form_data_post&lt;/code&gt; but in &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-663&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http_post&lt;/code&gt;&lt;/a&gt; (in my version of Octave’s repository). There were two faults:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I was calling &lt;code class=&quot;highlighter-rouge&quot;&gt;http_action&lt;/code&gt; which then used to call &lt;code class=&quot;highlighter-rouge&quot;&gt;http_post&lt;/code&gt; inturn which then POSTed the data, despite the fact that there was no &lt;code class=&quot;highlighter-rouge&quot;&gt;POSTFIELD&lt;/code&gt; or POSTable data with me, it was &lt;code class=&quot;highlighter-rouge&quot;&gt;FORM&lt;/code&gt; submission instead. I’ve now added the &lt;code class=&quot;highlighter-rouge&quot;&gt;perform()&lt;/code&gt; function in the &lt;code class=&quot;highlighter-rouge&quot;&gt;form_data_post&lt;/code&gt; itself so that I won’t need to interact with the former.&lt;/li&gt;
+  &lt;li&gt;I had set the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-671&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Length&lt;/code&gt;&lt;/a&gt; parameter to get from the length of POSTFIELDS, which isn’t needed as of now.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nevertheless, I’m pumped up again for furthering my work!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;There has been some problem in completing the &lt;code class=&quot;highlighter-rouge&quot;&gt;upload_to_wiki&lt;/code&gt; script. Unfortunately, I’m unable to send the images on to the servers. Other than that, everything is working fine. I’ve been trying to do the same since the past week, but still no success, even after tracking down the cURL’s source code.&lt;/p&gt;
+
+&lt;p&gt;Basically we need to have a linked list of pointers to the information that we want to send as a form data. I tried to traverse that (It is native to cURL and unseen for the end user). Everything looks fine there. The only bottleneck that I can observe for now is, the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-710&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;form_data_post&lt;/code&gt;&lt;/a&gt; function is not working as desired. I’ve tried all other alternatives to check where my code is not responding as per standards. But I think only the above function must have problem.&lt;/p&gt;
+
+&lt;p&gt;I also discussed this issue with the mentors and other people at IRC channel. However, there’s one more thing to it. The functionality that I’m currently using (&lt;a href=&quot;https://curl.haxx.se/libcurl/c/CURLOPT_HTTPPOST.html&quot;&gt;CURLOPT_HTTPPOST&lt;/a&gt;) is deprecated now from cURL version 7.56 and instead MIME API is being used. (See &lt;a href=&quot;https://github.com/curl/curl/pull/1839&quot;&gt;this&lt;/a&gt; for more.) I asked Kai about this and he too agreed on the fact that I shuold be keeping backwards compatibilty, but then jwe and andy suggested me to use the latter funcitonality with MIME api and then make the feature available only to those who have cURL 7.56+. I’ll ask the mentor once again if either the problem gets solved for now and then I change it to MIME API once the work gets over, or I should instead do it now only.&lt;/p&gt;
+
+&lt;p&gt;Other than that, I will start implementing the RESTful services from now on, the other half part of the project. So, we’ll see how much of these functions that I’ve implemented so far get reused.&lt;/p&gt;
+
+&lt;p&gt;Until then! :-)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 23 Jun 2018 18:08:00 +0530</pubDate>
+        <link>http://localhost:4000/gsoc2018/week9-10</link>
+        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week9-10</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 8</title>
+        <description>&lt;p&gt;Hi! Now that my exams are over, I am back on the track. First evaluation will take place this week. I will continue my work from the last task, i.e, &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login.m&lt;/code&gt;, to complete its implementation and then use it in &lt;code class=&quot;highlighter-rouge&quot;&gt;publish_to_wiki&lt;/code&gt; function that will help us upload the wiki to user’s online wiki. After that I plant to implement the RESTful services part of the project, which has &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; function lined up at first.&lt;/p&gt;
+
+&lt;p&gt;I’ll update this blog with any subsequent progresses.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 11 Jun 2018 20:45:00 +0530</pubDate>
+        <link>http://localhost:4000/gsoc2018/week8</link>
+        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week8</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 6 &amp; 7</title>
+        <description>&lt;p&gt;As I’ve already completed my first evaluation work and got it reviewed the same from mentor, I won’t be doing much work in these two weeks due to my end semester exams. However, I’ll be continuing my post from week 8, positively.&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
         <pubDate>Tue, 29 May 2018 22:56:00 +0530</pubDate>
-        <link>https://me-ydv-5.github.io/gsoc2018/week6-7</link>
-        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week6-7</guid>
+        <link>http://localhost:4000/gsoc2018/week6-7</link>
+        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week6-7</guid>
         
         
         <category>jekyll</category>
@@ -31,7 +485,7 @@
     
       <item>
         <title>Week 5</title>
-        <description>&lt;p&gt;With 25th May approaching, I’m confident to say that I’ve completed my first evaluation (although some grammatical and styling rechecking is left). Now, as directed by Kai, I’ve implemented the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/wiki_login.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login.m&lt;/code&gt;&lt;/a&gt; function from using the internals of &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/liboctave/util/url-transfer.cc#lines-731&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;url-transfer.cc/h&lt;/code&gt;&lt;/a&gt; class. I’ve scapped the earlier design of implementing &lt;code class=&quot;highlighter-rouge&quot;&gt;cookie_manager.m&lt;/code&gt; script and &lt;code class=&quot;highlighter-rouge&quot;&gt;libcurl_wrapper.cc&lt;/code&gt; class for doing the cookie thing and directly implemented &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/libinterp/corefcn/urlwrite.cc#lines-739&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__wiki_login__&lt;/code&gt;&lt;/a&gt; as an internal function in &lt;code class=&quot;highlighter-rouge&quot;&gt;urlwrite.cc&lt;/code&gt;. A user is now able to log into api.php&lt;/p&gt;
+        <description>&lt;p&gt;With 25th May approaching, I’m confident to say that I’ve completed my first evaluation (although some grammatical and styling rechecking is left). Now, as directed by Kai, I’ve implemented the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/wiki_login.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login.m&lt;/code&gt;&lt;/a&gt; function from using the internals of &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/liboctave/util/url-transfer.cc#lines-731&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;url-transfer.cc/h&lt;/code&gt;&lt;/a&gt; class. I’ve scapped the earlier design of implementing &lt;code class=&quot;highlighter-rouge&quot;&gt;cookie_manager.m&lt;/code&gt; script and &lt;code class=&quot;highlighter-rouge&quot;&gt;libcurl_wrapper.cc&lt;/code&gt; class for doing the cookie thing and directly implemented &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/libinterp/corefcn/urlwrite.cc#lines-739&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__wiki_login__&lt;/code&gt;&lt;/a&gt; as an internal function in &lt;code class=&quot;highlighter-rouge&quot;&gt;urlwrite.cc&lt;/code&gt;. A user is now able to log into api.php&lt;/p&gt;
 
 &lt;p&gt;To test my implemtation:&lt;/p&gt;
 
@@ -71,236 +525,8 @@
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
         <pubDate>Mon, 21 May 2018 16:36:00 +0530</pubDate>
-        <link>https://me-ydv-5.github.io/gsoc2018/week5</link>
-        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week5</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
-    
-      <item>
-        <title>Week 4</title>
-        <description>&lt;p&gt;Continuing further, I added more options in &lt;code class=&quot;highlighter-rouge&quot;&gt;libcurl_wrapper.cc&lt;/code&gt;. As described in earlier posts, the current implementation of &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login.m&lt;/code&gt; has the JAVA’s interface to Octave in use and I need to replace it with Octave’s own implementation. So, I’ve taken two steps in this direction. Now a user is able to retrieve token when he executes &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login&lt;/code&gt; AND use the cookies that are set in a temporary &lt;code class=&quot;highlighter-rouge&quot;&gt;.txt&lt;/code&gt; file to login into the &lt;code class=&quot;highlighter-rouge&quot;&gt;api.php&lt;/code&gt; wiki. Currently, there’s a problem in logging in, because the following cookies are unable to get added, &lt;code class=&quot;highlighter-rouge&quot;&gt;octave_org_session&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;octave_orgUserID&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;octave_orgUserName&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;octave_orgToken&lt;/code&gt;. I got to know about these cookies when I tried to execute the curl-cli commands for logging in.&lt;/p&gt;
-
-&lt;p&gt;I also understood how the &lt;code class=&quot;highlighter-rouge&quot;&gt;HAVE_CURL&lt;/code&gt; macro encapsulates the &lt;code class=&quot;highlighter-rouge&quot;&gt;curl_transfer&lt;/code&gt; class, i.e, if curl is available in a machine, then this class exists, else not. &lt;code class=&quot;highlighter-rouge&quot;&gt;HAVE_CURL&lt;/code&gt; is a macro that is set during &lt;code class=&quot;highlighter-rouge&quot;&gt;./configure&lt;/code&gt; stage of building the software. I will be extending my work in this class essentially in the coming week.&lt;/p&gt;
-
-&lt;p&gt;I’ve also added the files in their appropriate directories.&lt;/p&gt;
-
-&lt;p&gt;A new &lt;a href=&quot;https://wiki.octave.space&quot;&gt;dummy wiki&lt;/a&gt; has been created by Kai for testing purposes. I’ll be using this from now on.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 16 May 2018 21:46:00 +0530</pubDate>
-        <link>https://me-ydv-5.github.io/gsoc2018/week4</link>
-        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week4</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
-    
-      <item>
-        <title>Week 3</title>
-        <description>&lt;p&gt;&lt;strong&gt;UPDATE on 12-May-2018&lt;/strong&gt;: You can now directly test my work by cloning my repo, updating the source tree to my bookmark by &lt;code class=&quot;highlighter-rouge&quot;&gt;hg up ocs&lt;/code&gt;, making a build and calling &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login&lt;/code&gt; from octave-cli to get a login token in return. I’ve added the files and necessary changes in the codebase itself. There’s no directory &lt;code class=&quot;highlighter-rouge&quot;&gt;ocode&lt;/code&gt; now.&lt;/p&gt;
-
-&lt;p&gt;If you happen to already have a build of octave, just do the following:
-* &lt;code class=&quot;highlighter-rouge&quot;&gt;cd path/to/your/source/tree&lt;/code&gt;
-*   &lt;code class=&quot;highlighter-rouge&quot;&gt;hg pull https://me_ydv_5@bitbucket.org/me_ydv_5/octave&lt;/code&gt; in your source tree.
-*   &lt;code class=&quot;highlighter-rouge&quot;&gt;hg up ocs&lt;/code&gt;
-*   &lt;code class=&quot;highlighter-rouge&quot;&gt;hg up -r 8bbf393&lt;/code&gt;
-*   &lt;code class=&quot;highlighter-rouge&quot;&gt;make -jX&lt;/code&gt; in your build tree.&lt;/p&gt;
-
-&lt;p&gt;This will save your time of cloning the entire repo and compiliing.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;As mentioned in the previous post, I worked on &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/8141dc41d467cc7c8d48990aefec92bd445f8663&quot;&gt;__publish_wiki_output__.m&lt;/a&gt; and &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/scripts/miscellaneous/publish.m&quot;&gt;publish.m&lt;/a&gt; code. The __publish_wiki_output__.m has been added as an internal function in scripts/miscellaneous/private. I skimmed through the parser in publish.m to get a gist of how it actually works. It has three levels of parsing:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Extract the overall structure (paragraphs and code sections).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Parsing the content of a paragraph.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Generate the output of the script code and look after figures produced in code.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;After that, I studied how the &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/liboctave/util/url-transfer.h&quot;&gt;url-transfer.h&lt;/a&gt; file is implemented which contains a base class named &lt;code class=&quot;highlighter-rouge&quot;&gt;base_url_transfer&lt;/code&gt; which has a derived class named &lt;code class=&quot;highlighter-rouge&quot;&gt;url_transder&lt;/code&gt;. One thing that puzzled me while doing so was, why there has to be a macro &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/liboctave/util/url-transfer.cc#l220&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HAVE_CURL&lt;/code&gt;&lt;/a&gt; in order for &lt;code class=&quot;highlighter-rouge&quot;&gt;curl_transfer&lt;/code&gt; to be defined and why we haven’t defined &lt;code class=&quot;highlighter-rouge&quot;&gt;url_transfer&lt;/code&gt; class itself? I would try to get these doubts solved this week.&lt;/p&gt;
-
-&lt;p&gt;The problem of &lt;a href=&quot;https://www.mediawiki.org/wiki/API:Main_page#Identifying_your_client&quot;&gt;user agent&lt;/a&gt; was solved by selecting the following user agent:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;text
-    GNU Octave/OCTAVE_VERSION (https://www.gnu.org/software/octave/ ; help@octave.org) libcurl/LIBCURL_VERSION
-&lt;/code&gt;
-where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and libcurl version respectively. &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/libcurl_wrapper.ccT184&quot;&gt;This&lt;/a&gt; code precisely does the same for us.&lt;/p&gt;
-
-&lt;p&gt;My inteded plan for the wrapper is, make a &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/cookie_manager.m&quot;&gt;cookie_manager.m&lt;/a&gt; file that will process the various user options (like verbose output, timeout settings, api.php url, etc.) and pass the values to an internal &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/__curl__.cc&quot;&gt;__curl__.cc&lt;/a&gt; function which will in turn, take help from &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/libcurl_wrapper.cc&quot;&gt;libcurl_wrapper.cc&lt;/a&gt; to do various tasks (all the work related to cookies will be looked after by it, essentially).&lt;/p&gt;
-
-&lt;p&gt;Curently, all the code in &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/wiki_login.m&quot;&gt;wiki_login.m&lt;/a&gt; has been commented out except the first step of login, i.e, &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/wiki_login.mT20&quot;&gt;getting a login token&lt;/a&gt; from the api.php, which it smoothly does, as of now. I am assuming that the file which would store the cookies, is &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/cookie_manager.mT9&quot;&gt;temporary&lt;/a&gt; and should be deleted once the session expires. This is one of the things I will be looking on in this week.&lt;/p&gt;
-
-&lt;p&gt;I’ve migrated all the developments from my forked &lt;a href=&quot;https://github.com/me-ydv-5/octave-web/commits/master&quot;&gt;git repo&lt;/a&gt; to my mercurial bookmark &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ocs&lt;/code&gt;&lt;/a&gt; recently and so I was not sure where should I put the files in my source tree. Thus, I’ve put all of them in a directory &lt;code class=&quot;highlighter-rouge&quot;&gt;ocode&lt;/code&gt; for now.&lt;/p&gt;
-
-&lt;p&gt;To test this for yourself:
- * Clone my build tree using &lt;code class=&quot;highlighter-rouge&quot;&gt;hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave&lt;/code&gt;
- * Make yourself a build of octave (&lt;code class=&quot;highlighter-rouge&quot;&gt;make -j2&lt;/code&gt;, etc.). 
- * &lt;code class=&quot;highlighter-rouge&quot;&gt;cd octave&lt;/code&gt;.&lt;br /&gt;
- * Update to my bookmark using &lt;code class=&quot;highlighter-rouge&quot;&gt;hg up ocs&lt;/code&gt;. (IMPORTANT!)
- * &lt;code class=&quot;highlighter-rouge&quot;&gt;cd ocode&lt;/code&gt;.
- * Execute &lt;code class=&quot;highlighter-rouge&quot;&gt;Makefile&lt;/code&gt; in octave.
- * Execute &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login&lt;/code&gt; in octave to get a login token.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;All other details of the wrapper’s implementation will be followed in the next post.&lt;/p&gt;
-
-&lt;p&gt;The next week would follow the following advances:
-* Choosing the right location for the files (after I get a green light for the current developmental path).
-* Extending other options in the wrapper for wiki_login’s steps 2 and 3.
-* Implementing cookie_manager with other user options.
-* Writing help text and text cases, if any.
-* Correction of existing work/ changing the stategy as adviced by mentor, or anyone else.
-* Look into how can I use existing &lt;code class=&quot;highlighter-rouge&quot;&gt;base_url_transfer&lt;/code&gt; class in the wrapper and resolve my query of the &lt;code class=&quot;highlighter-rouge&quot;&gt;HAVE_CURL&lt;/code&gt; macro and shared pointers, etc.&lt;/p&gt;
-
-&lt;p&gt;I am optimistic that I would be able to complete my first evaluation work by 25th May or so, as I will need to focus on my end term examinations after that which will start from 1 June. We don’t get holidays in between the exams!&lt;/p&gt;
-
-&lt;p&gt;Please let me know if I am doing it the right way or not, by either replying to &lt;a href=&quot;http://lists.gnu.org/archive/html/octave-maintainers/2018-04/msg00173.html&quot;&gt;this thread&lt;/a&gt; or by simply dropping a message on &lt;code class=&quot;highlighter-rouge&quot;&gt;#octave&lt;/code&gt; for &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;batterylow&amp;gt;&lt;/code&gt;. All the suggestions are always welcomed.&lt;/p&gt;
-
-&lt;p&gt;Oh and not to forget, I got my &lt;a href=&quot;https://batterylow.me&quot;&gt;domain&lt;/a&gt; an SSL certificate, now all the requests are served via HTTPS only!&lt;/p&gt;
-
-&lt;p&gt;Stay tuned for next update.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 08 May 2018 10:46:00 +0530</pubDate>
-        <link>https://me-ydv-5.github.io/gsoc2018/week3</link>
-        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week3</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
-    
-      <item>
-        <title>Week 2</title>
-        <description>&lt;p&gt;Week 1 included setting up all the work environment, &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave&quot;&gt;bitbucket repository&lt;/a&gt; for tracking my project’s progess and review,setting up and getting this blog aggregated to planet.octave.org. It also included reading up various files that are of concern to the project.&lt;/p&gt;
-
-&lt;p&gt;Week 2 would focus on getting my hands dirty in refactoring the &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/__publish_wiki_output__.m&quot;&gt;__publish_wiki_output__.m&lt;/a&gt; and (possibly) &lt;a href=&quot;https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/scripts/miscellaneous/publish.m&quot;&gt;publish.m&lt;/a&gt; code. This would also include looking up what exact methods/functions will be needed to implement the wrapper. Currently, a proof of concept is written as a &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/wikiLogin.sh&quot;&gt;bash script&lt;/a&gt;. My work of writing the wrapper will be highly inspired from this script.&lt;/p&gt;
-
-&lt;p&gt;The wrapper is written so that MediaWiki can be communicated directly using Octave and there won’t be any need to use Java’s interface to Octave or the bash script itself. To know how exactly MediaWiki API works, have a look at this nicely written &lt;a href=&quot;https://siko1056.github.io/blog/2017/03/10/getting-to-know-the-mediawiki-api.html&quot;&gt;post&lt;/a&gt;. Note that the $wgEnableAPI written in the post is now deprecated from MediaWiki’s version 1.32.0. Another thing that needs looking upon is MediaWiki needs a &lt;a href=&quot;https://www.mediawiki.org/wiki/API:Main_page#Identifying_your_client&quot;&gt;user agent&lt;/a&gt; in order for the client to be identified. So we need to decide what would be it.&lt;/p&gt;
-
-&lt;p&gt;Stay tuned for next update!&lt;/p&gt;
-</description>
-        <pubDate>Tue, 01 May 2018 11:21:00 +0530</pubDate>
-        <link>https://me-ydv-5.github.io/gsoc2018/week2</link>
-        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week2</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
-    
-      <item>
-        <title>Week 1</title>
-        <description>&lt;p&gt;I’ve been selected as a &lt;a href=&quot;https://summerofcode.withgoogle.com&quot;&gt;Google Summer of Code&lt;/a&gt; , 2018 student developer at &lt;a href=&quot;https://www.gnu.org/software/octave/&quot;&gt;GNU Octave&lt;/a&gt;. GNU Octave is a high-level language, primarily intended for numerical computations. It provides a convenient command line interface for solving linear and nonlinear problems numerically, and for performing other numerical experiments using a language that is mostly compatible with Matlab. It may also be used as a batch-oriented language.&lt;/p&gt;
-
-&lt;p&gt;A very heartful thanks to Kai T. Ohlhus, Doug Stewart, Ankit Raj and others who saw my potential and chose me for GSoC 2018.&lt;/p&gt;
-
-&lt;p&gt;My project is &lt;strong&gt;Octave Code Sharing&lt;/strong&gt;. Community bonding period would include reading up material that’d be essential for the project.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;abstract&quot;&gt;Abstract:&lt;/h2&gt;
-
-&lt;p&gt;This project aims to come up with a pan-octave implementation that could be used to connect to &lt;a href=&quot;https://wiki.octave.org&quot;&gt;wiki.octave.org&lt;/a&gt; with appropriate credentials for publishing octave scripts that could be hosted for distribution using the MediaWiki API. Currently, no formal implementation is there but a proof of concept which was implemented as a &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/publishToWiki.m&quot;&gt;bash script&lt;/a&gt;, later refactored to use &lt;a href=&quot;https://www.mathworks.com/help/matlab/internet-file-access.html&quot;&gt;JAVA’s interface&lt;/a&gt; to Octave. Since the network connection itself has latency and response time which are significantly large to get into notice, an Octave script, which will help in connection,  will not be much of a performance killer. To maintain a stateless HTTP protocol, some information that would be needed will be stored as cookies with the help of &lt;a href=&quot;https://curl.haxx.se/libcurl/&quot;&gt;Libcurl&lt;/a&gt; library. All this would lead to set up of RESTful services for GNU Octave which could be further extended to support the compatibility with MATLAB’s &lt;a href=&quot;https://www.mathworks.com/help/matlab/internet-file-access.html&quot;&gt;RESTful interface&lt;/a&gt;.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;timeline&quot;&gt;Timeline:&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;April 23 - May 14&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Community Bonding Period&lt;/strong&gt;: Get to know more about Libcurl and its implementation. Learn about HTTP request headers and stateless transfer protocol. Finalise location of files in the codebase that will be needed for code sharing. Study the existing work that has been done by the mentor. Study publish() and grabcode() functions. Study octave::url_transfer class. Learn about MediaWiki API and its implementation (backend working).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;May 15 - May 23&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Implement the Libcurl wrapper in libcurl_wrapper.cc/h. This would include the various &lt;a href=&quot;https://ec.haxx.se/libcurl-http-cookies.html#cookie-store-commands&quot;&gt;abstractions&lt;/a&gt; such as ‘ALL’, ‘SESS’, ‘FLUSH’, ‘RELOAD’ that could be used by octave’s script to use Libcurl cookies to connect to the server. There’s a &lt;a href=&quot;https://github.com/octave-de/octave-web/blob/master/web/libcurl_wrapper.cc&quot;&gt;preliminary implementation&lt;/a&gt; for the same which was implemented by the mentor sometime back, which can be extended in this phase for a more general design.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;May 23 - May 31&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Add ‘wiki’ as an ‘output_format’ in publish() function. This would extend the implementation of private function &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/__publish_wiki_output__.m&quot;&gt;__ publish_wiki_output__.m&lt;/a&gt; 
-that is to be used to format a wiki published code.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;June 1 - June 10&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Non Coding period due to University major examinations.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;June 11 - June 15&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;First Phase Evaluation&lt;/strong&gt; - Write Documentation of the work done upto this point and other tests such as setting up the wiki installation environment for testing the script that would be implemented in point 6. Catch up with the work if anything is lagging behind.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;June 15 - June 30&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Implement wiki_login.m which would use the Libcurl wrapper implemented in point 2. Currently &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/wiki_login.m&quot;&gt;this&lt;/a&gt; file uses Java’s interface to octave. But with the wrapper, the file would become an implementation of RESTful services for ‘code sharing’ and will not be dependent on Java’s interface to octave.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;July 1 - July 9&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Implement ‘weboptions’ function. It will return a default ‘weboptions’ object to specify parameters for a request to web service. This function will use the libCURL wrapper that would’ve been already implemented. Current scope of the function would be restricted to four options, viz., ‘Username’, ‘password’, ‘Keyname’, ‘KeyValue’.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;July 10 - July 13&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Second Evaluation Phase&lt;/strong&gt; - Write documentation of the work done upto here and other tests required for ‘weboptions’ function. Catch up with any previous work if left.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;July 14 - July 20&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Implement ‘webread’ function. This will read content from a web service and return data formatted as text. Other output arguments (cmap, alpha) will not be supported currently.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;July 21 - July 27&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Implement ‘webwrite’ function. This will put data in the body of an HTTP POST request to the web service.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;July 28 - August 6&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;Buffer period for anything that remains. Complete documentation and testing for ‘webwrite’ and ‘webread’.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;For now, libcurl_wrapper.cc/h would be placed in libinterp/corefcn but could be changed whether it should be used by default or on the user’s choice because someone might not want to connect themselves with &lt;a href=&quot;https://wiki.octave.org&quot;&gt;wiki.octave.org&lt;/a&gt;. I’ve for now, merged two weeks, i.e from 15 June to 30 June because the main task would be include the wrapper implementation for connecting to the webserver. This may span upto two weeks and so is the reason for two weeks of the same task.&lt;/p&gt;
-
-&lt;h3 id=&quot;additional-things-to-be-done-after-gsoc-is-over&quot;&gt;Additional Things to be done after GSoC is over:&lt;/h3&gt;
-&lt;p&gt;The web function is already partially implemented. The task will be to finish the implementation with various arguments such as ‘-notoolbar’, ‘-noaddressbox’, ‘-new’ for MATLAB’s compatibility. ‘websave’, ‘ftp’ and ‘sendmail’ that are a part of RESTful services, will also be implemented. Any other part of GNU octave which currently might need RESTful services using cookies can be amended to use the implementation that would result from the project. The ‘webread’ function will be extended to read values into JSON format and images as well.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Thanks for reading, will be posting next update soon. Looking forward to a bug-free and code-some summer. :-)&lt;/p&gt;
-</description>
-        <pubDate>Wed, 25 Apr 2018 12:46:00 +0530</pubDate>
-        <link>https://me-ydv-5.github.io/gsoc2018/week1</link>
-        <guid isPermaLink="true">https://me-ydv-5.github.io/gsoc2018/week1</guid>
+        <link>http://localhost:4000/gsoc2018/week5</link>
+        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week5</guid>
         
         
         <category>jekyll</category>
