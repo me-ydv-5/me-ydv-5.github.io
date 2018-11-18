@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 18 Nov 2018 16:08:19 +0530</pubDate>
-    <lastBuildDate>Sun, 18 Nov 2018 16:08:19 +0530</lastBuildDate>
+    <pubDate>Mon, 19 Nov 2018 00:26:33 +0530</pubDate>
+    <lastBuildDate>Mon, 19 Nov 2018 00:26:33 +0530</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -40,7 +40,7 @@
       &lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;The At the end of the day, it’s more about your code quality and collaboration and less about the type of org that you apply to, for getting selected.&lt;/p&gt;
+    &lt;p&gt;At the end of the day, it’s more about your code quality and collaboration and less about the type of org that you apply to, for getting selected.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Make sure you select a project that has atleast one mentor with it. I was working on some project for quite some time and was pretty confident of getting selected but then even when three days were left for proposal submission, none of the maintainers bothered to own the project. I hurriedly filled out proposal for some another project in the last two days and got selected for that. I’ll partly attribute this to luck and partly to my hard work. Luck, because no other aspirant was working on the second project, hard work because the mentor of the new project knew me indirectly as I had been contributing in the org for past 4-5 months and had made my fair share of presence.&lt;/p&gt;
@@ -49,7 +49,7 @@
     &lt;p&gt;Trying to do GSoC and an internship simultaneously? I believe not a good idea. It highly depends on what work you get in both of your projects. Some people are lucky that they can carry out both projects concurrently, although you’ll need to manage time and prioritize. Others may need to put more hours to their projects. I’ll advocate not to mix the two (and F both of them), although last call is from your side. If you think you can manage, go ahead with both, if not or you have some other time of the year for internship, go for one.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;If you are in your first or second year, it’ll hardly matter what org you choose because GSoC on a first/second year resume is really valuable to get good internships in your senior years or even at your level. The same applies for senior students as well but I feel it would be a cherry on cake for them if they choose a more popular tool or tech. The value of Google Summer of Code outweights that of the organization/project.&lt;/p&gt;
+    &lt;p&gt;If you are in your first or second year, it’ll hardly matter what org you choose because GSoC on a first/second year resume is really valuable to get good internships in your senior years or even at your level. The same applies for senior students as well but I feel it would be a cherry on cake for them if they choose a more popular tool or tech. The value of Google Summer of Code outweights that of the organization/project. Always keep in mind, &lt;strong&gt;Google Summer of Code != Google Internship&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Try not to be arrogant and I-know-it-all-and-I-dont-need-your-help kind of person. You’ll need help. You yourself will help. Be humble and respect everyone’s opinion. Most importantly, listen to what others are saying. They (maintainers, etc.) will almost all the times, be right as they know significantly more about the product/project than you. One of the best ways to be in constant notice is, helping other newbies like yourself over the mailing list and IRC. Use your resources wisely. You can approach any GSoCers you know and I guarantee almost 100% of the time, they’ll be happy to help you out unless you show derogatory behaviour.&lt;/p&gt;
@@ -63,7 +63,7 @@
 
 &lt;p&gt;Feel free to put your thoughts in the comments below. You may ping me whenever you need some help/suggestion. Thanks for your time!&lt;/p&gt;
 
-&lt;p&gt;If you’re by any chance interested to know about my GSoC work, &lt;a href=&quot;http://me-ydv-5.github.io/gsoc2018/summary&quot;&gt;click here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you’re by any chance interested to know about my GSoC work, &lt;a href=&quot;http://me-ydv-5.github.io/gsoc2018&quot;&gt;click here&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 18 Nov 2018 04:12:00 +0530</pubDate>
         <link>http://localhost:4000/blog/gsoc-blog</link>
