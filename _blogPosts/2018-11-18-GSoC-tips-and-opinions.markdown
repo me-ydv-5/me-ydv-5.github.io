@@ -3,7 +3,7 @@ layout: post
 title:  "My few cents on Google Summer of Code"
 permalink: /blog/gsoc-tips
 date:   2018-11-28 04:12:00 +0530
-published: false
+published: true
 tags: [Google summer of code, google, summer, code, tips, gsoc, open source, foss, free software]
 ---
 
