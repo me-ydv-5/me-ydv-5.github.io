@@ -42,14 +42,14 @@ To test yourself, you may want to use the following command:
 
 This should place your script on a URL similar to `https://wiki.octave.org/script_file`.
 
-An already performed example of this is, when I tried to publish a script named [intro.m](https://github.com/octave-de/OctConf2017/blob/master/demo2/intro.m) on the [test wiki server](https://wiki.octave.space) set up by the mentor.
-I used the command, 
+**An already performed example of this is, when I tried to publish a script named [intro.m](https://github.com/octave-de/OctConf2017/blob/master/demo2/intro.m) on the [test wiki server](https://wiki.octave.space) set up by the mentor.
+I used the command,**
 
 ```
 publish_to_wiki("intro", "myUserName", "myPassword");
 ```
 
-and I got [this page](https://wiki.octave.space/index.php/Intro) as the result. This page has *not* been written manually on the server, rather its all about the function.
+**and I got [this page](https://wiki.octave.space/index.php/Intro) as the result. This page has *not* been written manually on the server, rather its all about the function.**
 
 An important point in this process is the storing of cookies, which was performed by libcurl and set up in [`liboctave/url-transfer.h`](https://bitbucket.org/me_ydv_5/octave/src/aa660b7dcae72a2e769ecbfe71b56c86012ca2db/liboctave/util/url-transfer.h#lines-158). The most challenging part in this part of the project was to figure out the uploading of figures, which I was able to do in a week or so. This needed me to read a lot of documentation and codes. Finally, the figures were uploaded using the [`form_data_post`](https://bitbucket.org/me_ydv_5/octave/src/aa660b7dcae72a2e769ecbfe71b56c86012ca2db/liboctave/util/url-transfer.cc#lines-721) function.
 

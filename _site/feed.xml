@@ -6,99 +6,16 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Nov 2018 00:26:33 +0530</pubDate>
-    <lastBuildDate>Mon, 19 Nov 2018 00:26:33 +0530</lastBuildDate>
+    <pubDate>Wed, 21 Nov 2018 12:55:22 +0530</pubDate>
+    <lastBuildDate>Wed, 21 Nov 2018 12:55:22 +0530</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
-      <item>
-        <title>My few cents on Google Summer of Code</title>
-        <description>&lt;p&gt;&lt;strong&gt;DISCLAIMER: THE IDEAS AND OPINIONS WRITTEN IN THE POST ARE SOLELY BASED ON MY OBSERVATIONS. ONE MAY OR MAY NOT AGREE WITH THE POINTS WRITTEN BELOW.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Because you are reading this, either you must be among those thousands who are/will be trying their best shot at Google Summer of Code for the first time (maybe second?) or were redirected here or you might be simply stalking my webpage. While you can find a plenty of do’s and dont’s over the internet, here’s a list of some tips and opinions that I think should’ve been in my mind while I applied, and was working, for GSoC’18 sometime back. It’s recommended to read other online available articles as well as I’ve not included those points here (my aim is not to mislead you in any sense). Note that the points are not carvings on a stone and so the situation may vary for you. What worked for me might not work for you and vice versa.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Choose an org which will directly affect your career prospects. I was good in C++ when I started and had a few interactions with GNU Octave (while giving my try to Andrew NG’s course). I knew very less or nothing about other free software. And so I started contributing to it.&lt;/p&gt;
-
-    &lt;p&gt;Octave is used by a very niche category of people presumably, faculty at colleges, scientists at CERN or students taking ML or some mathematical course, whereas tools like, say LibreOffice, is used by a greater community of people. So it’d be nicer to work on something which is relatable to more number of people. Examples of the organizations I feel that make the cut are Linux Foundation, Apache, GCC, Languages (Python, Ruby, ROR, etc.), Debian, Mozilla, VLC, etc. There are a lot of other orgs like these.&lt;/p&gt;
-
-    &lt;p&gt;As a result, although GSoC with GNU Octave looks good on my resume, I feel it would’ve been better if I worked with some organization that would be directly beneficial to me as far as career is concerned. During interviews, the interviewer generally does not bombard me with many questions over the project as he/she himself may not have used Octave in recent past. I stayed in my comfort zone and worked with C++, should’ve tried Java or JavaScript as they are in more demand than C++. See, you are in college and you have time, so learn as much new tech and tools as possible.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;This is in no way, a let down to other orgs. I respect all the maintainers and contributors as they are selflessly contributing to the projects.&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;While selecting the organization, there can be two types of orgs, one which gets more slots from Google (&amp;gt;= 8) and the other with lesser number (&amp;lt; 7). Both of them have their pros and cons.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;For orgs with more slots: The orgs are more popular (generally). The competition will be probably higher than the other type of orgs as more number of students apply to such orgs. It’ll be better to start off early (Nov-Dec) in such orgs. If you do so, you have a fair chance of getting selected because you’ll be standing out by April, at the time of application.&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;For orgs with less slots: The orgs will be a bit less popular (not all!). Less competition. You can start and may get selected even if you start contributing after the list of orgs has been out in Feb. The downside is, due to less slots and if there’s a good enough competition, you may miss out your spot.&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;At the end of the day, it’s more about your code quality and collaboration and less about the type of org that you apply to, for getting selected.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Make sure you select a project that has atleast one mentor with it. I was working on some project for quite some time and was pretty confident of getting selected but then even when three days were left for proposal submission, none of the maintainers bothered to own the project. I hurriedly filled out proposal for some another project in the last two days and got selected for that. I’ll partly attribute this to luck and partly to my hard work. Luck, because no other aspirant was working on the second project, hard work because the mentor of the new project knew me indirectly as I had been contributing in the org for past 4-5 months and had made my fair share of presence.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Trying to do GSoC and an internship simultaneously? I believe not a good idea. It highly depends on what work you get in both of your projects. Some people are lucky that they can carry out both projects concurrently, although you’ll need to manage time and prioritize. Others may need to put more hours to their projects. I’ll advocate not to mix the two (and F both of them), although last call is from your side. If you think you can manage, go ahead with both, if not or you have some other time of the year for internship, go for one.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;If you are in your first or second year, it’ll hardly matter what org you choose because GSoC on a first/second year resume is really valuable to get good internships in your senior years or even at your level. The same applies for senior students as well but I feel it would be a cherry on cake for them if they choose a more popular tool or tech. The value of Google Summer of Code outweights that of the organization/project. Always keep in mind, &lt;strong&gt;Google Summer of Code != Google Internship&lt;/strong&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Try not to be arrogant and I-know-it-all-and-I-dont-need-your-help kind of person. You’ll need help. You yourself will help. Be humble and respect everyone’s opinion. Most importantly, listen to what others are saying. They (maintainers, etc.) will almost all the times, be right as they know significantly more about the product/project than you. One of the best ways to be in constant notice is, helping other newbies like yourself over the mailing list and IRC. Use your resources wisely. You can approach any GSoCers you know and I guarantee almost 100% of the time, they’ll be happy to help you out unless you show derogatory behaviour.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Lastly, &lt;strong&gt;consider yourself selected&lt;/strong&gt;. The point is not be over-confident but to understand that your peers are at the same level, a bit more or less, as you. Remember the 90/10 breakdown of mental/physical strength? The same applies here! The rule has done wonders for many lives, including me. Even if you don’t get selected, atleast you would’ve tried and that’s perfectly fine.&lt;/p&gt;
-
-    &lt;p&gt;FYI, 88.2% of the accepted students participated in their first GSoC in 2018. Moreover, 74.4% of the students were first time applicants (&lt;a href=&quot;https://opensource.googleblog.com/2018/05/google-summer-of-code-2018-statistics.html&quot;&gt;source&lt;/a&gt;). So there’s a high probability that you’ll be able to make it through.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Feel free to put your thoughts in the comments below. You may ping me whenever you need some help/suggestion. Thanks for your time!&lt;/p&gt;
-
-&lt;p&gt;If you’re by any chance interested to know about my GSoC work, &lt;a href=&quot;http://me-ydv-5.github.io/gsoc2018&quot;&gt;click here&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 18 Nov 2018 04:12:00 +0530</pubDate>
-        <link>http://localhost:4000/blog/gsoc-blog</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/gsoc-blog</guid>
-        
-        <category>Google summer of code</category>
-        
-        <category>google</category>
-        
-        <category>summer</category>
-        
-        <category>code</category>
-        
-        <category>tips</category>
-        
-        <category>gsoc</category>
-        
-        <category>open source</category>
-        
-        <category>foss</category>
-        
-        <category>free software</category>
-        
-        <category>blog</category>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
+    	
     
-      <item>
-        <title>GSoC Summary</title>
-        <description>&lt;h1 id=&quot;octave-code-sharing&quot;&gt;Octave Code Sharing&lt;/h1&gt;
+    	
+	      <item>
+	        <title>GSoC Summary</title>
+	        <description>&lt;h1 id=&quot;octave-code-sharing&quot;&gt;Octave Code Sharing&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -134,13 +51,13 @@
 
 &lt;p&gt;This should place your script on a URL similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;https://wiki.octave.org/script_file&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;An already performed example of this is, when I tried to publish a script named &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/intro.m&quot;&gt;intro.m&lt;/a&gt; on the &lt;a href=&quot;https://wiki.octave.space&quot;&gt;test wiki server&lt;/a&gt; set up by the mentor.
-I used the command,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;An already performed example of this is, when I tried to publish a script named &lt;a href=&quot;https://github.com/octave-de/OctConf2017/blob/master/demo2/intro.m&quot;&gt;intro.m&lt;/a&gt; on the &lt;a href=&quot;https://wiki.octave.space&quot;&gt;test wiki server&lt;/a&gt; set up by the mentor.
+I used the command,&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;publish_to_wiki(&quot;intro&quot;, &quot;myUserName&quot;, &quot;myPassword&quot;);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;and I got &lt;a href=&quot;https://wiki.octave.space/index.php/Intro&quot;&gt;this page&lt;/a&gt; as the result. This page has &lt;em&gt;not&lt;/em&gt; been written manually on the server, rather its all about the function.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;and I got &lt;a href=&quot;https://wiki.octave.space/index.php/Intro&quot;&gt;this page&lt;/a&gt; as the result. This page has &lt;em&gt;not&lt;/em&gt; been written manually on the server, rather its all about the function.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;An important point in this process is the storing of cookies, which was performed by libcurl and set up in &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/aa660b7dcae72a2e769ecbfe71b56c86012ca2db/liboctave/util/url-transfer.h#lines-158&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;liboctave/url-transfer.h&lt;/code&gt;&lt;/a&gt;. The most challenging part in this part of the project was to figure out the uploading of figures, which I was able to do in a week or so. This needed me to read a lot of documentation and codes. Finally, the figures were uploaded using the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/aa660b7dcae72a2e769ecbfe71b56c86012ca2db/liboctave/util/url-transfer.cc#lines-721&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;form_data_post&lt;/code&gt;&lt;/a&gt; function.&lt;/p&gt;
 
@@ -196,20 +113,22 @@ I used the command,&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 07 Aug 2018 17:48:00 +0530</pubDate>
-        <link>http://localhost:4000/gsoc2018/summary</link>
-        <guid isPermaLink="true">http://localhost:4000/gsoc2018/summary</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
+	        <pubDate>Tue, 07 Aug 2018 17:48:00 +0530</pubDate>
+	        <link>http://localhost:4000/gsoc2018/summary</link>
+	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/summary</guid>
+	        
+	        
+	        <category>jekyll</category>
+	        
+	        <category>update</category>
+	        
+	      </item>
+	    
     
-      <item>
-        <title>Week 15</title>
-        <description>&lt;p&gt;With the last week of GSoC arriving, I’m also in a position to wrap up the project. This week I’m focusing on thorough testing, documentation and other code optimizations. I’ve already refactored the existing code of third evaluations a bit in two different drives. In those, I’ve made the same internal function for setting up various cURL options for webread and webwrite functions. Also I’ve reduced a significant lines of code as well in some files, because I believe writing quality and useful code is better than writing quantity and useless code, as was suggested by Kai as well in early days of the project.&lt;/p&gt;
+    	
+	      <item>
+	        <title>Week 15</title>
+	        <description>&lt;p&gt;With the last week of GSoC arriving, I’m also in a position to wrap up the project. This week I’m focusing on thorough testing, documentation and other code optimizations. I’ve already refactored the existing code of third evaluations a bit in two different drives. In those, I’ve made the same internal function for setting up various cURL options for webread and webwrite functions. Also I’ve reduced a significant lines of code as well in some files, because I believe writing quality and useful code is better than writing quantity and useless code, as was suggested by Kai as well in early days of the project.&lt;/p&gt;
 
 &lt;p&gt;I’ve also implemented &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/026e8e95e076a63fe37706eae19e0b60648545f5#chg-scripts/miscellaneous/webread.m&quot;&gt;webread&lt;/a&gt; function the previous week.&lt;/p&gt;
 
@@ -217,20 +136,22 @@ I used the command,&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 29 Jul 2018 18:08:00 +0530</pubDate>
-        <link>http://localhost:4000/gsoc2018/week15</link>
-        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week15</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
+	        <pubDate>Sun, 29 Jul 2018 18:08:00 +0530</pubDate>
+	        <link>http://localhost:4000/gsoc2018/week15</link>
+	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week15</guid>
+	        
+	        
+	        <category>jekyll</category>
+	        
+	        <category>update</category>
+	        
+	      </item>
+	    
     
-      <item>
-        <title>Week 13 &amp; 14</title>
-        <description>&lt;p&gt;&lt;strong&gt;UPDATE 2:&lt;/strong&gt; I found the cause of the &lt;code class=&quot;highlighter-rouge&quot;&gt;urlread&lt;/code&gt; function not working correctly. It’s because curl sends the request as &lt;code class=&quot;highlighter-rouge&quot;&gt;application/x-www-form-urlencoded&lt;/code&gt; whereas it should be &lt;code class=&quot;highlighter-rouge&quot;&gt;application/json&lt;/code&gt;, which is explicitly changed in the cURL request that I’ve written down. I think this could be solved using the &lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite&lt;/code&gt; function that I’ve written.&lt;/p&gt;
+    	
+	      <item>
+	        <title>Week 13 &amp; 14</title>
+	        <description>&lt;p&gt;&lt;strong&gt;UPDATE 2:&lt;/strong&gt; I found the cause of the &lt;code class=&quot;highlighter-rouge&quot;&gt;urlread&lt;/code&gt; function not working correctly. It’s because curl sends the request as &lt;code class=&quot;highlighter-rouge&quot;&gt;application/x-www-form-urlencoded&lt;/code&gt; whereas it should be &lt;code class=&quot;highlighter-rouge&quot;&gt;application/json&lt;/code&gt;, which is explicitly changed in the cURL request that I’ve written down. I think this could be solved using the &lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite&lt;/code&gt; function that I’ve written.&lt;/p&gt;
 
 &lt;p&gt;Now coming to the project work, I’ve been wandering inside the codebase for the last three days to implement the &lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite&lt;/code&gt; function. This is what I’ve implemented as &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/webwrite.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite.m&lt;/code&gt;&lt;/a&gt;. It takes input and arranges them for further processing in currently what we call as &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/libinterp/corefcn/urlwrite.cc#lines-839&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__internal__&lt;/code&gt;&lt;/a&gt; function. A sudden question could be why two different, so this is because the processing of the input is easier in Octave than in C++ and we really need to work with cURL here so C++ cannot be sidelined. MATLAB can take the following as a string with 42 as a number &lt;code class=&quot;highlighter-rouge&quot;&gt;str = [&quot;His&quot;, &quot;age&quot;, &quot;is&quot;, 42]&lt;/code&gt; whereas in Octave, we get the ascii value corresponding to 42 in its place. This is one difference what I observed. Due to this, I’m asking users to pass strings all along, without any numbers. But I’m not sure how I can test above &lt;code class=&quot;highlighter-rouge&quot;&gt;str&lt;/code&gt; if it contains a number, so that I could warn/error the user that what he entered is not what Octave will get as. See this &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/scripts/miscellaneous/webwrite.m#lines-62&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FIXME&lt;/code&gt;&lt;/a&gt;. And earlier I was sending a flag if the user has supplied some weboptions or not, but now if they haven’t, I’m supplying the default weboptions object, afterall it’s good to use your code when you’ve put some time to write it!&lt;/p&gt;
 
@@ -303,20 +224,22 @@ s = urlread(&quot;https://batterylow.me:9000/webhook&quot;, &quot;post&quot;, {&
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 19 Jul 2018 21:40:00 +0530</pubDate>
-        <link>http://localhost:4000/gsoc2018/week13-14</link>
-        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week13-14</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
+	        <pubDate>Thu, 19 Jul 2018 21:40:00 +0530</pubDate>
+	        <link>http://localhost:4000/gsoc2018/week13-14</link>
+	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week13-14</guid>
+	        
+	        
+	        <category>jekyll</category>
+	        
+	        <category>update</category>
+	        
+	      </item>
+	    
     
-      <item>
-        <title>Week 12</title>
-        <description>&lt;p&gt;I’ve implemented the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/weboptions.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt;&lt;/a&gt; function. I also added relevant comments wherever needed, including the code of first evaluation. This completes the second phase evaluation task, i.e, implementing &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_upload&lt;/code&gt; script and &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt;. There was an unprecendented delay of a week when I was trying to upload the images on the server. It would’ve given me a head start if I had completed the task without the delay, although I am still on the track. There’s one thing left, the help text that I wrote for &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; isn’t being displayed when I issue &lt;code class=&quot;highlighter-rouge&quot;&gt;help weboptions&lt;/code&gt; because it’s a &lt;code class=&quot;highlighter-rouge&quot;&gt;Classdef&lt;/code&gt; and not &lt;code class=&quot;highlighter-rouge&quot;&gt;function&lt;/code&gt;. Other than this, I feel the task has been executed correctly.&lt;/p&gt;
+    	
+	      <item>
+	        <title>Week 12</title>
+	        <description>&lt;p&gt;I’ve implemented the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/weboptions.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt;&lt;/a&gt; function. I also added relevant comments wherever needed, including the code of first evaluation. This completes the second phase evaluation task, i.e, implementing &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_upload&lt;/code&gt; script and &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt;. There was an unprecendented delay of a week when I was trying to upload the images on the server. It would’ve given me a head start if I had completed the task without the delay, although I am still on the track. There’s one thing left, the help text that I wrote for &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; isn’t being displayed when I issue &lt;code class=&quot;highlighter-rouge&quot;&gt;help weboptions&lt;/code&gt; because it’s a &lt;code class=&quot;highlighter-rouge&quot;&gt;Classdef&lt;/code&gt; and not &lt;code class=&quot;highlighter-rouge&quot;&gt;function&lt;/code&gt;. Other than this, I feel the task has been executed correctly.&lt;/p&gt;
 
 &lt;p&gt;Coming to the next task, I plan to implement &lt;code class=&quot;highlighter-rouge&quot;&gt;webread&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;webwrite&lt;/code&gt; function with MATLAB compatibilty. I think I can change &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_upload&lt;/code&gt; script to be a generic one and then use it for both wiki and webwrite. This would help us extend it with any other functionality in the future.&lt;/p&gt;
 
@@ -326,20 +249,22 @@ s = urlread(&quot;https://batterylow.me:9000/webhook&quot;, &quot;post&quot;, {&
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 09 Jul 2018 20:32:00 +0530</pubDate>
-        <link>http://localhost:4000/gsoc2018/week12</link>
-        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week12</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
+	        <pubDate>Mon, 09 Jul 2018 20:32:00 +0530</pubDate>
+	        <link>http://localhost:4000/gsoc2018/week12</link>
+	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week12</guid>
+	        
+	        
+	        <category>jekyll</category>
+	        
+	        <category>update</category>
+	        
+	      </item>
+	    
     
-      <item>
-        <title>Week 11</title>
-        <description>&lt;p&gt;This week I fixed some styling in the previous codebase and other minor issues. Me and Kai had a very fruitful discussion this week for the roadmap ahead. We discussed many things.&lt;/p&gt;
+    	
+	      <item>
+	        <title>Week 11</title>
+	        <description>&lt;p&gt;This week I fixed some styling in the previous codebase and other minor issues. Me and Kai had a very fruitful discussion this week for the roadmap ahead. We discussed many things.&lt;/p&gt;
 
 &lt;p&gt;Kai verified that &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/wiki_upload.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_upload.m&lt;/code&gt;&lt;/a&gt; (an important dependency for &lt;code class=&quot;highlighter-rouge&quot;&gt;publish_to_wiki.m&lt;/code&gt;) works as expected including the checks for uploading the same image again, wikimedia itself does a hashcheck before uploading and sends an error if the image is identical to the previous one or a warning if the image already exists on the wiki server. You can check this by calling:&lt;/p&gt;
 
@@ -394,20 +319,22 @@ s = urlread(&quot;https://batterylow.me:9000/webhook&quot;, &quot;post&quot;, {&
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 01 Jul 2018 22:01:00 +0530</pubDate>
-        <link>http://localhost:4000/gsoc2018/week11</link>
-        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week11</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
+	        <pubDate>Sun, 01 Jul 2018 22:01:00 +0530</pubDate>
+	        <link>http://localhost:4000/gsoc2018/week11</link>
+	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week11</guid>
+	        
+	        
+	        <category>jekyll</category>
+	        
+	        <category>update</category>
+	        
+	      </item>
+	    
     
-      <item>
-        <title>Week 9 &amp; 10</title>
-        <description>&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; I am more than happy to announce that I’ve been able to upload the images on to the wiki server!! The problem was not in &lt;code class=&quot;highlighter-rouge&quot;&gt;form_data_post&lt;/code&gt; but in &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-663&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http_post&lt;/code&gt;&lt;/a&gt; (in my version of Octave’s repository). There were two faults:&lt;/p&gt;
+    	
+	      <item>
+	        <title>Week 9 &amp; 10</title>
+	        <description>&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; I am more than happy to announce that I’ve been able to upload the images on to the wiki server!! The problem was not in &lt;code class=&quot;highlighter-rouge&quot;&gt;form_data_post&lt;/code&gt; but in &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-663&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http_post&lt;/code&gt;&lt;/a&gt; (in my version of Octave’s repository). There were two faults:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;I was calling &lt;code class=&quot;highlighter-rouge&quot;&gt;http_action&lt;/code&gt; which then used to call &lt;code class=&quot;highlighter-rouge&quot;&gt;http_post&lt;/code&gt; inturn which then POSTed the data, despite the fact that there was no &lt;code class=&quot;highlighter-rouge&quot;&gt;POSTFIELD&lt;/code&gt; or POSTable data with me, it was &lt;code class=&quot;highlighter-rouge&quot;&gt;FORM&lt;/code&gt; submission instead. I’ve now added the &lt;code class=&quot;highlighter-rouge&quot;&gt;perform()&lt;/code&gt; function in the &lt;code class=&quot;highlighter-rouge&quot;&gt;form_data_post&lt;/code&gt; itself so that I won’t need to interact with the former.&lt;/li&gt;
@@ -432,20 +359,22 @@ s = urlread(&quot;https://batterylow.me:9000/webhook&quot;, &quot;post&quot;, {&
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
-        <pubDate>Sat, 23 Jun 2018 18:08:00 +0530</pubDate>
-        <link>http://localhost:4000/gsoc2018/week9-10</link>
-        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week9-10</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
+	        <pubDate>Sat, 23 Jun 2018 18:08:00 +0530</pubDate>
+	        <link>http://localhost:4000/gsoc2018/week9-10</link>
+	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week9-10</guid>
+	        
+	        
+	        <category>jekyll</category>
+	        
+	        <category>update</category>
+	        
+	      </item>
+	    
     
-      <item>
-        <title>Week 8</title>
-        <description>&lt;p&gt;Hi! Now that my exams are over, I am back on the track. First evaluation will take place this week. I will continue my work from the last task, i.e, &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login.m&lt;/code&gt;, to complete its implementation and then use it in &lt;code class=&quot;highlighter-rouge&quot;&gt;publish_to_wiki&lt;/code&gt; function that will help us upload the wiki to user’s online wiki. After that I plant to implement the RESTful services part of the project, which has &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; function lined up at first.&lt;/p&gt;
+    	
+	      <item>
+	        <title>Week 8</title>
+	        <description>&lt;p&gt;Hi! Now that my exams are over, I am back on the track. First evaluation will take place this week. I will continue my work from the last task, i.e, &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login.m&lt;/code&gt;, to complete its implementation and then use it in &lt;code class=&quot;highlighter-rouge&quot;&gt;publish_to_wiki&lt;/code&gt; function that will help us upload the wiki to user’s online wiki. After that I plant to implement the RESTful services part of the project, which has &lt;code class=&quot;highlighter-rouge&quot;&gt;weboptions&lt;/code&gt; function lined up at first.&lt;/p&gt;
 
 &lt;p&gt;I’ll update this blog with any subsequent progresses.&lt;/p&gt;
 
@@ -453,39 +382,43 @@ s = urlread(&quot;https://batterylow.me:9000/webhook&quot;, &quot;post&quot;, {&
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 11 Jun 2018 20:45:00 +0530</pubDate>
-        <link>http://localhost:4000/gsoc2018/week8</link>
-        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week8</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
+	        <pubDate>Mon, 11 Jun 2018 20:45:00 +0530</pubDate>
+	        <link>http://localhost:4000/gsoc2018/week8</link>
+	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week8</guid>
+	        
+	        
+	        <category>jekyll</category>
+	        
+	        <category>update</category>
+	        
+	      </item>
+	    
     
-      <item>
-        <title>Week 6 &amp; 7</title>
-        <description>&lt;p&gt;As I’ve already completed my first evaluation work and got it reviewed the same from mentor, I won’t be doing much work in these two weeks due to my end semester exams. However, I’ll be continuing my post from week 8, positively.&lt;/p&gt;
+    	
+	      <item>
+	        <title>Week 6 &amp; 7</title>
+	        <description>&lt;p&gt;As I’ve already completed my first evaluation work and got it reviewed the same from mentor, I won’t be doing much work in these two weeks due to my end semester exams. However, I’ll be continuing my post from week 8, positively.&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 29 May 2018 22:56:00 +0530</pubDate>
-        <link>http://localhost:4000/gsoc2018/week6-7</link>
-        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week6-7</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
+	        <pubDate>Tue, 29 May 2018 22:56:00 +0530</pubDate>
+	        <link>http://localhost:4000/gsoc2018/week6-7</link>
+	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week6-7</guid>
+	        
+	        
+	        <category>jekyll</category>
+	        
+	        <category>update</category>
+	        
+	      </item>
+	    
     
-      <item>
-        <title>Week 5</title>
-        <description>&lt;p&gt;With 25th May approaching, I’m confident to say that I’ve completed my first evaluation (although some grammatical and styling rechecking is left). Now, as directed by Kai, I’ve implemented the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/wiki_login.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login.m&lt;/code&gt;&lt;/a&gt; function from using the internals of &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/liboctave/util/url-transfer.cc#lines-731&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;url-transfer.cc/h&lt;/code&gt;&lt;/a&gt; class. I’ve scapped the earlier design of implementing &lt;code class=&quot;highlighter-rouge&quot;&gt;cookie_manager.m&lt;/code&gt; script and &lt;code class=&quot;highlighter-rouge&quot;&gt;libcurl_wrapper.cc&lt;/code&gt; class for doing the cookie thing and directly implemented &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/libinterp/corefcn/urlwrite.cc#lines-739&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__wiki_login__&lt;/code&gt;&lt;/a&gt; as an internal function in &lt;code class=&quot;highlighter-rouge&quot;&gt;urlwrite.cc&lt;/code&gt;. A user is now able to log into api.php&lt;/p&gt;
+    	
+	      <item>
+	        <title>Week 5</title>
+	        <description>&lt;p&gt;With 25th May approaching, I’m confident to say that I’ve completed my first evaluation (although some grammatical and styling rechecking is left). Now, as directed by Kai, I’ve implemented the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/wiki_login.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login.m&lt;/code&gt;&lt;/a&gt; function from using the internals of &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/liboctave/util/url-transfer.cc#lines-731&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;url-transfer.cc/h&lt;/code&gt;&lt;/a&gt; class. I’ve scapped the earlier design of implementing &lt;code class=&quot;highlighter-rouge&quot;&gt;cookie_manager.m&lt;/code&gt; script and &lt;code class=&quot;highlighter-rouge&quot;&gt;libcurl_wrapper.cc&lt;/code&gt; class for doing the cookie thing and directly implemented &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/libinterp/corefcn/urlwrite.cc#lines-739&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__wiki_login__&lt;/code&gt;&lt;/a&gt; as an internal function in &lt;code class=&quot;highlighter-rouge&quot;&gt;urlwrite.cc&lt;/code&gt;. A user is now able to log into api.php&lt;/p&gt;
 
 &lt;p&gt;To test my implemtation:&lt;/p&gt;
 
@@ -524,16 +457,17 @@ s = urlread(&quot;https://batterylow.me:9000/webhook&quot;, &quot;post&quot;, {&
 
 &lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 21 May 2018 16:36:00 +0530</pubDate>
-        <link>http://localhost:4000/gsoc2018/week5</link>
-        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week5</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
+	        <pubDate>Mon, 21 May 2018 16:36:00 +0530</pubDate>
+	        <link>http://localhost:4000/gsoc2018/week5</link>
+	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week5</guid>
+	        
+	        
+	        <category>jekyll</category>
+	        
+	        <category>update</category>
+	        
+	      </item>
+	    
     
   </channel>
 </rss>
