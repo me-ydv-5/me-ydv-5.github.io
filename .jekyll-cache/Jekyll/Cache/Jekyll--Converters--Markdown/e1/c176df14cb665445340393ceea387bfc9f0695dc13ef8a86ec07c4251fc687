@@ -1,0 +1,8 @@
+I"�<p>With the last week of GSoC arriving, I’m also in a position to wrap up the project. This week I’m focusing on thorough testing, documentation and other code optimizations. I’ve already refactored the existing code of third evaluations a bit in two different drives. In those, I’ve made the same internal function for setting up various cURL options for webread and webwrite functions. Also I’ve reduced a significant lines of code as well in some files, because I believe writing quality and useful code is better than writing quantity and useless code, as was suggested by Kai as well in early days of the project.</p>
+
+<p>I’ve also implemented <a href="https://bitbucket.org/me_ydv_5/octave/commits/026e8e95e076a63fe37706eae19e0b60648545f5#chg-scripts/miscellaneous/webread.m">webread</a> function the previous week.</p>
+
+<hr />
+
+<p><a href="https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs">Link</a> to BitBucket repo.</p>
+:ET

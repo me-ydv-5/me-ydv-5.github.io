@@ -1,0 +1,8 @@
+I"�<p>Hi! Now that my exams are over, I am back on the track. First evaluation will take place this week. I will continue my work from the last task, i.e, <code class="highlighter-rouge">wiki_login.m</code>, to complete its implementation and then use it in <code class="highlighter-rouge">publish_to_wiki</code> function that will help us upload the wiki to user’s online wiki. After that I plant to implement the RESTful services part of the project, which has <code class="highlighter-rouge">weboptions</code> function lined up at first.</p>
+
+<p>I’ll update this blog with any subsequent progresses.</p>
+
+<hr />
+
+<p><a href="https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs">Link</a> to BitBucket repo.</p>
+:ET

@@ -1,0 +1,2 @@
+I"�<p><strong>UPDATE:</strong> I am more than happy to announce that I’ve been able to upload the images on to the wiki server!! The problem was not in <code class="highlighter-rouge">form_data_post</code> but in <a href="https://bitbucket.org/me_ydv_5/octave/src/59d3d9c4af257ca141e60420e9ba3c8ab32af0af/liboctave/util/url-transfer.cc#lines-663"><code class="highlighter-rouge">http_post</code></a> (in my version of Octave’s repository). There were two faults:</p>
+:ET

@@ -6,9 +6,11 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Nov 2018 12:55:22 +0530</pubDate>
-    <lastBuildDate>Wed, 21 Nov 2018 12:55:22 +0530</lastBuildDate>
-    <generator>Jekyll v3.8.5</generator>
+    <pubDate>Wed, 30 Oct 2019 02:48:48 +0530</pubDate>
+    <lastBuildDate>Wed, 30 Oct 2019 02:48:48 +0530</lastBuildDate>
+    <generator>Jekyll v4.0.0</generator>
+    
+    	
     
     	
     
@@ -406,60 +408,6 @@ s = urlread(&quot;https://batterylow.me:9000/webhook&quot;, &quot;post&quot;, {&
 	        <pubDate>Tue, 29 May 2018 22:56:00 +0530</pubDate>
 	        <link>http://localhost:4000/gsoc2018/week6-7</link>
 	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week6-7</guid>
-	        
-	        
-	        <category>jekyll</category>
-	        
-	        <category>update</category>
-	        
-	      </item>
-	    
-    
-    	
-	      <item>
-	        <title>Week 5</title>
-	        <description>&lt;p&gt;With 25th May approaching, I’m confident to say that I’ve completed my first evaluation (although some grammatical and styling rechecking is left). Now, as directed by Kai, I’ve implemented the &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/wiki_login.m&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login.m&lt;/code&gt;&lt;/a&gt; function from using the internals of &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/liboctave/util/url-transfer.cc#lines-731&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;url-transfer.cc/h&lt;/code&gt;&lt;/a&gt; class. I’ve scapped the earlier design of implementing &lt;code class=&quot;highlighter-rouge&quot;&gt;cookie_manager.m&lt;/code&gt; script and &lt;code class=&quot;highlighter-rouge&quot;&gt;libcurl_wrapper.cc&lt;/code&gt; class for doing the cookie thing and directly implemented &lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/libinterp/corefcn/urlwrite.cc#lines-739&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__wiki_login__&lt;/code&gt;&lt;/a&gt; as an internal function in &lt;code class=&quot;highlighter-rouge&quot;&gt;urlwrite.cc&lt;/code&gt;. A user is now able to log into api.php&lt;/p&gt;
-
-&lt;p&gt;To test my implemtation:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Make a test account on &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki.octave.space&lt;/code&gt; with username and password of your choice.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hg up ocs&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd path/to/your/build/tree/&lt;/code&gt; and execute &lt;code class=&quot;highlighter-rouge&quot;&gt;make -jX&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./run-octave&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;execute &lt;code class=&quot;highlighter-rouge&quot;&gt;wiki_login (&quot;https://wiki.octave.space/api.php&quot;, yourUsername, yourPassword);&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If it is all successful, you should see a prompt &lt;code class=&quot;highlighter-rouge&quot;&gt;Success: logged in as yourUsername&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Other than that, I’m really grateful to &lt;a href=&quot;http://jweaton.org/&quot;&gt;jwe&lt;/a&gt; for moving the &lt;code class=&quot;highlighter-rouge&quot;&gt;version.h&lt;/code&gt; file to &lt;code class=&quot;highlighter-rouge&quot;&gt;liboctave&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;libinterp&lt;/code&gt; as this is needed to get the &lt;code class=&quot;highlighter-rouge&quot;&gt;OCTAVE_VERSION&lt;/code&gt; for the user agent (see week 3 for this). Eariler, it was in &lt;code class=&quot;highlighter-rouge&quot;&gt;libinterp&lt;/code&gt; and we must not use anything from &lt;code class=&quot;highlighter-rouge&quot;&gt;libinterp&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;liboctave&lt;/code&gt; as it should be compiled irrespective of the former.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;NOTE: You may need to re-run &lt;code class=&quot;highlighter-rouge&quot;&gt;./bootstrap&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;./configure&lt;/code&gt; due to above changes.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Lastly, I would request to someone who uses Windows (My Windows ran into some problem and I’m now unable to connect to internet, I’ll reinstall it whenever I get some time) and/or Mac OS to test my implementation and report any errors.&lt;/p&gt;
-
-&lt;p&gt;Needless to say I’m always looking forward to constructive feedback/criticism.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs&quot;&gt;Link&lt;/a&gt; to BitBucket repo.&lt;/p&gt;
-</description>
-	        <pubDate>Mon, 21 May 2018 16:36:00 +0530</pubDate>
-	        <link>http://localhost:4000/gsoc2018/week5</link>
-	        <guid isPermaLink="true">http://localhost:4000/gsoc2018/week5</guid>
 	        
 	        
 	        <category>jekyll</category>

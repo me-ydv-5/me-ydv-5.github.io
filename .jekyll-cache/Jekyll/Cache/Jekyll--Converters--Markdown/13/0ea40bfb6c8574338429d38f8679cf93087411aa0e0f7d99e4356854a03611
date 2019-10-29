@@ -1,0 +1,84 @@
+I"}<p>I’ve been selected as a <a href="https://summerofcode.withgoogle.com">Google Summer of Code</a> , 2018 student developer at <a href="https://www.gnu.org/software/octave/">GNU Octave</a>. GNU Octave is a high-level language, primarily intended for numerical computations. It provides a convenient command line interface for solving linear and nonlinear problems numerically, and for performing other numerical experiments using a language that is mostly compatible with Matlab. It may also be used as a batch-oriented language.</p>
+
+<p>A very heartful thanks to Kai T. Ohlhus, Doug Stewart, Ankit Raj and others who saw my potential and chose me for GSoC 2018.</p>
+
+<p>My project is <strong>Octave Code Sharing</strong>. Community bonding period would include reading up material that’d be essential for the project.</p>
+
+<hr />
+
+<h2 id="abstract">Abstract:</h2>
+
+<p>This project aims to come up with a pan-octave implementation that could be used to connect to <a href="https://wiki.octave.org">wiki.octave.org</a> with appropriate credentials for publishing octave scripts that could be hosted for distribution using the MediaWiki API. Currently, no formal implementation is there but a proof of concept which was implemented as a <a href="https://github.com/octave-de/OctConf2017/blob/master/demo2/publishToWiki.m">bash script</a>, later refactored to use <a href="https://www.mathworks.com/help/matlab/internet-file-access.html">JAVA’s interface</a> to Octave. Since the network connection itself has latency and response time which are significantly large to get into notice, an Octave script, which will help in connection,  will not be much of a performance killer. To maintain a stateless HTTP protocol, some information that would be needed will be stored as cookies with the help of <a href="https://curl.haxx.se/libcurl/">Libcurl</a> library. All this would lead to set up of RESTful services for GNU Octave which could be further extended to support the compatibility with MATLAB’s <a href="https://www.mathworks.com/help/matlab/internet-file-access.html">RESTful interface</a>.</p>
+
+<hr />
+
+<h2 id="timeline">Timeline:</h2>
+
+<ol>
+  <li>
+    <p><strong>April 23 - May 14</strong></p>
+
+    <p><strong>Community Bonding Period</strong>: Get to know more about Libcurl and its implementation. Learn about HTTP request headers and stateless transfer protocol. Finalise location of files in the codebase that will be needed for code sharing. Study the existing work that has been done by the mentor. Study publish() and grabcode() functions. Study octave::url_transfer class. Learn about MediaWiki API and its implementation (backend working).</p>
+  </li>
+  <li>
+    <p><strong>May 15 - May 23</strong></p>
+
+    <p>Implement the Libcurl wrapper in libcurl_wrapper.cc/h. This would include the various <a href="https://ec.haxx.se/libcurl-http-cookies.html#cookie-store-commands">abstractions</a> such as ‘ALL’, ‘SESS’, ‘FLUSH’, ‘RELOAD’ that could be used by octave’s script to use Libcurl cookies to connect to the server. There’s a <a href="https://github.com/octave-de/octave-web/blob/master/web/libcurl_wrapper.cc">preliminary implementation</a> for the same which was implemented by the mentor sometime back, which can be extended in this phase for a more general design.</p>
+  </li>
+  <li>
+    <p><strong>May 23 - May 31</strong></p>
+
+    <p>Add ‘wiki’ as an ‘output_format’ in publish() function. This would extend the implementation of private function <a href="https://github.com/octave-de/OctConf2017/blob/master/demo2/__publish_wiki_output__.m">__ publish_wiki_output__.m</a> 
+that is to be used to format a wiki published code.</p>
+  </li>
+  <li>
+    <p><strong>June 1 - June 10</strong></p>
+
+    <p>Non Coding period due to University major examinations.</p>
+  </li>
+  <li>
+    <p><strong>June 11 - June 15</strong></p>
+
+    <p><strong>First Phase Evaluation</strong> - Write Documentation of the work done upto this point and other tests such as setting up the wiki installation environment for testing the script that would be implemented in point 6. Catch up with the work if anything is lagging behind.</p>
+  </li>
+  <li>
+    <p><strong>June 15 - June 30</strong></p>
+
+    <p>Implement wiki_login.m which would use the Libcurl wrapper implemented in point 2. Currently <a href="https://github.com/octave-de/OctConf2017/blob/master/demo2/wiki_login.m">this</a> file uses Java’s interface to octave. But with the wrapper, the file would become an implementation of RESTful services for ‘code sharing’ and will not be dependent on Java’s interface to octave.</p>
+  </li>
+  <li>
+    <p><strong>July 1 - July 9</strong></p>
+
+    <p>Implement ‘weboptions’ function. It will return a default ‘weboptions’ object to specify parameters for a request to web service. This function will use the libCURL wrapper that would’ve been already implemented. Current scope of the function would be restricted to four options, viz., ‘Username’, ‘password’, ‘Keyname’, ‘KeyValue’.</p>
+  </li>
+  <li>
+    <p><strong>July 10 - July 13</strong></p>
+
+    <p><strong>Second Evaluation Phase</strong> - Write documentation of the work done upto here and other tests required for ‘weboptions’ function. Catch up with any previous work if left.</p>
+  </li>
+  <li>
+    <p><strong>July 14 - July 20</strong></p>
+
+    <p>Implement ‘webread’ function. This will read content from a web service and return data formatted as text. Other output arguments (cmap, alpha) will not be supported currently.</p>
+  </li>
+  <li>
+    <p><strong>July 21 - July 27</strong></p>
+
+    <p>Implement ‘webwrite’ function. This will put data in the body of an HTTP POST request to the web service.</p>
+  </li>
+  <li>
+    <p><strong>July 28 - August 6</strong></p>
+
+    <p>Buffer period for anything that remains. Complete documentation and testing for ‘webwrite’ and ‘webread’.</p>
+  </li>
+</ol>
+
+<p>For now, libcurl_wrapper.cc/h would be placed in libinterp/corefcn but could be changed whether it should be used by default or on the user’s choice because someone might not want to connect themselves with <a href="https://wiki.octave.org">wiki.octave.org</a>. I’ve for now, merged two weeks, i.e from 15 June to 30 June because the main task would be include the wrapper implementation for connecting to the webserver. This may span upto two weeks and so is the reason for two weeks of the same task.</p>
+
+<h3 id="additional-things-to-be-done-after-gsoc-is-over">Additional Things to be done after GSoC is over:</h3>
+<p>The web function is already partially implemented. The task will be to finish the implementation with various arguments such as ‘-notoolbar’, ‘-noaddressbox’, ‘-new’ for MATLAB’s compatibility. ‘websave’, ‘ftp’ and ‘sendmail’ that are a part of RESTful services, will also be implemented. Any other part of GNU octave which currently might need RESTful services using cookies can be amended to use the implementation that would result from the project. The ‘webread’ function will be extended to read values into JSON format and images as well.</p>
+
+<hr />
+
+<p>Thanks for reading, will be posting next update soon. Looking forward to a bug-free and code-some summer. :-)</p>
+:ET

@@ -1,0 +1,77 @@
+I"�<p><strong>UPDATE on 12-May-2018</strong>: You can now directly test my work by cloning my repo, updating the source tree to my bookmark by <code class="highlighter-rouge">hg up ocs</code>, making a build and calling <code class="highlighter-rouge">wiki_login</code> from octave-cli to get a login token in return. I’ve added the files and necessary changes in the codebase itself. There’s no directory <code class="highlighter-rouge">ocode</code> now.</p>
+
+<p>If you happen to already have a build of octave, just do the following:</p>
+<ul>
+  <li><code class="highlighter-rouge">cd path/to/your/source/tree</code></li>
+  <li><code class="highlighter-rouge">hg pull https://me_ydv_5@bitbucket.org/me_ydv_5/octave</code> in your source tree.</li>
+  <li><code class="highlighter-rouge">hg up ocs</code></li>
+  <li><code class="highlighter-rouge">hg up -r 8bbf393</code></li>
+  <li><code class="highlighter-rouge">make -jX</code> in your build tree.</li>
+</ul>
+
+<p>This will save your time of cloning the entire repo and compiliing.</p>
+
+<hr />
+<p>As mentioned in the previous post, I worked on <a href="https://bitbucket.org/me_ydv_5/octave/commits/8141dc41d467cc7c8d48990aefec92bd445f8663">__publish_wiki_output__.m</a> and <a href="https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/scripts/miscellaneous/publish.m">publish.m</a> code. The __publish_wiki_output__.m has been added as an internal function in scripts/miscellaneous/private. I skimmed through the parser in publish.m to get a gist of how it actually works. It has three levels of parsing:</p>
+
+<ol>
+  <li>
+    <p>Extract the overall structure (paragraphs and code sections).</p>
+  </li>
+  <li>
+    <p>Parsing the content of a paragraph.</p>
+  </li>
+  <li>
+    <p>Generate the output of the script code and look after figures produced in code.</p>
+  </li>
+</ol>
+
+<hr />
+
+<p>After that, I studied how the <a href="https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/liboctave/util/url-transfer.h">url-transfer.h</a> file is implemented which contains a base class named <code class="highlighter-rouge">base_url_transfer</code> which has a derived class named <code class="highlighter-rouge">url_transder</code>. One thing that puzzled me while doing so was, why there has to be a macro <a href="https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/liboctave/util/url-transfer.cc#l220"><code class="highlighter-rouge">HAVE_CURL</code></a> in order for <code class="highlighter-rouge">curl_transfer</code> to be defined and why we haven’t defined <code class="highlighter-rouge">url_transfer</code> class itself? I would try to get these doubts solved this week.</p>
+
+<p>The problem of <a href="https://www.mediawiki.org/wiki/API:Main_page#Identifying_your_client">user agent</a> was solved by selecting the following user agent:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    GNU Octave/OCTAVE_VERSION (https://www.gnu.org/software/octave/ ; help@octave.org) libcurl/LIBCURL_VERSION
+</code></pre></div></div>
+<p>where OCTAVE_VERSION and LIBCURL_VERSION correspond to the user’s octave and libcurl version respectively. <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/libcurl_wrapper.ccT184">This</a> code precisely does the same for us.</p>
+
+<p>My inteded plan for the wrapper is, make a <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/cookie_manager.m">cookie_manager.m</a> file that will process the various user options (like verbose output, timeout settings, api.php url, etc.) and pass the values to an internal <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/__curl__.cc">__curl__.cc</a> function which will in turn, take help from <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/libcurl_wrapper.cc">libcurl_wrapper.cc</a> to do various tasks (all the work related to cookies will be looked after by it, essentially).</p>
+
+<p>Curently, all the code in <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#chg-ocs/wiki_login.m">wiki_login.m</a> has been commented out except the first step of login, i.e, <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/wiki_login.mT20">getting a login token</a> from the api.php, which it smoothly does, as of now. I am assuming that the file which would store the cookies, is <a href="https://bitbucket.org/me_ydv_5/octave/commits/0a2add3cc5e614ebf1e6d04391a197d85397f7bb?at=ocs#Locs/cookie_manager.mT9">temporary</a> and should be deleted once the session expires. This is one of the things I will be looking on in this week.</p>
+
+<p>I’ve migrated all the developments from my forked <a href="https://github.com/me-ydv-5/octave-web/commits/master">git repo</a> to my mercurial bookmark <a href="https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs"><code class="highlighter-rouge">ocs</code></a> recently and so I was not sure where should I put the files in my source tree. Thus, I’ve put all of them in a directory <code class="highlighter-rouge">ocode</code> for now.</p>
+
+<p>To test this for yourself:</p>
+<ul>
+  <li>Clone my build tree using <code class="highlighter-rouge">hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave</code></li>
+  <li>Make yourself a build of octave (<code class="highlighter-rouge">make -j2</code>, etc.).</li>
+  <li><code class="highlighter-rouge">cd octave</code>.</li>
+  <li>Update to my bookmark using <code class="highlighter-rouge">hg up ocs</code>. (IMPORTANT!)</li>
+  <li><code class="highlighter-rouge">cd ocode</code>.</li>
+  <li>Execute <code class="highlighter-rouge">Makefile</code> in octave.</li>
+  <li>Execute <code class="highlighter-rouge">wiki_login</code> in octave to get a login token.</li>
+</ul>
+
+<hr />
+
+<p>All other details of the wrapper’s implementation will be followed in the next post.</p>
+
+<p>The next week would follow the following advances:</p>
+<ul>
+  <li>Choosing the right location for the files (after I get a green light for the current developmental path).</li>
+  <li>Extending other options in the wrapper for wiki_login’s steps 2 and 3.</li>
+  <li>Implementing cookie_manager with other user options.</li>
+  <li>Writing help text and text cases, if any.</li>
+  <li>Correction of existing work/ changing the stategy as adviced by mentor, or anyone else.</li>
+  <li>Look into how can I use existing <code class="highlighter-rouge">base_url_transfer</code> class in the wrapper and resolve my query of the <code class="highlighter-rouge">HAVE_CURL</code> macro and shared pointers, etc.</li>
+</ul>
+
+<p>I am optimistic that I would be able to complete my first evaluation work by 25th May or so, as I will need to focus on my end term examinations after that which will start from 1 June. We don’t get holidays in between the exams!</p>
+
+<p>Please let me know if I am doing it the right way or not, by either replying to <a href="http://lists.gnu.org/archive/html/octave-maintainers/2018-04/msg00173.html">this thread</a> or by simply dropping a message on <code class="highlighter-rouge">#octave</code> for <code class="highlighter-rouge">&lt;batterylow&gt;</code>. All the suggestions are always welcomed.</p>
+
+<p>Oh and not to forget, I got my <a href="https://batterylow.me">domain</a> an SSL certificate, now all the requests are served via HTTPS only!</p>
+
+<p>Stay tuned for next update.</p>
+:ET

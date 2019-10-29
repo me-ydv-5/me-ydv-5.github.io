@@ -1,0 +1,330 @@
+I"�<h1 id="custom-camera-overlay-and-controls-using-uiimagepickercontroller-in-ios">Custom camera overlay and controls using UIImagePickerController in iOS</h1>
+
+<p>Hey There!</p>
+
+<p>I know it how much it sucks to make a custom camera controller in iOS (been there, done that). Without wasting much of the time in useless BS, I’ll start straight.</p>
+
+<p>There are two different modules you can use, AVFoundation and UIImagePickerController.</p>
+
+<p>Use AVFoundation if you want to customize your camera with editing, giving maximum flexibility to the user. If you want to have a simple camera screen that you want to add in your app, with custom controls on it and an overlay, here’s what you need to do.</p>
+
+<p>What we’ll be doing is, make a camera overlay with the silhouette of a human face in the center, a capture button below it and will then display it for looking at how it went, i.e, if the user wants to retake or use the same photo.</p>
+
+<ol>
+  <li>
+    <p>Make a new project in xcode named whatever you want. I used <code class="highlighter-rouge">cameraOverlay</code> <img src="newapp.png" alt="New App" /></p>
+  </li>
+  <li>
+    <p>You’ll see your Project navigator in the following state <img src="navigator.png" alt="Project Navigator" /></p>
+  </li>
+  <li>
+    <p>Set up your developer profile in Xcode &gt; Preferences &gt; Account. I’ll skip this step.</p>
+  </li>
+  <li>
+    <p>You’ll need a device with a camera. I’ve used an iPad. For using camera, you need to get User’s permission for same. Add the following key-value pair in <code class="highlighter-rouge">info.plist</code>. You can change value with whatever you want though.</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Key    :  Privacy - Camera Usage Description   
+    Value  :  Need camera to show how overlay is applied on the camera
+</code></pre></div></div>
+
+<p>You’ll see something like this in your info.plist after this step <img src="infoplist.png" alt="info.plist" /></p>
+
+<ol>
+  <li>
+    <p>Change your launchscreen view (<code class="highlighter-rouge">Launchscreen.storyboard</code>) so that you know you’ve entered your main storyboard (both of them are identical initially). I’ve added a tinge to it and a simple label on it. <img src="launchscreen.png" alt="launchscreen" /></p>
+  </li>
+  <li>
+    <p>Add a button to your single screen in <code class="highlighter-rouge">Main.storyboard</code>. I’ve labelled it <code class="highlighter-rouge">Capture Something</code>. This button will show us the actual camera with its overlay and capture button. <img src="main.png" alt="Main Screen" />.</p>
+  </li>
+  <li>
+    <p>Add its action to <code class="highlighter-rouge">ViewController.swift</code> so that you can configure its functionality. <img src="binding.png" alt="Action Outlet" />. To add the action:</p>
+    <ul>
+      <li>Click on the button that you just added.</li>
+      <li>Keep ‘option’ key pressed in your mac and click on <code class="highlighter-rouge">ViewController.swift</code> in the navigator to open it beside the storyboard.</li>
+      <li>control-drag (by pressing control and then dragging the button) this button to your view controller.</li>
+      <li>Add the action for this button. <img src="actionoutlet.png" alt="IBAction" /> named <code class="highlighter-rouge">captureBtnWasPressed</code></li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="till-this-step-weve-setup-the-basic-the-basic-app-lets-dive-deep-into-our-apps-functionality">Till this step, we’ve setup the basic the basic app. Let’s dive deep into our app’s functionality.</h3>
+
+<ol>
+  <li>Because we’ll be using <code class="highlighter-rouge">UIImagePickerController</code>, add its protocol. A protocol is something described in <a href="https://medium.com/@agoiabeladeyemi/protocol-in-swift-with-practical-examples-8b955268ce39">this blog</a>. I don’t really know how to explain that to you. Meh, I know it sucks. Anyway, add the following two protocols to your <code class="highlighter-rouge">ViewController</code>:</li>
+</ol>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">UIImagePickerControllerDelegate</span><span class="p">,</span> <span class="kt">UINavigationControllerDelegate</span><span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Add <code class="highlighter-rouge">UIImagePickerController</code> to the class.
+    <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">myCamera</span> <span class="o">=</span> <span class="kt">UIImagePickerController</span><span class="p">()</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Add camera’s <code class="highlighter-rouge">UIView</code>, which will hold our overlay and the capture button on it. This will go on top of our camera’s live view. Also add a <code class="highlighter-rouge">UIImage</code> variable that’ll hold our image when we’ll preview the captured image.
+    <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">cameraView</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">!</span>
+<span class="k">var</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="o">!</span>
+</code></pre></div>    </div>
+  </li>
+  <li>In the action that we made in step 7, add the following code. I’ll explain it line-by-line.
+    <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">captureBtnWasPressed</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cameraView</span> <span class="o">=</span> <span class="kt">UIView</span><span class="p">()</span>
+    <span class="k">if</span> <span class="kt">UIImagePickerController</span><span class="o">.</span><span class="nf">isSourceTypeAvailable</span><span class="p">(</span><span class="kt">UIImagePickerController</span><span class="o">.</span><span class="kt">SourceType</span><span class="o">.</span><span class="n">camera</span><span class="p">){</span>
+        <span class="k">if</span> <span class="kt">UIImagePickerController</span><span class="o">.</span><span class="nf">availableMediaTypes</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="kt">UIImagePickerController</span><span class="o">.</span><span class="kt">SourceType</span><span class="o">.</span><span class="n">camera</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">{</span>
+            <span class="c1">// Use front camera and add overlay on it</span>
+            <span class="n">myCamera</span><span class="o">.</span><span class="n">sourceType</span> <span class="o">=</span> <span class="o">.</span><span class="n">camera</span>
+            <span class="n">myCamera</span><span class="o">.</span><span class="n">cameraDevice</span> <span class="o">=</span> <span class="o">.</span><span class="n">front</span>
+            <span class="n">myCamera</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+            <span class="n">myCamera</span><span class="o">.</span><span class="n">showsCameraControls</span> <span class="o">=</span> <span class="kc">false</span>
+            <span class="n">myCamera</span><span class="o">.</span><span class="n">cameraOverlayView</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="nf">addOverlay</span><span class="p">()</span>
+            <span class="k">self</span><span class="o">.</span><span class="nf">present</span><span class="p">(</span><span class="n">myCamera</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"no camera device found"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>Look at it this way. When you press “Capture Something” in your app, the press will send an event that will execute this block of code because the button is bound with this <code class="highlighter-rouge">@IBAction</code>.</li>
+      <li><code class="highlighter-rouge">cameraView = UIView()</code> instantiates the overlay view. This could be instantiated here, or right when we declared it in step 10.</li>
+      <li>The first if-condition checks if the camera is available. The second if-statement inside it will check if we can use camera (The app will ask permission to use the camera, step 4).</li>
+      <li>In the second if-block, we add all the required properties for our camera system.</li>
+    </ul>
+    <ul>
+      <li><code class="highlighter-rouge">sourceType</code> : Assigns the source to <code class="highlighter-rouge">UIImagePickerController</code> (other one being gallery for viewing images).</li>
+      <li><code class="highlighter-rouge">cameraDevice</code>: Front or back camera. I’ll use the front camera.</li>
+      <li><code class="highlighter-rouge">delegate</code>: That’s how the camera actually tells the app that some image has been captured. We won’t need to change this as we’ll use the native UIImagePicker delegate, which is inherited from the two protocols that we added in step 8. Read more about delegates <a href="https://medium.com/@jamesrochabrun/implementing-delegates-in-swift-step-by-step-d3211cbac3ef">here</a>.</li>
+      <li><code class="highlighter-rouge">showCameraControls</code>: Self explanatory, we don’t want the native controls as they will be shadowed by our overlay anyway.</li>
+      <li><code class="highlighter-rouge">cameraOverlayView</code>: This is the crux of this article. Hold tight. I’ll come back on this.</li>
+      <li><code class="highlighter-rouge">self.present(...)</code> shows the camera view on the main screen in the app, without any animation. The completion block holds what is to be done after we’re done showing the camera’s live view. We don’t need to do anything here as we’ll write separate function to handle that.</li>
+    </ul>
+  </li>
+  <li>Add the <code class="highlighter-rouge">addOverlay</code> function in the view controller. This will hold everything that’s there about overlay and shit. The function takes nothing and returns a UIView, which is stored in the variable <code class="highlighter-rouge">cameraView</code>.
+    <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">addOverlay</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIView</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">addSilhouette</span><span class="p">(</span><span class="n">cameraView</span><span class="p">)</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">addCameraButton</span><span class="p">(</span><span class="n">cameraView</span><span class="p">)</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">addSkipButton</span><span class="p">(</span><span class="n">cameraView</span><span class="p">)</span>
+    <span class="n">cameraView</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span>
+    <span class="n">cameraView</span><span class="o">.</span><span class="n">tag</span> <span class="o">=</span> <span class="mi">101</span>
+    <span class="k">return</span> <span class="n">cameraView</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+    <p>The function does the following tasks:</p>
+    <ul>
+      <li>Adds the silhouette of the face.</li>
+      <li>Adds the camera button</li>
+      <li>Adds a skip button to skip to the next screen.</li>
+      <li>Assigns a tag to the UIView for so that we can delete it later when showing the preview of the image that we captured.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>One of the most important lines here is the one that I left, as it wasted much of my time (and the only reason I am writing this blog!).</p>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">cameraView</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span>
+</code></pre></div></div>
+
+<p>This line of code makes our overlay’s UIView frame equal to our screen’s view frame. This is like making a parent for our overlay. If we don’t write this line, we can have all the buttons we want on our overlay, but they’ll be as good as images, won’t really do anything. After we add this line, the buttons will have a physical space in the view hierarchy.</p>
+
+<ol>
+  <li>Let’s write the various components that are there in the overlay.
+    <ul>
+      <li><code class="highlighter-rouge">addSilhouette</code>:
+```swift
+// Deg2Rad. Meh
+func deg2rad(_ number: Double) -&gt; CGFloat{
+return CGFloat(number * Double.pi/180)
+}</li>
+    </ul>
+
+    <p>func addSilhouette(_ cameraView: UIView){
+    // The base canvas on which everything else is put
+    let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height), cornerRadius: 0)</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Semicircle for the silhouette
+let semicircle = UIBezierPath(arcCenter: CGPoint(x: self.view.center.x, y: self.view.center.y), radius: 200.0, startAngle: deg2rad(0), endAngle: deg2rad(180), clockwise: false)
+    
+// Chin area of the silhouette
+let freeform = UIBezierPath()
+freeform.move(to: CGPoint(x: self.view.center.x - 200, y: self.view.center.y))
+freeform.addCurve(to: CGPoint(x: self.view.center.x + 200, y: self.view.center.y), controlPoint1: CGPoint(x: self.view.center.x - 180, y: self.view.center.y + 450), controlPoint2: CGPoint(x: self.view.center.x + 180, y: self.view.center.y + 450))
+    
+path.append(semicircle)
+path.append(freeform)
+path.usesEvenOddFillRule = true
+    
+// Adding the canvas as a sublayer
+let fillLayer = CAShapeLayer()
+fillLayer.path = path.cgPath
+fillLayer.fillRule = .evenOdd
+fillLayer.opacity = 0.7
+    
+    
+cameraView.layer.addSublayer(fillLayer) } ```
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>I won’t explain everything in this snippet but we’ll look at it superficially.</p>
+<ul>
+  <li>First of all, create a base canvas that’ll contain everything else that’s related to the silhouette.</li>
+  <li>Then create a semicircle, for human head. <code class="highlighter-rouge">UIBezierPath</code> is a cool topic, I won’t go in details but you can certainly have a look at <a href="https://developer.apple.com/documentation/uikit/uibezierpath">this doc</a> and <a href="http://math.hws.edu/eck/cs424/notes2013/canvas/bezier.html">this cool website</a> that shows how they work.</li>
+  <li>Then we add the chin area of the face while keeping the constraints in mind.</li>
+  <li><code class="highlighter-rouge">Deg2Rad</code> is simply a function that converts the degrees to radians as the Apple API for BezierPath takes only Radians as input.</li>
+  <li>Finally, we append both the chin and head to the canvas and fill the layer with an opacity of 0.7.</li>
+</ul>
+
+<p>You can change this function with whatever shape you want to use. Using a silhouette was relatively easier for me to use two different shapes, one being a semicircle, other being a random shape that’ll eventually make sense.</p>
+
+<ol>
+  <li>
+    <p>Before going to the next step, download the <a href="https://icons8.com/icons/set/camera">camera button from icons8</a> and drag it to <code class="highlighter-rouge">Assets.xcassets</code> from your downloads. <img src="icon.png" alt="Camera Drag" /></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">addCameraButton</code>:</p>
+    <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">addCameraButton</span><span class="p">(</span><span class="n">_</span> <span class="nv">cameraView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">){</span>
+    <span class="k">let</span> <span class="nv">button</span> <span class="o">=</span> <span class="kt">UIButton</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">custom</span><span class="p">)</span>
+    <span class="n">button</span><span class="o">.</span><span class="nf">setImage</span><span class="p">(</span><span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"camera"</span><span class="p">),</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">normal</span><span class="p">)</span>
+    <span class="n">button</span><span class="o">.</span><span class="n">isUserInteractionEnabled</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">button</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="mi">355</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">90</span><span class="p">)</span>
+    <span class="n">button</span><span class="o">.</span><span class="nf">addTarget</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">self.didPressShootButton</span><span class="kd">)</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">touchUpInside</span><span class="p">)</span>
+    <span class="n">cameraView</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<ul>
+  <li>This function adds a camera capture button below the face silhouette.</li>
+  <li>Makes a new <code class="highlighter-rouge">UIButton</code> variable and sets its image as the one imported in step 14.</li>
+  <li>Sets the frame for the button, so that the area under it becomes clickable.</li>
+  <li>The following line adds a target that is to be executed when the button is pressed.
+    <ul>
+      <li>When you touch up inside (i.e, press the button), it’ll execute our <code class="highlighter-rouge">didPressShootButton</code> which we’ll write in the next step.</li>
+      <li><a href="https://developer.apple.com/documentation/uikit/uicontrol/1618259-addtarget">Doc</a> explains better than I can about whatever the heck is this function.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">button</span><span class="o">.</span><span class="nf">addTarget</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">self.didPressShootButton</span><span class="kd">)</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">touchUpInside</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Add <code class="highlighter-rouge">didPressShootButton</code> that gets executed as the user clicks on the camera button on our overlay.
+    <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">didPressShootButton</span><span class="p">(){</span>
+    <span class="n">myCamera</span><span class="o">.</span><span class="nf">takePicture</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>This function will click a picture. After taking the picture, our controller will inform the protocol method <code class="highlighter-rouge">imagePickerController</code> (this gets called when the user clicks the camera button) and it will get executed. This function handles the preview of our image that just got captured with two buttons on it, retake or use the photo.
+    <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// Capture the image and show it on PreviewImageViewController</span>
+    <span class="kd">func</span> <span class="nf">imagePickerController</span><span class="p">(</span><span class="n">_</span> <span class="nv">picker</span><span class="p">:</span> <span class="kt">UIImagePickerController</span><span class="p">,</span> <span class="n">didFinishPickingMediaWithInfo</span> <span class="nv">info</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIImagePickerController</span><span class="o">.</span><span class="kt">InfoKey</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="p">{</span>
+  <span class="n">myCamera</span><span class="o">.</span><span class="nf">dismiss</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
+      <span class="c1">// Remove the camera</span>
+      <span class="k">for</span> <span class="n">each</span> <span class="k">in</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">subviews</span><span class="p">{</span>
+          <span class="k">if</span> <span class="n">each</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="mi">101</span><span class="p">{</span>
+              <span class="n">each</span><span class="o">.</span><span class="nf">removeFromSuperview</span><span class="p">()</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
+            
+      <span class="c1">// Add the preview</span>
+      <span class="k">let</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIImageView</span> <span class="o">=</span> <span class="kt">UIImageView</span><span class="p">()</span>
+      <span class="n">view</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="o">.</span><span class="n">originalImage</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">UIImage</span>
+      <span class="k">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">image</span>
+
+            
+      <span class="c1">// Add retake button</span>
+      <span class="k">let</span> <span class="nv">button</span><span class="p">:</span> <span class="kt">UIButton</span> <span class="o">=</span> <span class="kt">UIButton</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">custom</span><span class="p">)</span>
+      <span class="n">button</span><span class="o">.</span><span class="nf">setTitle</span><span class="p">(</span><span class="s">"Retake Photo"</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">normal</span><span class="p">)</span>
+      <span class="n">button</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">minX</span> <span class="o">+</span> <span class="mi">70</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">maxY</span> <span class="o">-</span> <span class="mi">101</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">246</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">53</span><span class="p">)</span>
+      <span class="n">button</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">25</span>
+      <span class="n">button</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">borderWidth</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="n">button</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">white</span><span class="o">.</span><span class="n">cgColor</span>
+      <span class="n">button</span><span class="o">.</span><span class="nf">addTarget</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">self.captureBtnWasPressed</span><span class="kd">)</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">touchUpInside</span><span class="p">)</span>
+            
+      <span class="c1">// Add use photo button</span>
+      <span class="k">let</span> <span class="nv">qbutton</span><span class="p">:</span> <span class="kt">UIButton</span> <span class="o">=</span> <span class="kt">UIButton</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">custom</span><span class="p">)</span>
+      <span class="n">qbutton</span><span class="o">.</span><span class="nf">setTitle</span><span class="p">(</span><span class="s">"Save and Continue"</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">normal</span><span class="p">)</span>
+      <span class="n">qbutton</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">maxX</span> <span class="o">-</span> <span class="mi">316</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">maxY</span> <span class="o">-</span> <span class="mi">101</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">246</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">53</span><span class="p">)</span>
+      <span class="n">qbutton</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">25</span>
+      <span class="n">qbutton</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">borderWidth</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="n">qbutton</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">white</span><span class="o">.</span><span class="n">cgColor</span>
+      <span class="n">qbutton</span><span class="o">.</span><span class="nf">addTarget</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">self.usedPhoto</span><span class="kd">)</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">touchUpInside</span><span class="p">)</span>
+            
+      <span class="c1">// The base of transparent view</span>
+      <span class="k">let</span> <span class="nv">path</span> <span class="o">=</span> <span class="kt">UIBezierPath</span><span class="p">(</span><span class="nv">roundedRect</span><span class="p">:</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">maxY</span> <span class="o">-</span> <span class="mi">149</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">149</span><span class="p">),</span> <span class="nv">cornerRadius</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="n">path</span><span class="o">.</span><span class="n">usesEvenOddFillRule</span> <span class="o">=</span> <span class="kc">false</span>
+            
+      <span class="c1">// Adding the canvas as a sublayer</span>
+      <span class="k">let</span> <span class="nv">fillLayer</span> <span class="o">=</span> <span class="kt">CAShapeLayer</span><span class="p">()</span>
+      <span class="n">fillLayer</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">cgPath</span>
+      <span class="n">fillLayer</span><span class="o">.</span><span class="n">fillRule</span> <span class="o">=</span> <span class="o">.</span><span class="n">evenOdd</span>
+      <span class="n">fillLayer</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.7</span>
+            
+      <span class="c1">// Add everything</span>
+      <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+      <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+      <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">qbutton</span><span class="p">)</span>
+            
+            
+      <span class="n">view</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="nf">addSublayer</span><span class="p">(</span><span class="n">fillLayer</span><span class="p">)</span>
+      <span class="n">view</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span>
+  <span class="p">})</span>
+    <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>First, we remove the camera view from the view hierarchy that we had applied on our camera object. This is done with the help of tag that we assigned earlier in step 12. Do let me know if you have a better way of removing that view.</p>
+  </li>
+  <li>
+    <p>Next, we add a <code class="highlighter-rouge">UIImageView</code> to the screen and then display the image that we just captured. <code class="highlighter-rouge">info[.originalImage]</code> contains the image that has been captured.</p>
+  </li>
+  <li>Then we add the skip button.</li>
+</ol>
+
+<p><code class="highlighter-rouge">addSkipButton</code>:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">func</span> <span class="nf">addSkipButton</span><span class="p">(</span><span class="n">_</span> <span class="nv">cameraView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">){</span>
+        <span class="k">let</span> <span class="nv">skipButton</span> <span class="o">=</span> <span class="kt">UIButton</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">custom</span><span class="p">)</span>
+        <span class="n">skipButton</span><span class="o">.</span><span class="nf">setTitle</span><span class="p">(</span><span class="s">"Skip"</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">normal</span><span class="p">)</span>
+        <span class="n">skipButton</span><span class="o">.</span><span class="n">isUserInteractionEnabled</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">skipButton</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">minX</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">maxY</span> <span class="o">-</span> <span class="mi">50</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="n">skipButton</span><span class="o">.</span><span class="nf">addTarget</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">self.imagePickerControllerDidCancel</span><span class="kd">)</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">touchUpInside</span><span class="p">)</span>
+        <span class="n">cameraView</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">skipButton</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>Same as camera button, except it has a different action that gets executed when we press it. Basically, it’ll take us to the same screen that comes after we’ve captured (and used) an image instead of clicking it. Note that it’s action is a protocol function that we’ve implemented for our own use. This comes directly as part of the black box that we have, named <code class="highlighter-rouge">UIImagePickerController</code> :)</p>
+  </li>
+  <li>Implement the delegate function that helps us to do something if the user doesn’t click an image at all.
+    <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// Used to skip the taking picture step when the camera is open</span>
+    <span class="kd">func</span> <span class="nf">imagePickerControllerDidCancel</span><span class="p">(</span><span class="n">_</span> <span class="nv">picker</span><span class="p">:</span> <span class="kt">UIImagePickerController</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">myCamera</span><span class="o">.</span><span class="nf">dismiss</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
+      <span class="k">self</span><span class="o">.</span><span class="nf">performSegue</span><span class="p">(</span><span class="nv">withIdentifier</span><span class="p">:</span> <span class="s">"nextPageSegue"</span><span class="p">,</span> <span class="nv">sender</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+  <span class="p">})</span>
+    <span class="p">}</span>
+</code></pre></div>    </div>
+    <p>Adds the functionality of performing a segue (redirection to the next screen pointed by the segue from the current segue), without any animation, <strong>after</strong> we’ve dismissed the camera by pressing the <em>skip</em> button.</p>
+  </li>
+  <li>Finally, implement the function that sends you to next screen if you click on ‘Use Photo’
+    <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">usedPhoto</span><span class="p">(){</span>
+  <span class="k">self</span><span class="o">.</span><span class="nf">performSegue</span><span class="p">(</span><span class="nv">withIdentifier</span><span class="p">:</span> <span class="s">"nextPageSegue"</span><span class="p">,</span> <span class="nv">sender</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>And now we’re done! 
+That’s how our camera looks!
+<img src="overlay.png" alt="Image" /></p>
+
+<p>If you click on that camera icon, you’ll see something like this
+<img src="preview.png" alt="Preview" /></p>
+
+<p>You can find the complete project <a href="">here</a>.</p>
+:ET

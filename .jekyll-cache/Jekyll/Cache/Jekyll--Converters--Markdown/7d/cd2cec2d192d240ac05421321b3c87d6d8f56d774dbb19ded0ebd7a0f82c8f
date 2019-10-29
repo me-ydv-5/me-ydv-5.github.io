@@ -1,0 +1,73 @@
+I"�6<p><strong>UPDATE 2:</strong> I found the cause of the <code class="highlighter-rouge">urlread</code> function not working correctly. It’s because curl sends the request as <code class="highlighter-rouge">application/x-www-form-urlencoded</code> whereas it should be <code class="highlighter-rouge">application/json</code>, which is explicitly changed in the cURL request that I’ve written down. I think this could be solved using the <code class="highlighter-rouge">webwrite</code> function that I’ve written.</p>
+
+<p>Now coming to the project work, I’ve been wandering inside the codebase for the last three days to implement the <code class="highlighter-rouge">webwrite</code> function. This is what I’ve implemented as <a href="https://bitbucket.org/me_ydv_5/octave/src/default/scripts/miscellaneous/webwrite.m"><code class="highlighter-rouge">webwrite.m</code></a>. It takes input and arranges them for further processing in currently what we call as <a href="https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/libinterp/corefcn/urlwrite.cc#lines-839"><code class="highlighter-rouge">__internal__</code></a> function. A sudden question could be why two different, so this is because the processing of the input is easier in Octave than in C++ and we really need to work with cURL here so C++ cannot be sidelined. MATLAB can take the following as a string with 42 as a number <code class="highlighter-rouge">str = ["His", "age", "is", 42]</code> whereas in Octave, we get the ascii value corresponding to 42 in its place. This is one difference what I observed. Due to this, I’m asking users to pass strings all along, without any numbers. But I’m not sure how I can test above <code class="highlighter-rouge">str</code> if it contains a number, so that I could warn/error the user that what he entered is not what Octave will get as. See this <a href="https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/scripts/miscellaneous/webwrite.m#lines-62"><code class="highlighter-rouge">FIXME</code></a>. And earlier I was sending a flag if the user has supplied some weboptions or not, but now if they haven’t, I’m supplying the default weboptions object, afterall it’s good to use your code when you’ve put some time to write it!</p>
+
+<p>Coming to the <a href="https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/libinterp/corefcn/urlwrite.cc#lines-839"><code class="highlighter-rouge">__internal__</code></a> function, this took my most of the time. I’d like to explicitly write two lines of code here, even if you do not understand them, kindly read them.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  octave_classdef *obj = args(nargin-1).classdef_object_value ();
+  cdef_object object = obj -&gt; get_object ();
+</code></pre></div></div>
+
+<p>These two lines look small, but took my most time and I was happiest when I got these working. This takes the weboptions object supplied from the m-script and gives us the C++ equivalent. I wrote this here just for my satisfaction anyway. The supposed working is, unpack the object and send the contents to an internal function to set the cURL headers which need to be amended. I was first trying to use <a href="http://octave.org/doxygen/4.0/d4/d6c/classcdef__object.html#a1e1f017e8766d4c475b9b74aca0f767b"><code class="highlighter-rouge">map_value ()</code></a> function of the <code class="highlighter-rouge">cdef_object</code> which essentially, maps the Keys (as strings) to their values (as <code class="highlighter-rouge">cdef_property</code>), see <a href="https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/libinterp/octave-value/ov-classdef.cc#l1234">this</a> but because this always gives a <a href="https://hg.savannah.gnu.org/hgweb/octave/file/74fbe0d91994/libinterp/octave-value/ov-classdef.cc#l1238">warning</a>, which is right, I refrained from using it because employing this in a function will decrease the UX quality of the software. Instead, I extracted Keys as strings and then queried their values. To get away with the warinings, I excluded <a href="https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/libinterp/corefcn/urlwrite.cc#lines-897"><code class="highlighter-rouge">two Keys</code></a> (“delete” and “display”) for now. But this is a bad design because although there won’t be any such keys in a weboptions object, but still we should be handling it some other way, currently which I do not know, I’ll ask Kai or jwe about this.</p>
+
+<p>The other thing that I just got to think was, I’m unpacking the object in <code class="highlighter-rouge">__internal__</code> function, and then sending it to some other function. Why not just send the object there and unpack it there? Reducing a lot of lines of code? To unpack, I wrote an equivalent <a href="https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.h#lines-44"><code class="highlighter-rouge">struct</code></a> and then I’m passing this to <a href="https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.cc#lines-752"><code class="highlighter-rouge">set_weboptions</code></a> function, which then puts the corresponding options in cURL. I’ll change this to simpler format so that we won’t need struct. There are a few <code class="highlighter-rouge">FIXME</code> tags in this function for which I’ll need the help of mentor and other maintainers. For example, I searched the code to find how to push back values in an <code class="highlighter-rouge">Array&lt;std::string&gt;</code>, but couldn’t find it out. This will save us a lot of time because now that I know how Classdef’s API work in C++.</p>
+
+<p>I also changed <a href="https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.cc#lines-645"><code class="highlighter-rouge">http_action</code></a> function and completely removed the previous <code class="highlighter-rouge">http_get</code> and <code class="highlighter-rouge">http_post</code> functions to accomodate new HTTP methods like <code class="highlighter-rouge">DELETE</code> and <code class="highlighter-rouge">PUT</code>, Kai too had complained about this being a bad design back in phase one, so his query should also have resolved by this. Also the error in this function is not propagated correctly to the interpreter. See the FIXME in the function. Oh, and the function <a href="https://bitbucket.org/me_ydv_5/octave/src/7b22a241cd5e265c323376b935e78d8182155dde/liboctave/util/url-transfer.cc#lines-704"><code class="highlighter-rouge">set_header</code></a> that I wrote in phase two can be of good use now in phase three, so that’s good.</p>
+
+<p>Also, <a href="http://httpbin.org"><code class="highlighter-rouge">http://httpbin.org</code></a> is a cool site to throw requests for testing, rendering my server useless. Anyway, I learnt a thing or two about that as well with this.</p>
+
+<p>A few other small detailings are left which will be cleared as soon as me and Kai meet on the IRC.</p>
+
+<p>I must say, initially I was over expecting, but Kai correctly saw the depth of the project and resisted me to add more work given that I still spend around 30-35 hours a week to the project (I hope this is not offending anyone!). Writing this function was a great experience. I generally get headache working on laptop, but I could seemlessly work without any long break for around 18 hours a day. Wrapping up this week’s post, I hope someone might reach here reading it. Feel free to suggest/advice me on the work.</p>
+
+<p>Thanks and have a good time.</p>
+
+<hr />
+
+<p><strong>UPDATE:</strong> There’s some problem with <code class="highlighter-rouge">urlread</code> function in octave when sending post requests. Because my this week’s work is related to the same, I’ll check what exactly is getting wrong. You can try the curl command in the meantime. Also, the server will respond (most probably) at every time form now on.</p>
+
+<hr />
+
+<p>Hi!</p>
+
+<p>I’m pleased to tell you all that I’ve got good remarks in second evaluation of GSoC! Kai didn’t complin about what I was lacking in the first evaluation. I’m really thankful to him for this.</p>
+
+<p>Coming to the next and final phase of the GSoC, I have to implement <a href="https://in.mathworks.com/help/matlab/ref/webread.html">webread</a> and <a href="https://in.mathworks.com/help/matlab/ref/webwrite.html">webwrite</a> functions in Octave. I had some issues with getters and setters in <code class="highlighter-rouge">weboptions</code> which have now been rectified.</p>
+
+<p>To check the working of the two functions, I needed a server that could entertain HTTP request and let us verify the desired results. For this, I chose <a href="https://www.playframework.com/"><code class="highlighter-rouge">Java Play! Framework</code></a>, which is a super cool tool in JAVA that serves our purpose well. Needless to say, it is RESTful by default. It works on <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC design pattern</a>. Without wasting everyone’s time, I’d like to introduce a few files that are relevant to our project.</p>
+
+<p>The first and the foremost is the <a href="https://bitbucket.org/me_ydv_5/server_code/src/master/conf/routes"><code class="highlighter-rouge">routes</code></a> file, which binds our app to the outer world. Routes can also be called as endpoints, if anyone is aware of. We write all the HTTP requests (GET, POST, PUT, etc.) here and map those endpoints to our corresponding functions that take action on the requests. As an example, you can see that GET request to the <code class="highlighter-rouge">webhook</code> endpoint is mapped to <a href="https://bitbucket.org/me_ydv_5/server_code/src/7da1bc07f3384c270920d705a0e1a44dc12bce32/app/controllers/HomeController.java#lines-30"><code class="highlighter-rouge">webhookGet()</code></a> function. Similarly, we can write functions as per our need and do the needful.</p>
+
+<p>Next file is a controller. Controllers are the files that essentially parse/decode your request into smaller pieces and the applies some computation with the help of auxillary functions defined elsewhere. The above mentioned webhookGet() function is what is written in a controller.</p>
+
+<p>The last one is <code class="highlighter-rouge">application.conf</code> which has all the configurations that are needed to run the project. The server is run using the <code class="highlighter-rouge">sbt run</code> command and shipped for production using <code class="highlighter-rouge">sbt dist</code> command. Only you need to have a JAVA environment to make these command work. You can try to play with it using the source code from <a href="https://bitbucket.org/me_ydv_5/server_code/src">here</a>. Note that the latter command cannot be run on the production server unless you have high memory for it, I myself, do the dist command on my machine and then <code class="highlighter-rouge">rsync</code> the zip file to the server, although there are other easier methods available like using CI server, etc. Kindly feel free to ask me anything related to the framework or anything else related to project, in general.</p>
+
+<p>Now that the server has been set up, we can hit GET and PUSH requests on it and tweak the behaviour of what happens with our requests as per our need. Currently, the server will behave as an echo server, so it will let you know what you sent.</p>
+
+<p>To check if the server works as expected for you, you can issue the following command in Octave:</p>
+
+<p><code class="highlighter-rouge">s = urlread("https://batterylow.me:9000/webhook", "get", {"mode", "testing", "verify_token", "theTokenToAccount", "message", "Post back this message to me"})</code></p>
+
+<p>The last parameter in the above cell string should be returned to you. Note that <code class="highlighter-rouge">mode</code> and <code class="highlighter-rouge">verify_token</code> should be <code class="highlighter-rouge">testing</code> and <code class="highlighter-rouge">theTokenToAccount</code> respectively, because a request only succeeds when the above two pairs match, as you can see in the source code. <strong>Remember to use https protocol</strong> while sending the request, because it doesn’t accept requests from http (even I spent considerable time on this silly mistake!). You can use curl as well by invoking the following command:</p>
+
+<p><code class="highlighter-rouge"> curl -H "Content-Type: application/json" -X POST "https://batterylow.me:9000/webhook" -d '{"name": "yourName"}'</code></p>
+
+<p>Ofcourse, you can easily send the above two requests using octave as well like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET Request:
+s = urlread("https://batterylow.me:9000/webhook", "get", {"mode", "testing", "verify_token", "theTokenToAccount", "message", "Post back this message to me"})
+
+POST Request:
+s = urlread("https://batterylow.me:9000/webhook", "post", {"name", "yourname"})
+</code></pre></div></div>
+
+<p>One hurdle for me right now is my system, it keeps crashing! At all unknown times! I’m trying to get it work asap so got late to complete the <code class="highlighter-rouge">webread</code> function. Today as well, I got some space now to write the post. I’ll update this post in a day or two with my implementation details of the function. (I had intimidated Kai about this.)</p>
+
+<p><strong>NOTE:</strong> You may <em>not</em> get the response from the server because I myself need to run it on that machine. Kindly let me know on IRC if you need to suggest/advice anything. I’ll definitely reply if my machine might be working and I may be online!</p>
+
+<p>Till then! :-)</p>
+
+<hr />
+
+<p><a href="https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs">Link</a> to BitBucket repo.</p>
+:ET

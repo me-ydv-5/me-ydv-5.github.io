@@ -1,0 +1,10 @@
+I",<p>I’ve implemented the <a href="https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/weboptions.m"><code class="highlighter-rouge">weboptions</code></a> function. I also added relevant comments wherever needed, including the code of first evaluation. This completes the second phase evaluation task, i.e, implementing <code class="highlighter-rouge">wiki_upload</code> script and <code class="highlighter-rouge">weboptions</code>. There was an unprecendented delay of a week when I was trying to upload the images on the server. It would’ve given me a head start if I had completed the task without the delay, although I am still on the track. There’s one thing left, the help text that I wrote for <code class="highlighter-rouge">weboptions</code> isn’t being displayed when I issue <code class="highlighter-rouge">help weboptions</code> because it’s a <code class="highlighter-rouge">Classdef</code> and not <code class="highlighter-rouge">function</code>. Other than this, I feel the task has been executed correctly.</p>
+
+<p>Coming to the next task, I plan to implement <code class="highlighter-rouge">webread</code> and <code class="highlighter-rouge">webwrite</code> function with MATLAB compatibilty. I think I can change <code class="highlighter-rouge">wiki_upload</code> script to be a generic one and then use it for both wiki and webwrite. This would help us extend it with any other functionality in the future.</p>
+
+<p>Note that a few of the <code class="highlighter-rouge">weboptions</code> fields are currently for MATLAB compatibilty, as described in the previous post. Also, second phase evaluation will take place this week. Hoping for not giving Kai a chance to complain! :-)</p>
+
+<hr />
+
+<p><a href="https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs">Link</a> to BitBucket repo.</p>
+:ET

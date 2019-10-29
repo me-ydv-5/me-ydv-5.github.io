@@ -1,0 +1,39 @@
+I"�<p>With 25th May approaching, I’m confident to say that I’ve completed my first evaluation (although some grammatical and styling rechecking is left). Now, as directed by Kai, I’ve implemented the <a href="https://bitbucket.org/me_ydv_5/octave/src/ocs/scripts/miscellaneous/wiki_login.m"><code class="highlighter-rouge">wiki_login.m</code></a> function from using the internals of <a href="https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/liboctave/util/url-transfer.cc#lines-731"><code class="highlighter-rouge">url-transfer.cc/h</code></a> class. I’ve scapped the earlier design of implementing <code class="highlighter-rouge">cookie_manager.m</code> script and <code class="highlighter-rouge">libcurl_wrapper.cc</code> class for doing the cookie thing and directly implemented <a href="https://bitbucket.org/me_ydv_5/octave/src/3fe1c77dfbb320306d228e0cd10608b7f8057165/libinterp/corefcn/urlwrite.cc#lines-739"><code class="highlighter-rouge">__wiki_login__</code></a> as an internal function in <code class="highlighter-rouge">urlwrite.cc</code>. A user is now able to log into api.php</p>
+
+<p>To test my implemtation:</p>
+
+<ul>
+  <li>
+    <p>Make a test account on <code class="highlighter-rouge">wiki.octave.space</code> with username and password of your choice.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">hg clone https://me_ydv_5@bitbucket.org/me_ydv_5/octave</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">hg up ocs</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">cd path/to/your/build/tree/</code> and execute <code class="highlighter-rouge">make -jX</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">./run-octave</code></p>
+  </li>
+  <li>
+    <p>execute <code class="highlighter-rouge">wiki_login ("https://wiki.octave.space/api.php", yourUsername, yourPassword);</code></p>
+  </li>
+</ul>
+
+<p>If it is all successful, you should see a prompt <code class="highlighter-rouge">Success: logged in as yourUsername</code>.</p>
+
+<p>Other than that, I’m really grateful to <a href="http://jweaton.org/">jwe</a> for moving the <code class="highlighter-rouge">version.h</code> file to <code class="highlighter-rouge">liboctave</code> from <code class="highlighter-rouge">libinterp</code> as this is needed to get the <code class="highlighter-rouge">OCTAVE_VERSION</code> for the user agent (see week 3 for this). Eariler, it was in <code class="highlighter-rouge">libinterp</code> and we must not use anything from <code class="highlighter-rouge">libinterp</code> in <code class="highlighter-rouge">liboctave</code> as it should be compiled irrespective of the former.</p>
+
+<p><em>NOTE: You may need to re-run <code class="highlighter-rouge">./bootstrap</code> and <code class="highlighter-rouge">./configure</code> due to above changes.</em></p>
+
+<p>Lastly, I would request to someone who uses Windows (My Windows ran into some problem and I’m now unable to connect to internet, I’ll reinstall it whenever I get some time) and/or Mac OS to test my implementation and report any errors.</p>
+
+<p>Needless to say I’m always looking forward to constructive feedback/criticism.</p>
+
+<hr />
+
+<p><a href="https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs">Link</a> to BitBucket repo.</p>
+:ET

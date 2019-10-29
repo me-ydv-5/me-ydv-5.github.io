@@ -1,0 +1,12 @@
+I"T<p>Continuing further, I added more options in <code class="highlighter-rouge">libcurl_wrapper.cc</code>. As described in earlier posts, the current implementation of <code class="highlighter-rouge">wiki_login.m</code> has the JAVA’s interface to Octave in use and I need to replace it with Octave’s own implementation. So, I’ve taken two steps in this direction. Now a user is able to retrieve token when he executes <code class="highlighter-rouge">wiki_login</code> AND use the cookies that are set in a temporary <code class="highlighter-rouge">.txt</code> file to login into the <code class="highlighter-rouge">api.php</code> wiki. Currently, there’s a problem in logging in, because the following cookies are unable to get added, <code class="highlighter-rouge">octave_org_session</code>, <code class="highlighter-rouge">octave_orgUserID</code>, <code class="highlighter-rouge">octave_orgUserName</code>, <code class="highlighter-rouge">octave_orgToken</code>. I got to know about these cookies when I tried to execute the curl-cli commands for logging in.</p>
+
+<p>I also understood how the <code class="highlighter-rouge">HAVE_CURL</code> macro encapsulates the <code class="highlighter-rouge">curl_transfer</code> class, i.e, if curl is available in a machine, then this class exists, else not. <code class="highlighter-rouge">HAVE_CURL</code> is a macro that is set during <code class="highlighter-rouge">./configure</code> stage of building the software. I will be extending my work in this class essentially in the coming week.</p>
+
+<p>I’ve also added the files in their appropriate directories.</p>
+
+<p>A new <a href="https://wiki.octave.space">dummy wiki</a> has been created by Kai for testing purposes. I’ll be using this from now on.</p>
+
+<hr />
+
+<p><a href="https://bitbucket.org/me_ydv_5/octave/commits/branch/ocs">Link</a> to BitBucket repo.</p>
+:ET

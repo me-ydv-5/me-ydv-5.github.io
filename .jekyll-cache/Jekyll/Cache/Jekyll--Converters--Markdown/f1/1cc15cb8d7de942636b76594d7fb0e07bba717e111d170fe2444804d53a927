@@ -1,0 +1,2 @@
+I"	<p><strong>UPDATE 2:</strong> I found the cause of the <code class="highlighter-rouge">urlread</code> function not working correctly. It’s because curl sends the request as <code class="highlighter-rouge">application/x-www-form-urlencoded</code> whereas it should be <code class="highlighter-rouge">application/json</code>, which is explicitly changed in the cURL request that I’ve written down. I think this could be solved using the <code class="highlighter-rouge">webwrite</code> function that I’ve written.</p>
+:ET
