@@ -2,8 +2,9 @@
 layout: post
 title:  "iOS Camera with a custom overlay and buttons using UIImagePickerController"
 permalink: /blog/ios-custom-camera
+unpublished: true
 comments: true
-date:   2018-10-30 02:16:00 +0530
+date:   2019-10-30 02:16:00 +0530
 tags: [ios, swift, UIImagePickerController, AVFoundation, xcode, custom overlay, custom button, capture, blog]
 categories: jekyll update
 ---
