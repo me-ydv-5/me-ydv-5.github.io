@@ -21,12 +21,11 @@
         var form = document.getElementById("myform");
         function handleForm(event) { event.preventDefault(); } 
         form.addEventListener('submit', handleForm);
-        console.log(url, apikey, version);
         fetch(url, {
             headers: {
-                "Api-Key": apikey,
-                "Content-Type": "application/json",
-                "X-Cdf-Version": version
+                "api-Key": apikey,
+                "content-type": "application/json",
+                "x-cdf-version": version
             },
             method: "POST"
         })
