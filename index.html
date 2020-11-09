@@ -4,15 +4,31 @@
 
 <h2>HTML Forms</h2>
 
-<form action="">
+<form>
   <label for="apikey">Apikey:</label><br>
   <input type="text" id="apikey" name="apikey"><br>
   <label for="url">URL:</label><br>
   <input type="url" id="url" name="url"><br><br>
   <label for="version">Version:</label><br>
   <input type="text" id="version" name="version"><br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" onclick="haha();">
 </form> 
+
+<script>
+    function haha() {
+        var url = document.getElementById('url').value;
+        var apikey = document.getElementById('apikey').value;
+        var version = document.getElementById('version').value;
+        fetch(url, {
+            headers: {
+                "Api-Key": apikey,
+                "Content-Type": "application/json",
+                "X-Cdf-Version": version
+            },
+            method: "POST"
+        })
+    }
+</script>
 
 </body>
 </html>
