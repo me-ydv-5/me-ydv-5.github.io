@@ -11,7 +11,7 @@ categories: jekyll update
 
 ****
 
-**UPDATE**: This post can actually be seen in the [project wiki](https://bitbucket.org/me_ydv_5/octave/wiki/Home) as well. I forgot to push it on github.io.
+**UPDATE**: The discussion lives [here](https://savannah.gnu.org/patch/?9795). Code changes go [here](https://hg.savannah.gnu.org/hgweb/octave/rev/159402e52cfa).
 
 ****
 
