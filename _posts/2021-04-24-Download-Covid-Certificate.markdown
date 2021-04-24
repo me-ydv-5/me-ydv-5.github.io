@@ -5,7 +5,7 @@ permalink: /blog/covid-certificate
 unpublished: true
 comments: true
 date:   2021-04-24 18:16:00 +0530
-tags: [beneficiary id, beneficiary, aarogyasetu, covid-19, covid19, certificate, vaccination, vaccine, India, umang, digilocker, covishield, covaxin]
+tags: [beneficiary id, beneficiary, aarogyasetu, covid-19, covid19, certificate, vaccination, vaccine, India, umang, digilocker, covishield, covaxin, blog]
 categories: jekyll update
 ---
 
